@@ -44,8 +44,6 @@ const Login = () => {
   });
   const [errorMessage, setErrorMessage] = useState("");
 
-
-
   const openModal = (title: string, content: string) => {
     setModalConfig({ isOpen: true, title, content });
   };
@@ -61,21 +59,24 @@ const Login = () => {
         password: data.password,
       }).unwrap();
 
-      dispatch(setCredentials({
-        user: {
-          userId: res.data.userId,
-          role: res.data.role,
-          email: res.data.email,
-          _id: res.data.user_id
-        },
-        token: res.data.accessToken,
-        refreshToken: res.data.refreshToken,
-      }))
+      dispatch(
+        setCredentials({
+          user: {
+            userId: res.data.userId,
+            role: res.data.role,
+            email: res.data.email,
+            _id: res.data.user_id,
+          },
+          token: res.data.accessToken,
+          refreshToken: res.data.refreshToken,
+        }),
+      );
 
       connectSocket(res.data.accessToken);
 
       navigate("/index");
       toast.success("Login successful");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error("Login failed", err);
 
@@ -183,9 +184,7 @@ const Login = () => {
           </span>{" "}
           and{" "}
           <span
-            onClick={() =>
-              openModal("Agreement", "Agreement Content")
-            }
+            onClick={() => openModal("Agreement", "Agreement Content")}
             className="underline text-blue-500 cursor-pointer"
           >
             Agreement
