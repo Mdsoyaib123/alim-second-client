@@ -27,7 +27,6 @@ const Footer: React.FC = () => {
           <FileText
             className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`}
           />
-          <span className="absolute -top-1 -right-1 w-2 h-2 bg-pink-500 rounded-full" />
         </div>
       ),
       isActive:
@@ -62,7 +61,6 @@ const Footer: React.FC = () => {
           <ClipboardList
             className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`}
           />
-          <span className="absolute -bottom-0.5 -right-1 w-2 h-2 bg-emerald-500 rounded-full" />
         </div>
       ),
       isActive: path === "/order-record" || path === "/history",
@@ -84,7 +82,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 z-50 max-w-[500px] mx-auto w-full bg-white/95 backdrop-blur-md border-t border-amber-200/80 shadow-2xl">
+    <footer className="fixed bottom-0 left-0 right-0 z-50 max-w-125 mx-auto w-full bg-white/95 backdrop-blur-md border-t border-amber-200/80 shadow-2xl">
       <nav className="grid grid-cols-5 h-16 sm:h-18 items-center px-1">
         {navItems.map((item) => {
           const active = item.isActive;
@@ -97,9 +95,9 @@ const Footer: React.FC = () => {
               }`}
             >
               {/* Top Active Bar Indicator */}
-              {active && (
+              {/*{active && (
                 <span className="absolute top-0 w-8 h-[2.5px] bg-primary rounded-full" />
-              )}
+              )}*/}
 
               {/* Icon */}
               <div className="mb-0.5 flex items-center justify-center h-7">
