@@ -42,15 +42,15 @@ const TEAM_MEMBERS: TeamMember[] = [
 
 const TeamSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#fdfbf7] py-10 px-4 sm:px-6">
+    <section className="w-full bg-brand-bg py-10 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto flex flex-col items-center">
         {/* Section Header */}
         <div className="flex items-center justify-center space-x-3 w-full max-w-xs mb-8">
-          <div className="h-[1px] bg-[#b58a4b]/60 flex-1" />
-          <span className="text-[#b58a4b] tracking-[0.25em] text-xs sm:text-sm font-medium uppercase">
+          <div className="h-[1px] bg-primary/60 flex-1" />
+          <span className="text-primary tracking-[0.25em] text-xs sm:text-sm font-medium uppercase">
             Our Team
           </span>
-          <div className="h-[1px] bg-[#b58a4b]/60 flex-1" />
+          <div className="h-[1px] bg-primary/60 flex-1" />
         </div>
 
         {/* Team Cards Stack */}
@@ -77,7 +77,7 @@ const TeamSection: React.FC = () => {
                 {/* Content */}
                 <div className={`flex-1 ${isAvatarLeft ? "text-left" : "text-left"}`}>
                   <div className="flex items-baseline flex-wrap gap-x-2 mb-1">
-                    <h3 className="font-serif font-bold text-base sm:text-lg text-[#b58a4b]">
+                    <h3 className="font-serif font-bold text-base sm:text-lg text-primary">
                       {member.name}
                     </h3>
                     <span className="font-serif italic text-[11px] sm:text-xs text-slate-500">

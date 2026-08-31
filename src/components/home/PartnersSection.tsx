@@ -13,7 +13,7 @@ const PARTNERS: Partner[] = [
     logo: (
       <div className="flex flex-col items-center justify-center text-center">
         <span className="text-[#b01b2e] font-black text-2xl leading-none">M</span>
-        <span className="text-[#1a2332] uppercase tracking-widest text-[10px] sm:text-xs font-bold mt-1">
+        <span className="text-text-dark uppercase tracking-widest text-[10px] sm:text-xs font-bold mt-1">
           MARRIOTT
         </span>
       </div>
@@ -53,10 +53,10 @@ const PARTNERS: Partner[] = [
     name: "Conrad Hotels & Resorts",
     logo: (
       <div className="flex flex-col items-center justify-center text-center">
-        <span className="text-[#b58a4b] tracking-[0.25em] uppercase font-serif font-bold text-xs sm:text-sm">
+        <span className="text-primary tracking-[0.25em] uppercase font-serif font-bold text-xs sm:text-sm">
           CONRAD
         </span>
-        <span className="text-[8px] sm:text-[9px] text-[#b58a4b] tracking-widest uppercase font-light">
+        <span className="text-[8px] sm:text-[9px] text-primary tracking-widest uppercase font-light">
           HOTELS & RESORTS
         </span>
       </div>
@@ -81,8 +81,8 @@ const PARTNERS: Partner[] = [
     name: "Accor",
     logo: (
       <div className="flex flex-col items-center justify-center text-center">
-        <div className="text-[#b58a4b] font-serif font-extrabold text-lg leading-none">A</div>
-        <span className="text-[#b58a4b] tracking-[0.2em] uppercase font-bold text-xs sm:text-sm mt-0.5">
+        <div className="text-primary font-serif font-extrabold text-lg leading-none">A</div>
+        <span className="text-primary tracking-[0.2em] uppercase font-bold text-xs sm:text-sm mt-0.5">
           ACCOR
         </span>
       </div>
@@ -117,15 +117,15 @@ const PARTNERS: Partner[] = [
 
 const PartnersSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#fdfbf7] py-10 px-4 sm:px-6">
+    <section className="w-full bg-brand-bg py-10 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto flex flex-col items-center">
         {/* Section Header */}
         <div className="flex items-center justify-center space-x-3 w-full max-w-xs mb-8">
-          <div className="h-[1px] bg-[#b58a4b]/60 flex-1" />
-          <span className="text-[#b58a4b] tracking-[0.25em] text-xs sm:text-sm font-medium uppercase">
+          <div className="h-[1px] bg-primary/60 flex-1" />
+          <span className="text-primary tracking-[0.25em] text-xs sm:text-sm font-medium uppercase">
             Our Partners
           </span>
-          <div className="h-[1px] bg-[#b58a4b]/60 flex-1" />
+          <div className="h-[1px] bg-primary/60 flex-1" />
         </div>
 
         {/* Partners Grid */}
