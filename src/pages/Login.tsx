@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,10 +10,9 @@ import CountryCodeSelect from "@/components/Common/CountryCodeSelect";
 import { useAppDispatch } from "@/hooks/useRedux";
 import { setCredentials } from "@/store/Slices/AuthSlice/authSlice";
 import { toast } from "sonner";
-// import ErrorModal from "@/components/modal/ErrorModal";
 import ErrorModalBlack from "@/components/modal/ErrorModalBlack";
-// import { Socket } from "socket.io-client";
 import { connectSocket } from "@/utils/socket";
+import { LogIn, Lock, Phone } from "lucide-react";
 
 const loginSchema = z.object({
   phone: z.string().min(8, "Phone number must be at least 8 digits"),
@@ -34,7 +34,6 @@ const Login = () => {
   const [countryCode, setCountryCode] = useState("+880");
 
   const dispatch = useAppDispatch();
-
   const navigate = useNavigate();
 
   const [modalConfig, setModalConfig] = useState({
@@ -50,10 +49,8 @@ const Login = () => {
 
   const onSubmit = async (data: LoginFormInputs) => {
     try {
-      // Combine country code with phone number
       const phoneNumber = `${countryCode}${data.phone}`;
 
-      // Call login API with phone number including country code
       const res = await loginUser({
         phoneNumber,
         password: data.password,
@@ -75,8 +72,7 @@ const Login = () => {
       connectSocket(res.data.accessToken);
 
       navigate("/index");
-      toast.success("Login successful");
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      toast.success("Welcome! Login successful");
     } catch (err: any) {
       console.error("Login failed", err);
 
@@ -90,107 +86,143 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center max-w-[500px] mx-auto h-auto scroll-y-auto">
-      <div className="w-full p-6 shadow-md">
-        <h2 className="text-2xl font-semibold text-center">Login</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
-          {/* Phone Field */}
-          <div className="mb-4">
-            <label className="block text-md font-medium text-gray-700 mb-3">
-              Phone
-            </label>
-            {/* Input Wrapper */}
-            <div className="flex items-center border-1 border-gray-400 rounded-md focus-within:ring-2 focus-within:ring-blue-500 overflow-hidden">
-              <CountryCodeSelect
-                value={countryCode}
-                onChange={setCountryCode}
-              />
-              <input
-                type="number"
-                {...register("phone")}
-                placeholder="1XXXXXXXXX"
-                className="w-full p-2 focus:outline-none"
-              />
-            </div>
-            {errors.phone && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.phone.message}
-              </p>
-            )}
-          </div>
+    <div className="min-h-screen bg-brand-bg max-w-[500px] mx-auto pb-24 text-text-dark">
+      {/* Top Luxury Banner */}
+      <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-900 shadow-sm flex items-center justify-center text-center">
+        <img
+          src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80"
+          alt="NH Hotel Lobby"
+          className="absolute inset-0 w-full h-full object-cover opacity-75"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
 
-          {/* Password Field */}
-          <div className="mb-4">
-            <label className="block text-md font-medium text-gray-700 mb-3">
-              Password
-            </label>
-            <input
-              type="password"
-              {...register("password")}
-              className="w-full p-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            {errors.password && (
-              <p className="text-red-500 text-sm">{errors.password.message}</p>
-            )}
+        <div className="relative z-10 px-6">
+          <div className="inline-flex items-center space-x-1.5 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-amber-200/40 mb-2">
+            <span className="font-serif font-bold text-xs text-white">NH HOTEL</span>
           </div>
-
-          <div className="my-7">
-            <p>
-              <Link to="/forgot-password" className="text-blue-500">
-                Forgot Password?
-              </Link>
-            </p>
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full cursor-pointer bg-teal text-white text-xl font-bold p-2 rounded-md hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isLoading ? "Signing In..." : "Sign In"}
-          </button>
-        </form>
-        <div className="mt-12 mb-4 flex flex-col gap-5">
-          <h1 className="text-lg font-bold">Don't have an account?</h1>
-          <p className="text-md">
-            Create one and join Freedom to view your orders and earn Freedom
-            rewards
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Guest Sign In
+          </h1>
+          <p className="text-amber-100/90 text-xs sm:text-sm font-light mt-0.5">
+            Welcome to NH Hotel luxury reservation portal
           </p>
-          <Link
-            to="/signup"
-            className="w-full cursor-pointer border-2 text-black border-black text-xl text-center font-bold p-2 rounded-md hover:border-teal hover:bg-teal hover:text-white transition-colors"
-          >
-            Register
-          </Link>
         </div>
-        <p>
-          By creating an account, you agree to our{" "}
-          <span
-            onClick={() =>
-              openModal("Terms & Conditions", "Terms & Conditions Content")
-            }
-            className="underline me-1 text-blue-500 cursor-pointer"
-          >
-            Terms & Conditions,
-          </span>
-          <span
-            onClick={() =>
-              openModal("Privacy Policy", "Privacy Policy Content")
-            }
-            className="underline text-blue-500 cursor-pointer"
-          >
-            Privacy Policy
-          </span>{" "}
-          and{" "}
-          <span
-            onClick={() => openModal("Agreement", "Agreement Content")}
-            className="underline text-blue-500 cursor-pointer"
-          >
-            Agreement
-          </span>
-        </p>
       </div>
+
+      {/* Form Card */}
+      <div className="p-4 sm:p-6">
+        <div className="bg-white rounded-2xl p-6 border border-amber-100/80 shadow-2xs space-y-4">
+          <div className="flex items-center space-x-2 border-b border-amber-100 pb-3 mb-2">
+            <LogIn className="w-5 h-5 text-primary" />
+            <h2 className="font-serif font-bold text-base text-text-dark">
+              Sign In to Your Account
+            </h2>
+          </div>
+
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            {/* Phone Field */}
+            <div>
+              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 flex items-center gap-1.5">
+                <Phone className="w-3.5 h-3.5 text-primary" />
+                Phone Number *
+              </label>
+              <div className="flex items-center border border-amber-200/80 rounded-xl bg-brand-bg/50 focus-within:border-primary overflow-hidden transition-colors">
+                <CountryCodeSelect
+                  value={countryCode}
+                  onChange={setCountryCode}
+                />
+                <input
+                  type="number"
+                  {...register("phone")}
+                  placeholder="1XXXXXXXXX"
+                  className="w-full px-3 py-2.5 text-sm focus:outline-none bg-transparent"
+                />
+              </div>
+              {errors.phone && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.phone.message}
+                </p>
+              )}
+            </div>
+
+            {/* Password Field */}
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-xs font-serif font-semibold text-text-dark flex items-center gap-1.5">
+                  <Lock className="w-3.5 h-3.5 text-primary" />
+                  Password *
+                </label>
+                <Link to="/forgot-password" className="text-xs text-primary font-medium hover:underline">
+                  Forgot Password?
+                </Link>
+              </div>
+              <input
+                type="password"
+                {...register("password")}
+                placeholder="Enter your password"
+                className="w-full border border-amber-200/80 rounded-xl px-3.5 py-2.5 text-sm bg-brand-bg/50 focus:outline-none focus:border-primary transition-colors"
+              />
+              {errors.password && (
+                <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>
+              )}
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-primary hover:bg-primary-hover text-white font-serif font-bold py-3.5 rounded-xl transition-all shadow-md active:scale-99 disabled:opacity-50 disabled:cursor-not-allowed mt-4 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>{isLoading ? "Signing In..." : "Sign In"}</span>
+            </button>
+          </form>
+
+          {/* Registration Prompt Section */}
+          <div className="pt-4 border-t border-amber-100 space-y-3">
+            <h3 className="font-serif font-bold text-sm text-text-dark">Don't have an account?</h3>
+            <p className="text-xs text-slate-500 leading-relaxed font-light">
+              Create an account and join NH Hotel Guest Rewards to manage bookings and earn exclusive commissions.
+            </p>
+            <Link
+              to="/signup"
+              className="w-full block text-center border-2 border-primary text-primary font-serif font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-all shadow-2xs"
+            >
+              Register New Account
+            </Link>
+          </div>
+
+          {/* Legal Terms Footer */}
+          <p className="text-[11px] text-slate-400 font-light text-center pt-2">
+            By signing in, you agree to our{" "}
+            <span
+              onClick={() =>
+                openModal("Terms & Conditions", "NH Hotel Terms & Conditions Content")
+              }
+              className="underline text-primary cursor-pointer font-medium"
+            >
+              Terms & Conditions
+            </span>
+            ,{" "}
+            <span
+              onClick={() =>
+                openModal("Privacy Policy", "NH Hotel Privacy Policy Content")
+              }
+              className="underline text-primary cursor-pointer font-medium"
+            >
+              Privacy Policy
+            </span>{" "}
+            and{" "}
+            <span
+              onClick={() => openModal("Agreement", "NH Hotel Guest Agreement Content")}
+              className="underline text-primary cursor-pointer font-medium"
+            >
+              Guest Agreement
+            </span>
+            .
+          </p>
+        </div>
+      </div>
+
       <ErrorModalBlack
         isOpen={!!errorMessage}
         message={errorMessage}
@@ -201,7 +233,7 @@ const Login = () => {
         title={modalConfig.title}
         onClose={() => setModalConfig({ ...modalConfig, isOpen: false })}
       >
-        <p>{modalConfig.content}</p>
+        <p className="text-sm text-slate-600 font-light leading-relaxed">{modalConfig.content}</p>
       </CommonModal>
     </div>
   );
