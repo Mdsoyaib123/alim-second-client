@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
     },
     {
       name: "History",
-      path: "/order-record",
+      path: "/booking-history",
       icon: (active: boolean) => (
         <div className="relative flex items-center justify-center">
           <ClipboardList
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
           />
         </div>
       ),
-      isActive: path === "/order-record",
+      isActive: path === "/booking-history",
     },
     {
       name: "Account",
