@@ -1,214 +1,140 @@
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
 } from "@/components/ui/accordion";
-
 import { ChevronRight } from "lucide-react";
-import helpImage from "@/assets/help/help-new.jpg"; // or any banner image you prefer
+import { Link } from "react-router-dom";
 
 export default function Help() {
-    return (
-        <div className="min-h-screen bg-white">
-            {/* Breadcrumb */}
-            <div className="max-w-6xl mx-auto px-4 py-4">
-                <div className="flex items-center text-sm text-gray-600">
-                    <span className="hover:text-gray-900 cursor-pointer">Home</span>
-                    <ChevronRight className="w-4 h-4 mx-2" />
-                    <span className="text-gray-900">Help</span>
-                </div>
-            </div>
-
-            {/* Hero Section */}
-            <div className="relative h-80 bg-gray-200 overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                        backgroundImage: `url(${helpImage})`,
-                    }}
-                >
-                    <div className="absolute inset-0 bg-black/35" />
-                </div>
-                <div className="relative h-full flex items-center justify-center">
-                    <h1 className="text-5xl font-bold text-white tracking-wide">
-                        Help & Support
-                    </h1>
-                </div>
-            </div>
-
-            {/* Accordion Section */}
-            <div className="max-w-5xl mx-auto px-6 py-16">
-                <Accordion type="single" collapsible className="w-full">
-                    {/* 1. Platform */}
-                    <AccordionItem value="platform" className="border-b last:border-b-0 border-gray-300">
-                        <AccordionTrigger className="py-5 text-xl font-semibold hover:no-underline">
-                            1. Platform
-                        </AccordionTrigger>
-                        <AccordionContent className="pb-6 text-base text-gray-700 leading-relaxed space-y-4">
-                            <p>
-                                1. Autotrader England, United Kingdom helps merchants conduct cross-border transactions, providing a system mechanism for greater mobility and faster transactions.
-                            </p>
-                            <p>
-                                2. The platform provides customized review display options, allowing brands to display customer feedback in an eye-catching way on their website.
-                            </p>
-                            <p>
-                                3. By displaying real user reviews, Autotrader England, United Kingdom helps brands build trust and improve potential customers' purchasing decisions.
-                            </p>
-                            <p>
-                                4. The tool provides data analysis to help brands and retailers gain insights into customer feedback and identify product strengths and weaknesses.
-                            </p>
-                            <p>
-                                5. Autotrader England, United Kingdom can be integrated with agencies and marketing tools in different countries to help brands manage customer transactions in cross-border channels.
-                            </p>
-                            <p>
-                                6. <strong>Benefits:</strong>
-                            </p>
-                            <ul className="list-disc pl-6 space-y-2">
-                                <li>
-                                    Improve conversion rate: Showing positive customer reviews can often increase the trust of potential customers, thereby increasing conversion rates.
-                                </li>
-                                <li>
-                                    Understand customer needs: By analysing reviews, brands can better understand consumer needs and preferences to improve products and services.
-                                </li>
-                                <li>
-                                    Enhance awareness and exposure: Make more Autotrades car and parts designs known to more people and increase transaction volume on international platforms.
-                                </li>
-                            </ul>
-                        </AccordionContent>
-                    </AccordionItem>
-
-                    {/* 2. Cash Out */}
-                    <AccordionItem value="cashout" className="border-b last:border-b-0 border-gray-300">
-                        <AccordionTrigger className="py-5 text-xl font-semibold hover:no-underline">
-                            2. Cash Out
-                        </AccordionTrigger>
-                        <AccordionContent className="pb-6 text-base text-gray-700 leading-relaxed space-y-4">
-                            <p>
-                                1. After completing every set of orders, you may submit <strong>Cash Out</strong> once only. Please bind your bank information on the platform before submitting a Cash Out request.
-                            </p>
-                            <p>
-                                2. Click the <strong>"Cash Out"</strong> button after entering the amount you want to Cash Out, then enter your Cash Out password to proceed. The actual arrival time depends on your bank’s processing time.
-                            </p>
-                            <p>
-                                3. Accounts are not allowed to keep remaining funds exceeding <strong>100,000 taka</strong> after applying for Cash Out.
-                            </p>
-                            <p>
-                                4. <strong>Note:</strong> Cash Out time is from <strong>10:00 AM to 10:00 PM</strong>. Only one Cash Out request can be made per day.
-                            </p>
-                            <p>
-                                5. The maximum Cash Out amount is <strong>10,000,000 taka</strong>.
-                            </p>
-                            <p>
-                                6. If the first Cash Out exceeds <strong>500,000 taka</strong>, a <strong>50% security Cash In</strong> is required for safety verification. The Cash Out can be completed after <strong>1 hour</strong>.
-                            </p>
-                            <p>
-                                7. The <strong>50% Cash In</strong> only needs to be paid once. For future Cash Outs exceeding 500,000 taka, no additional security Cash In is required.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
-            </div>
+  return (
+    <div className="min-h-screen bg-brand-bg text-text-dark">
+      {/* Breadcrumb */}
+      <div className="max-w-5xl mx-auto px-4 pt-6 pb-2">
+        <div className="flex items-center text-sm text-slate-500">
+          <Link to="/account" className="hover:text-text-dark cursor-pointer">
+            Account
+          </Link>
+          <ChevronRight className="w-4 h-4 mx-2" />
+          <span className="text-text-dark font-medium">Help</span>
         </div>
-    );
+      </div>
+
+      {/* Hero Section with Color Image */}
+      {/*<div className="relative h-72 sm:h-80 overflow-hidden rounded-3xl mx-4 shadow-xl">
+        <img
+          src={helpImage}
+          alt="NOVA Hotel Concierge"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-bg/80 via-brand-bg/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-bg/60 via-transparent to-brand-bg/30" />
+        <div className="absolute inset-0 flex items-center px-6 sm:px-10">
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <HelpCircle className="w-5 h-5 text-primary" />
+              <span className="font-serif tracking-widest text-primary font-semibold text-xs uppercase">
+                Support
+              </span>
+            </div>
+            <h1 className="font-serif font-bold text-4xl sm:text-5xl text-text-dark tracking-tight">
+              Help & Support
+            </h1>
+            <p className="text-slate-600 text-sm mt-2">
+              NOVA Hotel Concierge Services
+            </p>
+          </div>
+        </div>
+      </div>*/}
+
+      {/* Accordion Section */}
+      <div className="max-w-4xl mx-auto px-6 py-10">
+        <Accordion type="single" collapsible className="w-full space-y-3">
+          <AccordionItem
+            value="agent"
+            className="bg-white rounded-2xl border border-amber-200/60 shadow-sm px-6"
+          >
+            <AccordionTrigger className="py-5 text-lg font-serif font-bold text-text-dark hover:no-underline">
+              1. About Agent Mode
+            </AccordionTrigger>
+            <AccordionContent className="pb-6 text-sm text-slate-600 leading-relaxed space-y-3">
+              <p>
+                Agent Mode allows users to manage bookings and transactions
+                through a dedicated concierge interface.
+              </p>
+              <p>
+                Access exclusive agent tools for faster processing and priority
+                support.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem
+            value="withdrawal"
+            className="bg-white rounded-2xl border border-amber-200/60 shadow-sm px-6"
+          >
+            <AccordionTrigger className="py-5 text-lg font-serif font-bold text-text-dark hover:no-underline">
+              2. About Withdrawal
+            </AccordionTrigger>
+            <AccordionContent className="pb-6 text-sm text-slate-600 leading-relaxed space-y-3">
+              <p>
+                Bind your bank account before submitting withdrawal requests.
+              </p>
+              <p>Cash Out time is from 10:00 AM to 10:00 PM daily.</p>
+              <p>Maximum withdrawal amount is 10,000,000 taka.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem
+            value="booking"
+            className="bg-white rounded-2xl border border-amber-200/60 shadow-sm px-6"
+          >
+            <AccordionTrigger className="py-5 text-lg font-serif font-bold text-text-dark hover:no-underline">
+              3. About More Booking
+            </AccordionTrigger>
+            <AccordionContent className="pb-6 text-sm text-slate-600 leading-relaxed space-y-3">
+              <p>Complete orders to unlock additional booking privileges.</p>
+              <p>
+                Higher order counts provide access to premium reservation tiers.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem
+            value="mission"
+            className="bg-white rounded-2xl border border-amber-200/60 shadow-sm px-6"
+          >
+            <AccordionTrigger className="py-5 text-lg font-serif font-bold text-text-dark hover:no-underline">
+              4. About Mission
+            </AccordionTrigger>
+            <AccordionContent className="pb-6 text-sm text-slate-600 leading-relaxed space-y-3">
+              <p>
+                NOVA Hotel is committed to delivering luxury concierge services.
+              </p>
+              <p>Our mission is to provide gold-standard travel experiences.</p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem
+            value="us"
+            className="bg-white rounded-2xl border border-amber-200/60 shadow-sm px-6"
+          >
+            <AccordionTrigger className="py-5 text-lg font-serif font-bold text-text-dark hover:no-underline">
+              5. About Us
+            </AccordionTrigger>
+            <AccordionContent className="pb-6 text-sm text-slate-600 leading-relaxed space-y-3">
+              <p>
+                NOVA Hotel is a premium travel service for high-end travelers.
+              </p>
+              <p>
+                Established by luxury travel pioneers, we craft exceptional
+                experiences.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </div>
+  );
 }
-
-
-
-
-// import { ChevronRight } from "lucide-react";
-// import helpImage from "@/assets/help/help-new.jpg"; // use any banner image you like
-
-// export default function Help() {
-//     return (
-//         <div className="min-h-screen bg-white">
-//             {/* Breadcrumb */}
-//             <div className="max-w-6xl mx-auto px-4 py-4">
-//                 <div className="flex items-center text-sm text-gray-600">
-//                     <span className="hover:text-gray-900 cursor-pointer">Home</span>
-//                     <ChevronRight className="w-4 h-4 mx-2" />
-//                     <span className="text-gray-900">Help</span>
-//                 </div>
-//             </div>
-
-//             {/* Hero Section */}
-//             <div className="relative h-80 bg-gray-200 overflow-hidden">
-//                 <div
-//                     className="absolute inset-0 bg-cover bg-center"
-//                     style={{
-//                         backgroundImage: `url(${helpImage})`,
-//                     }}
-//                 >
-//                     <div className="absolute inset-0 bg-black/35"></div>
-//                 </div>
-//                 <div className="relative h-full flex items-center justify-center">
-//                     <h1 className="text-5xl font-bold text-white tracking-wide">
-//                         Help & Support
-//                     </h1>
-//                 </div>
-//             </div>
-
-//             {/* Content Section */}
-//             <div className="max-w-5xl mx-auto px-6 py-16">
-//                 <div className="space-y-6 text-gray-700 leading-relaxed">
-//                     <div className="flex items-start">
-//                         <span className="text-gray-900 font-bold mr-3 mt-1">•</span>
-//                         <p className="text-base">
-//                             After completing every set of orders, you may submit <strong>Cash Out</strong> once only. Please bind your bank information on the platform before submitting a Cash Out request.
-//                         </p>
-//                     </div>
-
-//                     <div className="flex items-start">
-//                         <span className="text-gray-900 font-bold mr-3 mt-1">•</span>
-
-//                         <p className="text-base">
-//                             If the first Cash Out exceeds <strong>500,000 taka</strong>, a <strong>50% security Cash In</strong> is required for safety verification. The Cash Out can be completed after <strong>1 hour</strong>.
-//                         </p>
-//                     </div>
-
-//                     <div className="flex items-start">
-//                         <span className="text-gray-900 font-bold mr-3 mt-1">•</span>
-//                         <p className="text-base">
-//                             Click the <strong>"Cash Out"</strong> button after entering the amount you want to Cash Out, then enter your Cash Out password to proceed. The actual arrival time depends on your bank’s processing time.
-//                         </p>
-//                     </div>
-
-//                     <div className="flex items-start">
-//                         <span className="text-gray-900 font-bold mr-3 mt-1">•</span>
-//                         <p className="text-base">
-//                             Accounts are not allowed to keep remaining funds exceeding <strong>100,000 taka</strong> after applying for Cash Out.
-//                         </p>
-//                     </div>
-
-//                     <div className="flex items-start">
-//                         <span className="text-gray-900 font-bold mr-3 mt-1">•</span>
-//                         <p className="text-base">
-//                             <strong>Note:</strong> Cash Out time is from <strong>10:00 AM to 10:00 PM</strong>. Only one Cash Out request can be made per day.
-//                         </p>
-//                     </div>
-
-//                     <div className="flex items-start">
-//                         <span className="text-gray-900 font-bold mr-3 mt-1">•</span>
-//                         <p className="text-base">
-//                             The maximum Cash Out amount is <strong>10,000,000 taka</strong>.
-//                         </p>
-//                     </div>
-
-//                     {/* <div className="flex items-start">
-//                         <span className="text-gray-900 font-bold mr-3 mt-1">•</span>
-//                         <p className="text-base">
-//                             If the first Cash Out exceeds <strong>500,000 taka</strong>, a <strong>50% security Cash In</strong> is required for safety verification. The Cash Out can be completed after <strong>1 hour</strong>.
-//                         </p> 
-//                     </div> */}
-
-//                     <div className="flex items-start">
-//                         <span className="text-gray-900 font-bold mr-3 mt-1">•</span>
-//                         <p className="text-base">
-//                             The <strong>50% Buy In</strong> only needs to be paid once. For future Cash Outs exceeding 500,000 taka, no additional security Buy In is required.
-//                         </p>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
