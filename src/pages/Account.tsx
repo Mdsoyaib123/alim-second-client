@@ -207,7 +207,7 @@ const Account: React.FC = () => {
 
         <div className="mt-4 overflow-hidden rounded-2xl border border-primary/10 bg-white">
           <AccountMenuItem
-            icon={<CreditCard className="w-[18px] h-[18px]" />}
+            icon={<CreditCard className="w-4.5 h-4.5" />}
             title="Bind Account"
             description="Manage your payment account"
             to="/bind-account"
