@@ -16,9 +16,9 @@ const FeatureHotels: React.FC = () => {
           <h3 className="font-serif font-bold text-lg sm:text-xl text-text-dark">
             Feature Hotel
           </h3>
-          <span className="text-xs text-slate-500 font-light cursor-pointer hover:text-[#b58a4b]">
+          {/*<span className="text-xs text-slate-500 font-light cursor-pointer hover:text-[#b58a4b]">
             Direct recommendation / view
-          </span>
+          </span>*/}
         </div>
 
         {/* Main Large Feature Banner */}
@@ -47,7 +47,7 @@ const FeatureHotels: React.FC = () => {
 
         {/* Sub Feature Cards (2 grid columns) */}
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
-          <div className="relative rounded-xl overflow-hidden shadow-xs h-28 sm:h-36 group">
+          <div className="relative rounded-md overflow-hidden shadow-xs h-28 sm:h-36 group">
             <img
               src={SUB_CARD_1}
               alt="Luxury Suite"
@@ -59,7 +59,7 @@ const FeatureHotels: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative rounded-xl overflow-hidden shadow-xs h-28 sm:h-36 group">
+          <div className="relative rounded-md overflow-hidden shadow-xs h-28 sm:h-36 group">
             <img
               src={SUB_CARD_2}
               alt="Resort Entrance"
