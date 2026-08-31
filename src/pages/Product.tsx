@@ -223,7 +223,7 @@ const Product: React.FC = () => {
         <div className="flex items-center gap-3">
           <button
             onClick={handleBack}
-            className="text-slate-600 hover:text-slate-900 transition-colors p-1"
+            className="text-slate-600 hover:text-slate-900 transition-colors p-1 cursor-pointer"
             aria-label="Go back"
           >
             <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -256,7 +256,7 @@ const Product: React.FC = () => {
 
       {/* Room / Suite Main Showcase Image */}
       <div className="p-4">
-        <div className="relative w-full h-70 sm:h-80 rounded-2xl overflow-hidden bg-white border border-amber-100 shadow-sm group">
+        <div className="relative w-full h-70 sm:h-80 rounded-md overflow-hidden bg-white border border-amber-100 shadow-sm group">
           <img
             src={product.poster}
             alt={product.name}
@@ -283,7 +283,7 @@ const Product: React.FC = () => {
       {/* Suite Information */}
       <div className="px-4 space-y-4">
         {/* Title & Badges */}
-        <div className="bg-white rounded-2xl p-4 border border-amber-100 shadow-2xs">
+        <div className="bg-white rounded-md p-4 border border-amber-100 shadow-2xs">
           <h2 className="font-serif font-bold text-xl sm:text-2xl text-text-dark mb-2 leading-tight">
             {product.name}{" "}
             <span className="text-[#b58a4b] text-base font-normal">
@@ -314,7 +314,7 @@ const Product: React.FC = () => {
         </div>
 
         {/* Pricing Summary Box */}
-        <div className="bg-[#faf5ed] border border-amber-200/70 rounded-2xl p-4 sm:p-5 space-y-3 shadow-2xs">
+        <div className="bg-[#faf5ed] border border-amber-200/70 rounded-md p-4 sm:p-5 space-y-3 shadow-2xs">
           <div className="flex items-center justify-between border-b border-amber-200/60 pb-2.5">
             <span className="font-serif font-bold text-sm text-text-dark flex items-center gap-1.5">
               <CalendarCheck className="w-4 h-4 text-[#b58a4b]" />
@@ -367,7 +367,7 @@ const Product: React.FC = () => {
 
         {/* Suite Overview Description */}
         {product.introduction && (
-          <div className="bg-white rounded-2xl p-4 border border-amber-100 shadow-2xs space-y-2">
+          <div className="bg-white rounded-md p-4 border border-amber-100 shadow-2xs space-y-2">
             <h3 className="font-serif font-bold text-base text-text-dark flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-[#b58a4b]" />
               Suite Overview & Concierge Details
