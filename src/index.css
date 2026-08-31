@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Alex+Brush&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -16,6 +17,8 @@
   --font-primary: "Poppins", sans-serif;
   --font-secondary: "Roboto", sans-serif;
   --font-snpro: "SN Pro", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-signature: "Alex Brush", cursive;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
