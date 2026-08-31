@@ -86,7 +86,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-brand-bg max-w-[500px] mx-auto pb-24 text-text-dark">
+    <div className="min-h-screen bg-brand-bg max-w-125 mx-auto pb-24 text-text-dark">
       {/* Top Luxury Banner */}
       <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-900 shadow-sm flex items-center justify-center text-center">
         <img
@@ -94,11 +94,13 @@ const Login = () => {
           alt="NH Hotel Lobby"
           className="absolute inset-0 w-full h-full object-cover opacity-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/45 to-black/20" />
 
         <div className="relative z-10 px-6">
           <div className="inline-flex items-center space-x-1.5 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-amber-200/40 mb-2">
-            <span className="font-serif font-bold text-xs text-white">NH HOTEL</span>
+            <span className="font-serif font-bold text-xs text-white">
+              NH HOTEL
+            </span>
           </div>
           <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Guest Sign In
@@ -110,8 +112,8 @@ const Login = () => {
       </div>
 
       {/* Form Card */}
-      <div className="p-4 sm:p-6">
-        <div className="bg-white rounded-2xl p-6 border border-amber-100/80 shadow-2xs space-y-4">
+      <div className="p-4">
+        <div className="bg-white rounded-md p-6 border border-amber-100/80 shadow-2xs space-y-4">
           <div className="flex items-center space-x-2 border-b border-amber-100 pb-3 mb-2">
             <LogIn className="w-5 h-5 text-primary" />
             <h2 className="font-serif font-bold text-base text-text-dark">
@@ -122,7 +124,7 @@ const Login = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Phone Field */}
             <div>
-              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 flex items-center gap-1.5">
+              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 items-center gap-1.5">
                 <Phone className="w-3.5 h-3.5 text-primary" />
                 Phone Number *
               </label>
@@ -148,11 +150,14 @@ const Login = () => {
             {/* Password Field */}
             <div>
               <div className="flex items-center justify-between mb-1">
-                <label className="block text-xs font-serif font-semibold text-text-dark flex items-center gap-1.5">
+                <label className="block text-xs font-serif font-semibold text-text-dark items-center gap-1.5">
                   <Lock className="w-3.5 h-3.5 text-primary" />
                   Password *
                 </label>
-                <Link to="/forgot-password" className="text-xs text-primary font-medium hover:underline">
+                <Link
+                  to="/forgot-password"
+                  className="text-xs text-primary font-medium hover:underline"
+                >
                   Forgot Password?
                 </Link>
               </div>
@@ -163,7 +168,9 @@ const Login = () => {
                 className="w-full border border-amber-200/80 rounded-xl px-3.5 py-2.5 text-sm bg-brand-bg/50 focus:outline-none focus:border-primary transition-colors"
               />
               {errors.password && (
-                <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
@@ -179,9 +186,12 @@ const Login = () => {
 
           {/* Registration Prompt Section */}
           <div className="pt-4 border-t border-amber-100 space-y-3">
-            <h3 className="font-serif font-bold text-sm text-text-dark">Don't have an account?</h3>
+            <h3 className="font-serif font-bold text-sm text-text-dark">
+              Don't have an account?
+            </h3>
             <p className="text-xs text-slate-500 leading-relaxed font-light">
-              Create an account and join NH Hotel Guest Rewards to manage bookings and earn exclusive commissions.
+              Create an account and join NH Hotel Guest Rewards to manage
+              bookings and earn exclusive commissions.
             </p>
             <Link
               to="/signup"
@@ -196,7 +206,10 @@ const Login = () => {
             By signing in, you agree to our{" "}
             <span
               onClick={() =>
-                openModal("Terms & Conditions", "NH Hotel Terms & Conditions Content")
+                openModal(
+                  "Terms & Conditions",
+                  "NH Hotel Terms & Conditions Content",
+                )
               }
               className="underline text-primary cursor-pointer font-medium"
             >
@@ -213,7 +226,9 @@ const Login = () => {
             </span>{" "}
             and{" "}
             <span
-              onClick={() => openModal("Agreement", "NH Hotel Guest Agreement Content")}
+              onClick={() =>
+                openModal("Agreement", "NH Hotel Guest Agreement Content")
+              }
               className="underline text-primary cursor-pointer font-medium"
             >
               Guest Agreement
@@ -233,7 +248,9 @@ const Login = () => {
         title={modalConfig.title}
         onClose={() => setModalConfig({ ...modalConfig, isOpen: false })}
       >
-        <p className="text-sm text-slate-600 font-light leading-relaxed">{modalConfig.content}</p>
+        <p className="text-sm text-slate-600 font-light leading-relaxed">
+          {modalConfig.content}
+        </p>
       </CommonModal>
     </div>
   );
