@@ -62,7 +62,7 @@ const CashOut = () => {
       } else {
         toast.error(result.message || "Failed to create withdrawal request");
       }
-    } catch (error) {
+    } catch (error: any) {
       toast.error(
         error?.data?.message || "Failed to create withdrawal request",
       );
