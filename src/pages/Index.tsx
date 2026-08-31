@@ -20,7 +20,7 @@ const Index: React.FC = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#fdfbf7] flex flex-col font-sans">
+    <div className="w-full min-h-screen bg-brand-bg flex flex-col font-sans">
       <HeroSection onReservationClick={handleReservationClick} />
       <WelcomeSection />
       <FounderQuoteSection />
