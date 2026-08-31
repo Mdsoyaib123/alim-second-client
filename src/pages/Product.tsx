@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Building2, CalendarCheck, ShieldCheck, Star } from "lucide-react";
 import {
   useConfirmPurchaseOrderMutation,
   useGetPurchaseOrderQuery,
@@ -28,7 +28,6 @@ const Product: React.FC = () => {
     if (storedUserId) {
       setUserId(Number(storedUserId));
     } else {
-      // If no userId, redirect to login or home
       navigate("/");
     }
   }, [navigate]);
@@ -40,9 +39,8 @@ const Product: React.FC = () => {
     error,
   } = useGetPurchaseOrderQuery(userId!, {
     skip: !userId,
-    // Force refetch on component mount
     refetchOnMountOrArgChange: true,
-    refetchOnFocus: false, // NEW: Don't refetch when tab gains focus
+    refetchOnFocus: false,
     refetchOnReconnect: false,
   });
 
@@ -67,33 +65,26 @@ const Product: React.FC = () => {
       }).unwrap();
       if (response?.success === true) {
         if (response?.data?.success === false) {
-          // This is the case you want to catch and show as error/warning
           toast.error(response?.data?.message || "Operation failed", {
             description: "",
             duration: 5500,
           });
-          // Optional: you can decide NOT to redirect in this case
           return;
         }
 
-        // Normal success case → inner success is true or not present
-        toast.success(response?.message || "Order confirmed successfully");
+        toast.success(response?.message || "Reservation confirmed successfully");
         navigate("/task");
       } else {
-        // Outer success === false
-        toast.error(response?.message || "Failed to confirm order");
+        toast.error(response?.message || "Failed to confirm reservation");
       }
     } catch (error) {
       console.error("Failed to confirm purchase:", error);
-      // You can add error handling/toast notification here
     }
   };
 
   const formatCurrency = (amount: number) => {
     return `৳${amount?.toLocaleString()}`;
   };
-
-  console.log(purchaseData, "purchase data in product page");
 
   const getOrderLabel = () => {
     if (!purchaseData?.data?.isAdminAssigned) {
@@ -117,46 +108,13 @@ const Product: React.FC = () => {
     return "";
   };
 
-  console.log((error as any)?.data?.message, "error in product page");
-
-  // if (isLoading || isFetching) {
-  //     return (
-  //         <div className="max-w-[500px] mx-auto bg-white h-screen flex items-center justify-center">
-  //             <div className="text-center">
-  //                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
-  //                 <p className="mt-4 text-gray-600">Loading product...</p>
-  //             </div>
-  //         </div>
-  //     );
-  // }
-
   if (isLoading || isFetching) {
     return (
-      <div className="max-w-[500px] mx-auto bg-white h-screen flex items-center justify-center">
+      <div className="max-w-[500px] mx-auto bg-brand-bg h-screen flex items-center justify-center">
         <div className="text-center">
-          {/* Engine Piston Loader */}
-          <div className="flex gap-4 justify-center items-start h-20 scale-y-[-1]">
-            {/* Piston 1 */}
-            <div className="piston piston-delay-0">
-              <div className="piston-head"></div>
-              <div className="piston-rod"></div>
-            </div>
-
-            {/* Piston 2 */}
-            <div className="piston piston-delay-1">
-              <div className="piston-head"></div>
-              <div className="piston-rod"></div>
-            </div>
-
-            {/* Piston 3 */}
-            <div className="piston piston-delay-2">
-              <div className="piston-head"></div>
-              <div className="piston-rod"></div>
-            </div>
-          </div>
-
-          <p className="mt-6 text-gray-600 text-sm tracking-wide">
-            Loading product...
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#b58a4b] mx-auto"></div>
+          <p className="mt-5 text-[#b58a4b] font-serif text-sm tracking-wide">
+            Loading Suite Reservation Details...
           </p>
         </div>
       </div>
@@ -165,14 +123,14 @@ const Product: React.FC = () => {
 
   if (error || !product) {
     return (
-      <div className="max-w-[500px] mx-auto bg-white h-screen flex items-center justify-center">
-        <div className="text-center px-4">
-          <p className="text-red-500 mb-4">
-            {purchaseData?.data?.message || (error as any)?.data?.message}
+      <div className="max-w-[500px] mx-auto bg-brand-bg h-screen flex items-center justify-center p-4">
+        <div className="text-center bg-white p-6 rounded-2xl border border-amber-100 shadow-sm max-w-sm w-full">
+          <p className="text-red-500 mb-4 text-sm font-medium">
+            {purchaseData?.data?.message || (error as any)?.data?.message || "Failed to load reservation details"}
           </p>
           <button
             onClick={handleBack}
-            className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+            className="px-6 py-2.5 bg-[#b58a4b] text-white rounded-xl hover:bg-[#9c7339] font-medium text-sm transition-colors shadow-xs"
           >
             Go Back
           </button>
@@ -182,79 +140,121 @@ const Product: React.FC = () => {
   }
 
   return (
-    <div className="max-w-[500px] mx-auto bg-white pb-32">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 py-4 sticky top-0 z-10">
+    <div className="max-w-[500px] mx-auto bg-brand-bg min-h-screen pb-36 text-text-dark">
+      {/* Top Header */}
+      <div className="bg-white border-b border-amber-100 px-4 py-3.5 sticky top-0 z-20 shadow-2xs">
         <div className="flex items-center gap-3">
           <button
             onClick={handleBack}
-            className="text-gray-600 hover:text-gray-900 transition-colors"
+            className="text-slate-600 hover:text-slate-900 transition-colors p-1"
+            aria-label="Go back"
           >
-            <ArrowLeft className="w-6 h-6" />
+            <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
-          <h1 className="text-xl font-bold text-gray-900">Product Details</h1>
+          <div>
+            <h1 className="text-lg sm:text-xl font-serif font-bold text-text-dark leading-tight">
+              Suite Booking Details
+            </h1>
+            <p className="text-[11px] text-slate-400 font-light">
+              NH Hotel Reservation Confirmation
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Order Number Badge */}
       {orderNumber && (
-        <div className="px-4 py-3 bg-gray-50">
-          <div className="inline-block px-3 py-1 bg-gray-900 text-white text-sm font-medium rounded">
-            Order #{orderNumber}
+        <div className="px-4 py-3 bg-[#faf5ed] border-b border-amber-200/50 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Building2 className="w-4 h-4 text-[#b58a4b]" />
+            <span className="font-serif font-bold text-xs sm:text-sm text-text-dark">
+              Booking #{orderNumber}
+            </span>
           </div>
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-[#b58a4b] bg-white px-2.5 py-0.5 rounded-full border border-amber-200">
+            Confirmed Slot
+          </span>
         </div>
       )}
 
-      {/* Product Image */}
-      <div className="w-full h-[350px] object-contain bg-gray-100 overflow-hidden">
-        <img
-          src={product.poster}
-          alt={product.name}
-          className="w-full h-full object-contain"
-          onError={(e) => {
-            e.currentTarget.src =
-              "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23e5e7eb' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239ca3af' font-size='20'%3ENo Image%3C/text%3E%3C/svg%3E";
-          }}
-        />
+      {/* Room / Suite Main Showcase Image */}
+      <div className="p-4">
+        <div className="relative w-full h-[280px] sm:h-[320px] rounded-2xl overflow-hidden bg-white border border-amber-100 shadow-sm group">
+          <img
+            src={product.poster}
+            alt={product.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            onError={(e) => {
+              e.currentTarget.src =
+                "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=600&q=80";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          
+          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+            <div className="flex items-center space-x-1.5 bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-medium">
+              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              <span>5.0 Luxury Rating</span>
+            </div>
+            <span className="bg-white/90 backdrop-blur-xs text-text-dark text-[10px] font-bold px-2 py-1 rounded-md">
+              REF: #{product.productId}
+            </span>
+          </div>
+        </div>
       </div>
 
-      {/* Product Information */}
-      <div className="p-4 space-y-4">
-        {/* Product Name */}
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-1">
-            {product.name} {getOrderLabel()}
+      {/* Suite Information */}
+      <div className="px-4 space-y-4">
+        {/* Title & Badges */}
+        <div className="bg-white rounded-2xl p-4 border border-amber-100 shadow-2xs">
+          <h2 className="font-serif font-bold text-xl sm:text-2xl text-text-dark mb-2 leading-tight">
+            {product.name} <span className="text-[#b58a4b] text-base font-normal">{getOrderLabel()}</span>
           </h2>
-          <span
-            className={`inline-block px-2 py-1 text-xs font-medium rounded ${
-              product.status === "Active"
-                ? "bg-green-100 text-green-800"
-                : "bg-red-100 text-red-800"
-            }`}
-          >
-            {product.status}
-          </span>
-          <span className="text-sm bg-red-200 text-red-500 font-medium ms-2 px-2 py-1 rounded">
-            {purchaseData?.data?.mysteryboxMethod === "12x"
-              ? "Flipbox"
-              : purchaseData?.data?.mysteryboxMethod === "3x"
-                ? "Smart Falcon"
-                : ""}
-          </span>
+
+          <div className="flex items-center flex-wrap gap-2">
+            <span
+              className={`inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full ${
+                product.status === "Active"
+                  ? "bg-emerald-100 text-emerald-800"
+                  : "bg-red-100 text-red-800"
+              }`}
+            >
+              {product.status}
+            </span>
+
+            {(purchaseData?.data?.mysteryboxMethod === "12x" || purchaseData?.data?.mysteryboxMethod === "3x") && (
+              <span className="text-xs bg-amber-100 text-[#b58a4b] font-semibold px-2.5 py-0.5 rounded-full border border-amber-200">
+                {purchaseData?.data?.mysteryboxMethod === "12x"
+                  ? "Flipbox Reward"
+                  : "Smart Falcon Reward"}
+              </span>
+            )}
+          </div>
         </div>
 
-        {/* Pricing Information */}
-        <div className="bg-gray-50 rounded-lg p-4 space-y-3">
-          <div className="flex justify-between items-center">
-            <span className="text-gray-600 font-medium">Price:</span>
-            <span className="text-xl font-bold text-gray-900">
+        {/* Pricing Summary Box */}
+        <div className="bg-[#faf5ed] border border-amber-200/70 rounded-2xl p-4 sm:p-5 space-y-3 shadow-2xs">
+          <div className="flex items-center justify-between border-b border-amber-200/60 pb-2.5">
+            <span className="font-serif font-bold text-sm text-text-dark flex items-center gap-1.5">
+              <CalendarCheck className="w-4 h-4 text-[#b58a4b]" />
+              Reservation Summary
+            </span>
+            <span className="text-[11px] text-slate-500 font-light">Guaranteed Rate</span>
+          </div>
+
+          <div className="flex justify-between items-center text-xs sm:text-sm">
+            <span className="text-slate-600 font-light">Suite Base Price:</span>
+            <span className="font-bold text-text-dark">
               {formatCurrency(product.price)}
             </span>
           </div>
 
-          <div className="flex justify-between items-center">
-            <span className="text-gray-600 font-medium">Commission:</span>
-            <span className="text-lg font-semibold text-green-600">
+          <div className="flex justify-between items-center text-xs sm:text-sm">
+            <span className="text-slate-600 font-light flex items-center gap-1">
+              Concierge Commission:
+              <span className="text-[9px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-semibold">Earn</span>
+            </span>
+            <span className="font-bold text-emerald-600">
               +
               {purchaseData?.data?.isAdminAssigned === true
                 ? formatCurrency(purchaseData?.data?.commission)
@@ -262,10 +262,12 @@ const Product: React.FC = () => {
             </span>
           </div>
 
-          <div className="border-t border-gray-200 pt-3">
+          <div className="border-t border-amber-200/60 pt-3">
             <div className="flex justify-between items-center">
-              <span className="text-gray-600 font-medium">Sale Price:</span>
-              <span className="text-2xl font-bold text-gray-900">
+              <span className="font-serif font-bold text-sm sm:text-base text-text-dark">
+                Total Reservation Return:
+              </span>
+              <span className="font-serif font-extrabold text-xl sm:text-2xl text-[#b58a4b]">
                 {purchaseData?.data?.mysteryboxMethod === "12x" ||
                 purchaseData?.data?.mysteryboxMethod === "3x"
                   ? formatCurrency(
@@ -275,92 +277,60 @@ const Product: React.FC = () => {
                   : formatCurrency(purchaseData?.data?.product?.salePrice)}
               </span>
             </div>
-            {/* {
-                            purchaseData?.data?.outOfBalance && (
-                                <div className="flex justify-between items-center mt-2">
-                                    <span className="text-gray-600 font-medium">Out of Balance: </span>
-                                    <span className="text-2xl font-bold text-red-500">
-                                        {formatCurrency(purchaseData.data.outOfBalance)}
-                                    </span>
-                                </div>
-                            )
-                        } */}
           </div>
         </div>
 
-        {/* Product Introduction */}
+        {/* Suite Overview Description */}
         {product.introduction && (
-          <div className="space-y-2">
-            <h3 className="text-lg font-semibold text-gray-900">Description</h3>
-            <p className="text-gray-600 leading-relaxed">
+          <div className="bg-white rounded-2xl p-4 border border-amber-100 shadow-2xs space-y-2">
+            <h3 className="font-serif font-bold text-base text-text-dark flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#b58a4b]" />
+              Suite Overview & Concierge Details
+            </h3>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-light">
               {product.introduction}
             </p>
           </div>
         )}
-
-        {/* Additional Info */}
-        {/* <div className="space-y-2 text-sm text-gray-500">
-                    <div className="flex justify-between">
-                        <span>Product ID:</span>
-                        <span className="font-medium text-gray-700">
-                            {product.productId}
-                        </span>
-                    </div>
-                    {purchaseData?.data?.isAdminAssigned !== undefined && (
-                        <div className="flex justify-between">
-                            <span>Admin Assigned:</span>
-                            <span className="font-medium text-gray-700">
-                                {purchaseData.data.isAdminAssigned ? "Yes" : "No"}
-                            </span>
-                        </div>
-                    )}
-                </div> */}
       </div>
 
-      {/* Bottom Action Buttons */}
-      <div className="fixed bottom-18 left-0 right-0 bg-white border-t border-gray-200 p-2 max-w-[500px] mx-auto">
+      {/* Bottom Action Bar */}
+      <div className="fixed bottom-16 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-amber-200/60 p-3 max-w-[500px] mx-auto z-40 shadow-2xl">
         <div className="grid grid-cols-2 gap-3">
           <button
             onClick={handleModalOpen}
             disabled={isConfirming}
             className={`
-              lg:py-4 lg:px-6 rounded-lg font-semibold cursor-pointer lg:text-lg transition-colors
+              py-3.5 px-4 rounded-xl font-serif font-bold text-sm sm:text-base cursor-pointer transition-all shadow-md active:scale-99 flex items-center justify-center gap-2
               ${
                 isConfirming
-                  ? "bg-gray-400 text-gray-200 cursor-not-allowed"
-                  : "bg-primaryButton text-white hover:bg-gray-800"
+                  ? "bg-slate-300 text-slate-500 cursor-not-allowed"
+                  : "bg-[#b58a4b] hover:bg-[#9c7339] text-white"
               }
             `}
           >
-            Submit Order
+            <span>Confirm Reservation</span>
           </button>
+
           {purchaseData?.data?.mysteryboxMethod ? (
-            <div className="lg:py-4 lg:px-6 py-2 px-4 bg-green-100 text-green-800 rounded-lg font-semibold text-lg text-center">
-              <div className="flex flex-col items-center">
-                {purchaseData?.data?.mysteryboxMethod === "12x" ? (
-                  <span>
-                    Earn Profit:{" "}
-                    <span className="lg:text-2xl text-xl">12x</span>
-                  </span>
-                ) : purchaseData?.data?.mysteryboxMethod === "cash" ? (
-                  <span>
-                    Earn Profit:{" "}
-                    <span className="lg:text-2xl text-xl">Cash</span>
-                  </span>
-                ) : (
-                  <span>
-                    Earn Profit: <span className="lg:text-2xl text-xl">3x</span>
-                  </span>
-                )}
-                <span className="lg:text-lg text-base font-bold text-start">
-                  {formatCurrency(purchaseData?.data?.commission)}
+            <div className="py-2.5 px-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl font-semibold text-xs sm:text-sm text-center flex flex-col justify-center items-center">
+              <span>
+                Earn Profit:{" "}
+                <span className="font-serif font-extrabold text-base">
+                  {purchaseData?.data?.mysteryboxMethod === "12x"
+                    ? "12x"
+                    : purchaseData?.data?.mysteryboxMethod === "cash"
+                    ? "Cash"
+                    : "3x"}
                 </span>
-              </div>
+              </span>
+              <span className="font-bold text-emerald-700">
+                {formatCurrency(purchaseData?.data?.commission)}
+              </span>
             </div>
           ) : (
             <button
-              // onClick={handleBack}
-              className="py-4 px-6 bg-gray-200  text-gray-900 rounded-lg font-semibold text-lg transition-colors"
+              className="py-3.5 px-3 bg-slate-100 border border-slate-200 text-slate-800 rounded-xl font-bold text-xs sm:text-sm transition-colors text-center truncate"
               disabled={isConfirming}
             >
               Earn Profit: {formatCurrency(purchaseData?.data?.commission)}
@@ -368,6 +338,7 @@ const Product: React.FC = () => {
           )}
         </div>
       </div>
+
       <SubmitOrderModal
         isOpen={isModalOpen}
         onClose={handleModalClose}
