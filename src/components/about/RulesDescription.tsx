@@ -37,7 +37,7 @@ const RulesDescription: React.FC = () => {
         </div>
 
         {/* Rules List */}
-        <div className="space-y-3.5 bg-white border border-amber-100 rounded-3xl p-5 sm:p-6 shadow-xs">
+        <div className="space-y-3.5 bg-white border border-amber-100 rounded-md p-5 sm:p-6 shadow-xs">
           {RULES.map((rule, idx) => (
             <div
               key={idx}
