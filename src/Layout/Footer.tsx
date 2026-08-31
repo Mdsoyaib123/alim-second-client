@@ -12,20 +12,18 @@ const Footer: React.FC = () => {
     {
       name: "Home",
       path: "/",
-      icon: (
-        <div className="relative flex items-center justify-center">
-          <Home className="w-5 h-5 sm:w-6 sm:h-6 text-accent-blue fill-accent-blue/20" />
-        </div>
+      icon: (active: boolean) => (
+        <Home className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary fill-primary/15" : "text-slate-400"}`} />
       ),
       isActive: path === "/" || path === "/index",
     },
     {
       name: "Information",
       path: "/about",
-      icon: (
+      icon: (active: boolean) => (
         <div className="relative flex items-center justify-center">
-          <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-accent-blue" />
-          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-pink-500 rounded-full border border-primary" />
+          <FileText className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`} />
+          <span className="absolute -top-1 -right-1 w-2 h-2 bg-pink-500 rounded-full" />
         </div>
       ),
       isActive: path === "/help" || path === "/about" || path === "/services" || path === "/contact",
@@ -33,9 +31,11 @@ const Footer: React.FC = () => {
     {
       name: "Reservation",
       path: "/task",
-      icon: (
-        <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-sm border-2 border-white bg-primary shadow-xs flex items-center justify-center">
-          <span className="font-serif font-black text-[10px] sm:text-xs text-white leading-none tracking-tighter">
+      icon: (active: boolean) => (
+        <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg border-2 flex items-center justify-center transition-all shadow-2xs ${
+          active ? "border-primary bg-primary text-white shadow-xs scale-105" : "border-amber-200/80 bg-amber-50/60 text-primary"
+        }`}>
+          <span className="font-serif font-black text-[11px] sm:text-xs leading-none tracking-tighter">
             NH
           </span>
         </div>
@@ -45,9 +45,9 @@ const Footer: React.FC = () => {
     {
       name: "History",
       path: "/order-record",
-      icon: (
+      icon: (active: boolean) => (
         <div className="relative flex items-center justify-center">
-          <ClipboardList className="w-5 h-5 sm:w-6 sm:h-6 text-accent-blue" />
+          <ClipboardList className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`} />
           <span className="absolute -bottom-0.5 -right-1 w-2 h-2 bg-emerald-500 rounded-full" />
         </div>
       ),
@@ -56,17 +56,15 @@ const Footer: React.FC = () => {
     {
       name: "Account",
       path: isAuthenticated ? "/account" : "/login",
-      icon: (
-        <div className="relative flex items-center justify-center">
-          <User className="w-5 h-5 sm:w-6 sm:h-6 text-accent-blue" />
-        </div>
+      icon: (active: boolean) => (
+        <User className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`} />
       ),
       isActive: path === "/account" || path === "/bind-account" || path === "/login" || path === "/signup",
     },
   ];
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 z-50 max-w-[500px] mx-auto w-full bg-primary border-t-2 border-amber-200/60 shadow-2xl">
+    <footer className="fixed bottom-0 left-0 right-0 z-50 max-w-[500px] mx-auto w-full bg-white/95 backdrop-blur-md border-t border-amber-200/80 shadow-2xl">
       <nav className="grid grid-cols-5 h-16 sm:h-18 items-center px-1">
         {navItems.map((item) => {
           const active = item.isActive;
@@ -74,19 +72,24 @@ const Footer: React.FC = () => {
             <Link
               key={item.name}
               to={item.path}
-              className={`flex flex-col items-center justify-center py-1 px-1 transition-all duration-150 active:scale-95 ${
-                active ? "opacity-100 font-bold" : "opacity-90 hover:opacity-100 font-medium"
+              className={`flex flex-col items-center justify-center py-1 px-1 transition-all duration-150 active:scale-95 group relative ${
+                active ? "opacity-100" : "opacity-80 hover:opacity-100"
               }`}
             >
-              {/* Icon Container */}
+              {/* Top Active Bar Indicator */}
+              {active && (
+                <span className="absolute top-0 w-8 h-[2.5px] bg-primary rounded-full" />
+              )}
+
+              {/* Icon */}
               <div className="mb-0.5 flex items-center justify-center h-7">
-                {item.icon}
+                {item.icon(active)}
               </div>
 
               {/* Label */}
               <span
-                className={`text-[11px] sm:text-xs tracking-tight transition-colors ${
-                  active ? "text-accent-blue-active font-bold" : "text-accent-blue font-semibold"
+                className={`text-[10px] sm:text-[11px] tracking-tight transition-colors ${
+                  active ? "text-primary font-bold" : "text-slate-500 font-medium group-hover:text-slate-800"
                 }`}
               >
                 {item.name}
