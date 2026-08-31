@@ -288,7 +288,7 @@ const Task: React.FC = () => {
                 {task.id}
               </div>
               {/* Rating Badge Overlay */}
-              <div className="absolute bottom-1.5 left-1.5 bg-white/90 backdrop-blur-xs text-[#1a2332] text-[9px] font-bold px-1.5 py-0.5 rounded-md flex items-center gap-0.5 shadow-xs">
+              <div className="absolute bottom-1.5 left-1.5 bg-white/90 backdrop-blur-xs text-text-dark text-[9px] font-bold px-1.5 py-0.5 rounded-md flex items-center gap-0.5 shadow-xs">
                 <Star className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />
                 <span>5.0</span>
               </div>
@@ -319,14 +319,14 @@ const Task: React.FC = () => {
                 <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 shrink-0">
                   ✦ Ocean View
                 </span>
-                <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 flex-shrink-0">
+                <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 shrink-0">
                   ✦ VIP
                 </span>
               </div>
             </div>
 
             {/* Right Action Circle Button */}
-            <div className="flex items-center justify-center pr-1 flex-shrink-0">
+            <div className="flex items-center justify-center pr-1 shrink-0">
               <div className="w-7 h-7 rounded-full bg-amber-50 group-hover:bg-[#b58a4b] text-[#b58a4b] group-hover:text-white flex items-center justify-center transition-all duration-200">
                 <ChevronRight className="w-4 h-4" />
               </div>
@@ -336,7 +336,7 @@ const Task: React.FC = () => {
       </div>
 
       {/* Bottom Action Area */}
-      <div className="max-w-[500px] px-5 mx-auto bg-[#fdfbf7] border-t border-amber-200/60 pt-6 pb-4">
+      <div className="max-w-125 px-5 mx-auto bg-brand-bg border-t border-amber-200/60 pt-6 pb-4">
         <div className="grid grid-cols-2 gap-3 mb-4">
           <button
             onClick={() => setOpenAccountModal(true)}
@@ -356,7 +356,7 @@ const Task: React.FC = () => {
         {/* Start Reservation Button */}
         <button
           onClick={handleStartClick}
-          className="w-full py-3.5 text-white cursor-pointer bg-[#b58a4b] hover:bg-[#9c7339] rounded-xl font-serif font-bold text-base sm:text-lg transition-all shadow-md active:scale-99 flex items-center justify-center gap-2"
+          className="w-full py-3.5 text-white cursor-pointer bg-[#b58a4b] hover:bg-primary-hover rounded-xl font-serif font-bold text-base sm:text-lg transition-all shadow-md active:scale-99 flex items-center justify-center gap-2"
         >
           <span>Start Reservation</span>
           <span className="bg-white/20 text-white px-2.5 py-0.5 rounded-full text-xs font-sans font-semibold">
