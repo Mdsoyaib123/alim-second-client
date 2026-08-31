@@ -44,7 +44,7 @@ export default function AboutUs() {
       <RulesDescription />
 
       {/* Additional FAQ / Accordion Section */}
-      <section className="w-full py-10 px-4 sm:px-6">
+      <section className="w-full py-10 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center space-x-3 w-full max-w-xs mx-auto mb-6">
             <div className="h-px bg-[#b58a4b]/60 flex-1" />
@@ -57,7 +57,7 @@ export default function AboutUs() {
           <Accordion
             type="single"
             collapsible
-            className="w-full bg-white border border-amber-100 rounded-3xl p-4 sm:p-6 shadow-xs"
+            className="w-full bg-white border border-amber-100 rounded-md p-4 sm:p-6 shadow-xs"
           >
             <AccordionItem
               value="consultant-mode"
