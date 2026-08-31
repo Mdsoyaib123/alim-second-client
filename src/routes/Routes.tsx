@@ -84,7 +84,7 @@ const routes = createBrowserRouter([
         element: <Index />,
       },
       {
-        path: "/task",
+        path: "/reservation",
         element: <Task />,
       },
       {
@@ -107,7 +107,6 @@ const routes = createBrowserRouter([
         path: "/withdraw-password",
         element: <WithdrawPassword />,
       },
-
     ],
   },
   {
