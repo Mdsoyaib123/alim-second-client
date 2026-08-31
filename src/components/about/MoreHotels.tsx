@@ -28,7 +28,7 @@ const MoreHotels: React.FC = () => {
             alt="Accor Hotel"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-5">
+          <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-5">
             {/* Logo Badge */}
             <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-lg w-max mb-2">
               <span className="text-[#b58a4b] font-serif font-bold text-lg">
