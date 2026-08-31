@@ -4,17 +4,20 @@ import PartnerLogosRibbon from "./PartnerLogosRibbon";
 import { useAppSelector } from "@/hooks/useRedux";
 import { useGetSingleUserQuery } from "@/store/api/user/userApi";
 
-const PARIS_SUNSET_HERO = "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80";
+const PARIS_SUNSET_HERO =
+  "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80";
 
 interface HeroSectionProps {
   onReservationClick?: () => void;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
-  const token = useAppSelector((state) => state.auth?.token) || localStorage.getItem("accessToken");
+  const token =
+    useAppSelector((state) => state.auth?.token) ||
+    localStorage.getItem("accessToken");
   const id = localStorage.getItem("userId");
   const userId = id ? parseInt(id) : 0;
-  
+
   const { data: userData } = useGetSingleUserQuery(userId, {
     skip: !token || !userId,
   });
@@ -24,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
   return (
     <div className="relative w-full bg-brand-bg text-text-dark">
       {/* Top Banner with Unsplash Background */}
-      <div className="relative min-h-[480px] sm:min-h-[520px] w-full flex flex-col justify-between overflow-hidden">
+      <div className="relative min-h-120 sm:min-h-130 w-full flex flex-col justify-between overflow-hidden">
         {/* Unsplash Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -33,8 +36,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
             className="w-full h-full object-cover object-center"
           />
           {/* Subtle gradient overlay to enhance readability on text side */}
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-bg/90 via-brand-bg/60 to-transparent sm:w-3/4" />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/40 via-transparent to-brand-bg" />
+          <div className="absolute inset-0 bg-linear-to-r from-brand-bg/90 via-brand-bg/60 to-transparent sm:w-3/4" />
+          <div className="absolute inset-0 bg-linear-to-b from-brand-bg/40 via-transparent to-brand-bg" />
         </div>
 
         {/* Content Container */}
@@ -42,7 +45,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
           {/* Logo Badge */}
           <div className="flex items-center gap-2.5 mb-8 sm:mb-10">
             <div className="w-8 h-8 sm:w-9 sm:h-9 border-2 border-primary rounded-sm flex items-center justify-center bg-white/40 backdrop-blur-xs shadow-xs">
-              <span className="font-serif font-bold text-primary text-base sm:text-lg leading-none">H</span>
+              <span className="font-serif font-bold text-primary text-base sm:text-lg leading-none">
+                H
+              </span>
             </div>
             <span className="font-serif tracking-widest text-primary-hover font-semibold text-base sm:text-lg">
               NH HOTEL
@@ -57,7 +62,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
             <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-text-dark tracking-tight">
               {userName}
             </h1>
-            
+
             {/* Gold horizontal accent line */}
             <div className="w-14 h-[3px] bg-primary rounded-full my-4" />
 
@@ -65,7 +70,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
               Achievement is a testament to excellent
             </p>
             <p className="text-slate-600 text-xs sm:text-sm mb-6 leading-relaxed font-normal">
-              Reservations are Welcome Contact your referral today to learn more about our benefits !
+              Reservations are Welcome Contact your referral today to learn more
+              about our benefits !
             </p>
 
             {/* Make a Reservation Button */}
