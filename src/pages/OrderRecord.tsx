@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Loader2, Star } from "lucide-react";
-import { useGetUserCompletedProductsQuery, useGetUserUncompletedProductsQuery } from "@/store/api/user/userApi";
+import {
+  useGetUserCompletedProductsQuery,
+  useGetUserUncompletedProductsQuery,
+} from "@/store/api/user/userApi";
 
 interface Product {
   _id: string;
@@ -17,27 +20,25 @@ interface Product {
   updatedAt: string;
 }
 
-const LOBBY_BANNER = "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80";
+const LOBBY_BANNER =
+  "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80";
 
 const OrderRecord: React.FC = () => {
   const userId = localStorage.getItem("userId");
-  const [activeTab, setActiveTab] = useState<"completed" | "uncompleted">("completed");
-
-  const completedQuery = useGetUserCompletedProductsQuery(
-    Number(userId),
-    {
-      skip: !userId || activeTab !== "completed",
-    }
+  const [activeTab, setActiveTab] = useState<"completed" | "uncompleted">(
+    "completed",
   );
 
-  const uncompletedQuery = useGetUserUncompletedProductsQuery(
-    Number(userId),
-    {
-      skip: !userId || activeTab !== "uncompleted",
-    }
-  );
+  const completedQuery = useGetUserCompletedProductsQuery(Number(userId), {
+    skip: !userId || activeTab !== "completed",
+  });
 
-  const { data, isLoading, error } = activeTab === "completed" ? completedQuery : uncompletedQuery;
+  const uncompletedQuery = useGetUserUncompletedProductsQuery(Number(userId), {
+    skip: !userId || activeTab !== "uncompleted",
+  });
+
+  const { data, isLoading, error } =
+    activeTab === "completed" ? completedQuery : uncompletedQuery;
 
   const formatDate = (dateString: string) => {
     try {
@@ -60,7 +61,9 @@ const OrderRecord: React.FC = () => {
     return (
       <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
         <div className="text-center bg-white p-6 rounded-2xl border border-amber-100 shadow-sm max-w-sm w-full">
-          <p className="text-slate-600 font-medium">Please login to view your booking history</p>
+          <p className="text-slate-600 font-medium">
+            Please login to view your booking history
+          </p>
         </div>
       </div>
     );
@@ -70,8 +73,7 @@ const OrderRecord: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-brand-bg pb-12 text-text-dark">
-      <div className="max-w-[500px] mx-auto bg-brand-bg min-h-screen">
-        
+      <div className="max-w-125 mx-auto bg-brand-bg min-h-screen">
         {/* Top Header Banner */}
         <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-900 shadow-sm">
           <img
@@ -79,8 +81,8 @@ const OrderRecord: React.FC = () => {
             alt="Scheduled record lobby"
             className="w-full h-full object-cover object-center opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
-          
+          <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 to-black/20" />
+
           <div className="absolute bottom-4 left-5 right-5">
             <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Scheduled record
@@ -132,16 +134,21 @@ const OrderRecord: React.FC = () => {
             </div>
           ) : error ? (
             <div className="flex items-center justify-center py-16">
-              <p className="text-red-500 text-sm font-medium">Failed to load booking record</p>
+              <p className="text-red-500 text-sm font-medium">
+                Failed to load booking record
+              </p>
             </div>
           ) : products.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-16 text-center bg-white rounded-2xl border border-amber-100 p-6">
               <div className="w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center mb-3 text-primary text-xl">
                 🛎️
               </div>
-              <p className="text-slate-700 font-serif font-bold text-base">No {activeTab} bookings</p>
-              <p className="text-slate-400 text-xs font-light mt-1 max-w-[220px]">
-                Your {activeTab} hotel reservations and booking records will appear here.
+              <p className="text-slate-700 font-serif font-bold text-base">
+                No {activeTab} bookings
+              </p>
+              <p className="text-slate-400 text-xs font-light mt-1 max-w-55">
+                Your {activeTab} hotel reservations and booking records will
+                appear here.
               </p>
             </div>
           ) : (
@@ -149,12 +156,12 @@ const OrderRecord: React.FC = () => {
               {products.map((product: Product, index: number) => (
                 <div
                   key={`${product._id}-${index}`}
-                  className="bg-white rounded-2xl p-4 border border-amber-100/80 shadow-2xs hover:shadow-xs transition-shadow"
+                  className="bg-white rounded-md p-4 border border-amber-100/80 shadow-2xs hover:shadow-xs transition-shadow"
                 >
                   {/* Top Info Row */}
                   <div className="flex items-start gap-3 mb-3">
                     {/* Hotel Room Image */}
-                    <div className="w-20 h-16 sm:w-24 sm:h-20 rounded-xl overflow-hidden bg-amber-50 flex-shrink-0 border border-amber-100">
+                    <div className="w-20 h-16 sm:w-24 sm:h-20 rounded-xl overflow-hidden bg-amber-50 shrink-0 border border-amber-100">
                       <img
                         src={product.poster}
                         alt={product.name}
@@ -181,7 +188,9 @@ const OrderRecord: React.FC = () => {
                   <div className="pt-2.5 border-t border-slate-100 space-y-2">
                     <div className="grid grid-cols-3 gap-2 text-xs">
                       <div>
-                        <span className="text-[11px] text-slate-400 font-light block">Unit Price</span>
+                        <span className="text-[11px] text-slate-400 font-light block">
+                          Unit Price
+                        </span>
                         <span className="font-bold text-xs sm:text-sm text-text-dark">
                           ৳ {formatPrice(product.price)}
                         </span>
@@ -189,7 +198,10 @@ const OrderRecord: React.FC = () => {
 
                       <div>
                         <span className="text-[11px] text-slate-400 font-light flex items-center gap-1">
-                          Commission <span className="text-[9px] bg-emerald-100 text-emerald-700 px-1 rounded font-semibold">Earn</span>
+                          Commission{" "}
+                          <span className="text-[9px] bg-emerald-100 text-emerald-700 px-1 rounded font-semibold">
+                            Earn
+                          </span>
                         </span>
                         <span className="font-bold text-xs sm:text-sm text-emerald-600">
                           +৳ {formatPrice(product.commission)}
@@ -197,9 +209,15 @@ const OrderRecord: React.FC = () => {
                       </div>
 
                       <div>
-                        <span className="text-[11px] text-slate-400 font-light block">Total Return</span>
+                        <span className="text-[11px] text-slate-400 font-light block">
+                          Total Return
+                        </span>
                         <span className="font-extrabold text-xs sm:text-sm text-primary">
-                          ৳ {formatPrice(product.salePrice || (product.price + product.commission))}
+                          ৳{" "}
+                          {formatPrice(
+                            product.salePrice ||
+                              product.price + product.commission,
+                          )}
                         </span>
                       </div>
                     </div>
@@ -230,7 +248,10 @@ const OrderRecord: React.FC = () => {
                     </span>
                     <div className="flex items-center space-x-1">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                        <Star
+                          key={i}
+                          className="w-3.5 h-3.5 fill-amber-400 text-amber-400"
+                        />
                       ))}
                     </div>
                   </div>
@@ -239,7 +260,6 @@ const OrderRecord: React.FC = () => {
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
