@@ -25,7 +25,7 @@ const FounderQuoteSection: React.FC = () => {
           </div>
 
           {/* Vertical Divider (Hidden on mobile) */}
-          <div className="hidden md:block w-[1px] h-32 bg-amber-300/50 flex-shrink-0" />
+          <div className="hidden md:block w-px h-32 bg-amber-300/50 shrink-0" />
 
           {/* Quote Content */}
           <div className="flex-1 text-center md:text-left relative px-2">
