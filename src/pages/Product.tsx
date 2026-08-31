@@ -150,7 +150,7 @@ const Product: React.FC = () => {
   }
 
   return (
-    <div className="max-w-[500px] mx-auto bg-brand-bg min-h-screen pb-36 text-text-dark">
+    <div className="max-w-125 mx-auto bg-brand-bg min-h-screen pb-36 text-text-dark">
       {/* Top Header */}
       <div className="bg-white border-b border-amber-100 px-4 py-3.5 sticky top-0 z-20 shadow-2xs">
         <div className="flex items-center gap-3">
@@ -189,7 +189,7 @@ const Product: React.FC = () => {
 
       {/* Room / Suite Main Showcase Image */}
       <div className="p-4">
-        <div className="relative w-full h-[280px] sm:h-[320px] rounded-2xl overflow-hidden bg-white border border-amber-100 shadow-sm group">
+        <div className="relative w-full h-70 sm:h-80 rounded-2xl overflow-hidden bg-white border border-amber-100 shadow-sm group">
           <img
             src={product.poster}
             alt={product.name}
