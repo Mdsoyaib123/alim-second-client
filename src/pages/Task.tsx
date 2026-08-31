@@ -1,11 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ChevronRight, Star } from "lucide-react";
-import prod1 from "@/assets/product/British Style – Jaguar E Type V12.jpg";
-import prod2 from "@/assets/product/air-filter.jpg";
-import prod3 from "@/assets/product/Car-piston.jpg";
-import prod4 from "@/assets/product/tyre.jpg";
-import prod5 from "@/assets/product/Exhaust.jpg";
+import { ChevronRight, Star, Building2 } from "lucide-react";
 import AccountDetailsModal from "@/components/modal/AccountDetailsModal";
 import PackageSelectionModal from "@/components/modal/PackageSelectionModal";
 import MysteryBoxModal from "@/components/modal/MysteryBoxModal";
@@ -14,7 +10,6 @@ import {
   useGetSingleUserQuery,
   useUpdateSelectedPackageMutation,
   useRemoveMysteryRewardMutation,
-  // useGetPurchaseOrderQuery,
   useMarkMysteryBoxAsSeenMutation
 } from "@/store/api/user/userApi";
 import { toast } from "sonner";
@@ -27,40 +22,47 @@ interface TaskItem {
   image: string;
   title: string;
   reviews: string;
+  category?: string;
 }
 
 const Task: React.FC = () => {
   const navigate = useNavigate();
+  
   const tasks: TaskItem[] = [
     {
       id: 1,
-      image: prod1,
-      title: "British Style – Jaguar E Type V12",
+      image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=400&q=80",
+      title: "Presidential Ocean Suite",
       reviews: "6,507 Reviews",
+      category: "Ultra Luxury Suite",
     },
     {
       id: 2,
-      image: prod2,
-      title: "Air Filter - Car (Red)",
+      image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=80",
+      title: "Royal Penthouse Suite",
       reviews: "16,772 Reviews",
+      category: "VIP Penthouse",
     },
     {
       id: 3,
-      image: prod3,
-      title: "Piston 2600 U",
+      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80",
+      title: "Executive Sky Villa",
       reviews: "14,803 Reviews",
+      category: "Private Villa",
     },
     {
       id: 4,
-      image: prod4,
-      title: "Tyre 3600 F - Black",
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80",
+      title: "Grand Deluxe Ocean View",
       reviews: "5,458 Reviews",
+      category: "Deluxe Suite",
     },
     {
       id: 5,
-      image: prod5,
-      title: "DBU 88 Exhaust German",
+      image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=400&q=80",
+      title: "Imperial Horizon Suite",
       reviews: "10,237 Reviews",
+      category: "Horizon Suite",
     },
   ];
 
@@ -71,10 +73,9 @@ const Task: React.FC = () => {
   const [activeMysteryReward, setActiveMysteryReward] = useState<number | null>(null);
   const [mysteryBoxData, setMysteryBoxData] = useState<any>(null);
   const [openMiningModal, setOpenMiningModal] = useState(false);
-  // const [openTrialModal, setOpenTrialModal] = useState(false);
 
   const [openErrorModal, setOpenErrorModal] = useState(false);
-  const [errorMessage,] = useState("");
+  const [errorMessage] = useState("");
   const [errorMessageBlack, setErrorMessageBlack] = useState("");
   const [openErrorModalBlack, setOpenErrorModalBlack] = useState(false);
   const [, setShouldCheckOrder] = useState(false);
@@ -83,24 +84,20 @@ const Task: React.FC = () => {
   const id = localStorage.getItem("userId");
   const userId = id ? parseInt(id) : 0;
 
-  const { data: userData, isLoading,
+  const {
+    data: userData,
+    isLoading,
     isFetching,
-    refetch } = useGetSingleUserQuery(userId, {
-      refetchOnMountOrArgChange: true,
-      refetchOnFocus: true,
-      refetchOnReconnect: true,
-    });
-
+    refetch,
+  } = useGetSingleUserQuery(userId, {
+    refetchOnMountOrArgChange: true,
+    refetchOnFocus: true,
+    refetchOnReconnect: true,
+  });
 
   const [updatePackage, { isLoading: isUpdating }] = useUpdateSelectedPackageMutation();
   const [removeMysteryReward] = useRemoveMysteryRewardMutation();
   const [markMysteryBoxAsSeen] = useMarkMysteryBoxAsSeenMutation();
-
-  // Add the purchase order query to check for errors
-  // const { data: purchaseOrderData, error: purchaseOrderError, isLoading: isPurchaseOrderLoading } = useGetPurchaseOrderQuery(userId, {
-  //   // refetchOnMountOrArgChange: true,
-  //   // skip: !shouldCheckOrder,
-  // });
 
   const user = userData?.data;
 
@@ -131,25 +128,21 @@ const Task: React.FC = () => {
     trialRoundBalance: user?.trialRoundBalance || 0,
   };
 
-  console.log(user, "aaaaayaaaat")
-
   const handleStartClick = () => {
-    // Check if user has admin assigned products with mystery box
-    // refetch();
     if (user?.adminAssaignProductsOrRewards && user.adminAssaignProductsOrRewards.length > 0) {
       const productWithMysteryBox = user.adminAssaignProductsOrRewards.find(
         (product: any) =>
           product.mysterybox &&
           product.mysterybox.method &&
           product.mysterybox.amount &&
-          product.mysterybox.seenTheReward === false // Only show if not seen
+          product.mysterybox.seenTheReward === false
       );
       const mysteryBoxOrderNumber = productWithMysteryBox?.orderNumber;
 
       if (mysteryBoxOrderNumber === user?.completedOrdersCount + 1) {
         setMysteryBoxData({
           ...productWithMysteryBox.mysterybox,
-          productId: productWithMysteryBox.productId // Store productId for marking as seen
+          productId: productWithMysteryBox.productId
         });
         setOpenMysteryBoxModal(true);
         return;
@@ -169,14 +162,9 @@ const Task: React.FC = () => {
       return;
     }
 
-
-
-    // Check if user has selected package (0 means not selected)
     if (!user?.userSelectedPackage || user.userSelectedPackage === 0) {
-      // Only open package modal, don't open mining modal
       setOpenPackageModal(true);
     } else {
-      // User has selected package, open mining modal and trigger order check
       setOpenMiningModal(true);
       setShouldCheckOrder(true);
     }
@@ -186,10 +174,8 @@ const Task: React.FC = () => {
     try {
       await updatePackage({ userId, amount }).unwrap();
       setOpenPackageModal(false);
-      toast.success("Package selected successfully");
-      console.log("Package selected successfully:", amount);
+      toast.success("Reservation package selected successfully");
 
-      // After package selection, show mining modal and proceed with normal flow
       setOpenMiningModal(true);
       setShouldCheckOrder(true);
     } catch (error) {
@@ -203,121 +189,129 @@ const Task: React.FC = () => {
       await removeMysteryReward(userId).unwrap();
       setOpenMysteryRewardModal(false);
       toast.success("Mystery reward claimed successfully!");
-      console.log("Mystery reward removed successfully");
     } catch (error) {
       console.error("Failed to remove mystery reward:", error);
       toast.error((error as any)?.data?.message);
     }
-
-
   };
 
   if (isLoading && !userData) {
     return (
-      <div className="max-w-[500px] mx-auto bg-white h-screen flex items-center justify-center">
+      <div className="max-w-[500px] mx-auto bg-[#fdfbf7] h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#b58a4b] mx-auto"></div>
+          <p className="mt-4 text-[#b58a4b] font-serif font-medium">Loading Hotel Reservations...</p>
         </div>
       </div>
     );
   }
 
-
-
   return (
-    <div className="max-w-[500px] mx-auto bg-white h-auto relative">
-      {/* Optional: Loading Overlay for Background Refetches */}
+    <div className="max-w-[500px] mx-auto bg-[#fdfbf7] min-h-screen relative pb-28">
+      {/* Loading Overlay */}
       {isFetching && userData && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-slate-900 text-white text-center py-1 text-sm max-w-[500px] mx-auto">
-          Checking for updates...
+        <div className="fixed top-0 left-0 right-0 z-50 bg-[#b58a4b] text-white text-center py-1 text-xs max-w-[500px] mx-auto font-medium">
+          Syncing reservation data...
         </div>
       )}
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 py-3">
-        <div className="flex items-center text-sm text-gray-600 mb-3">
-          <span className="hover:text-gray-900 cursor-pointer">Home</span>
-          <ChevronRight className="w-4 h-4 mx-1" />
-          <span className="text-gray-900">Go Shopping</span>
+
+      {/* Hotel Reservation Header */}
+      <div className="bg-white border-b border-amber-100 px-4 py-4 shadow-2xs">
+        <div className="flex items-center text-xs text-slate-500 mb-2">
+          <Link to="/" className="hover:text-[#b58a4b]">Home</Link>
+          <ChevronRight className="w-3.5 h-3.5 mx-1 text-slate-400" />
+          <span className="text-slate-900 font-medium">Hotel Reservation</span>
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">Autotrader Order</h1>
+        <div className="flex items-center space-x-2">
+          <Building2 className="w-6 h-6 text-[#b58a4b]" />
+          <h1 className="text-xl sm:text-2xl font-serif font-bold text-[#1a2332]">
+            NH Hotel Reservation
+          </h1>
+        </div>
+        <p className="text-xs text-slate-500 font-light mt-1">
+          Exclusive Luxury Suites & Resort Reservation Service
+        </p>
       </div>
 
       {/* Tab Headers */}
-      <div className="grid grid-cols-2 border-b border-gray-300">
-        <div className="text-center py-3 font-semibold text-gray-900 border-b-2 border-gray-900">
-          Ng.Collection
+      <div className="grid grid-cols-2 border-b border-amber-200/60 bg-amber-50/50">
+        <div className="text-center py-3 font-serif font-semibold text-[#b58a4b] border-b-2 border-[#b58a4b] text-sm">
+          Luxury Collection
         </div>
-        <div className="text-center py-3 font-semibold text-gray-600">
-          Description
+        <div className="text-center py-3 font-serif font-medium text-slate-500 text-sm">
+          Reservation Policy
         </div>
       </div>
 
-      {/* Product List */}
-      <div className="divide-y divide-gray-200">
+      {/* Hotel Room List */}
+      <div className="divide-y divide-amber-100 bg-white">
         {tasks.map((task) => (
           <div
             key={task.id}
-            className="flex items-center justify-between px-4 py-4 hover:bg-gray-50 cursor-pointer transition-colors"
+            className="flex items-center justify-between px-4 py-3.5 hover:bg-amber-50/40 cursor-pointer transition-colors"
           >
-            {/* Left Side: Number + Image + Details */}
-            <div className="flex items-center gap-4 flex-1">
+            {/* Left Side: Number + Room Image + Room Details */}
+            <div className="flex items-center gap-3.5 flex-1">
               {/* Number */}
-              <div className="text-lg font-semibold text-gray-900 w-6">
+              <div className="text-sm font-serif font-bold text-[#b58a4b] w-5 text-center">
                 {task.id}
               </div>
 
-              {/* Product Image */}
-              <div className="w-16 h-16 bg-gray-100 rounded flex-shrink-0 overflow-hidden">
+              {/* Room Image */}
+              <div className="w-16 h-16 rounded-xl bg-amber-50 flex-shrink-0 overflow-hidden border border-amber-100 shadow-2xs">
                 <img
                   src={task.image}
                   alt={task.title}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect fill='%23e5e7eb' width='64' height='64'/%3E%3C/svg%3E%3C/svg%3E";
-                  }}
                 />
               </div>
 
-              {/* Product Details */}
+              {/* Room Details */}
               <div className="flex-1">
-                <h3 className="text-sm font-medium text-gray-900 mb-1">
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[#b58a4b] bg-amber-50 px-2 py-0.5 rounded-xs">
+                  {task.category}
+                </span>
+                <h3 className="text-xs sm:text-sm font-serif font-bold text-[#1a2332] mt-0.5 mb-1 leading-tight">
                   {task.title}
                 </h3>
-                <div className="flex items-center gap-1 text-xs text-gray-600">
-                  <Star className="w-3 h-3 fill-current text-gray-900" />
+                <div className="flex items-center gap-1 text-[11px] text-slate-500">
+                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                   <span>{task.reviews}</span>
                 </div>
               </div>
             </div>
 
             {/* Right Arrow */}
-            <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
+            <ChevronRight className="w-5 h-5 text-slate-400 flex-shrink-0" />
           </div>
         ))}
       </div>
 
-      {/* Bottom Buttons */}
-      <div className="max-w-[500px] px-5 mx-auto bg-white border-t border-gray-200">
-        <div className="grid grid-cols-2 gap-2 mb-4 my-8">
+      {/* Bottom Action Area */}
+      <div className="max-w-[500px] px-5 mx-auto bg-[#fdfbf7] border-t border-amber-200/60 pt-6 pb-4">
+        <div className="grid grid-cols-2 gap-3 mb-4">
           <button
             onClick={() => setOpenAccountModal(true)}
-            className="py-4 cursor-pointer rounded-sm text-white bg-teal hover:bg-teal/80 font-medium transition-colors"
+            className="py-3 cursor-pointer rounded-xl text-white bg-[#547792] hover:bg-[#46657d] font-medium text-xs sm:text-sm transition-colors shadow-xs"
           >
             Account Details
           </button>
 
-          <Link to="/order-record" className="py-4 cursor-pointer rounded-sm text-white text-center bg-teal hover:bg-teal/80 font-medium transition-colors">
-            Order Record
+          <Link
+            to="/order-record"
+            className="py-3 cursor-pointer rounded-xl text-white text-center bg-[#547792] hover:bg-[#46657d] font-medium text-xs sm:text-sm transition-colors shadow-xs"
+          >
+            Reservation Record
           </Link>
         </div>
+
+        {/* Start Reservation Button */}
         <button
           onClick={handleStartClick}
-          className="w-full py-4 text-white cursor-pointer bg-primaryButton rounded-sm hover:bg-gray-900 font-semibold text-lg transition-colors"
+          className="w-full py-3.5 text-white cursor-pointer bg-[#b58a4b] hover:bg-[#9c7339] rounded-xl font-serif font-bold text-base sm:text-lg transition-all shadow-md active:scale-99 flex items-center justify-center gap-2"
         >
-          Start{" "}
-          <span className="text-gray-200 ms-2">
+          <span>Start Reservation</span>
+          <span className="bg-white/20 text-white px-2.5 py-0.5 rounded-full text-xs font-sans font-semibold">
             {userData?.data?.completedOrdersCount} / 25
           </span>
         </button>
@@ -341,19 +335,17 @@ const Task: React.FC = () => {
         isLoading={isUpdating}
       />
 
-      {/* Mystery Box Modal (for admin assigned products) */}
+      {/* Mystery Box Modal */}
       {mysteryBoxData && (
         <MysteryBoxModal
           open={openMysteryBoxModal}
           onClose={async () => {
-            // Mark mystery box as seen when user claims it
             if (mysteryBoxData.productId) {
               try {
                 await markMysteryBoxAsSeen({
                   userId,
-                  productId: mysteryBoxData.productId
+                  productId: mysteryBoxData.productId,
                 }).unwrap();
-                console.log("Mystery box marked as seen");
               } catch (error) {
                 console.error("Failed to mark mystery box as seen:", error);
               }
@@ -366,14 +358,13 @@ const Task: React.FC = () => {
         />
       )}
 
-      {/* Mystery Reward Modal (for global mystery reward) */}
+      {/* Mystery Reward Modal */}
       {activeMysteryReward && (
         <MysteryBoxRewardModal
           open={openMysteryRewardModal}
           onClose={async () => {
             try {
               await removeMysteryReward(userId).unwrap();
-              console.log("Mystery reward removed successfully");
             } catch (error) {
               console.error("Failed to remove mystery reward:", error);
             }
@@ -384,9 +375,11 @@ const Task: React.FC = () => {
           onContinue={handleMysteryRewardContinue}
         />
       )}
+
       {/* Mining Order Modal */}
       <MiningOrderModal open={openMiningModal} setOpen={setOpenMiningModal} />
-      {/* Error Modal */}
+
+      {/* Error Modals */}
       <ErrorModal
         isOpen={openErrorModal}
         message={errorMessage}
@@ -397,11 +390,8 @@ const Task: React.FC = () => {
         message={errorMessageBlack}
         onClose={() => setOpenErrorModalBlack(false)}
       />
-
-      {/* Add padding at bottom to prevent content from being hidden behind fixed buttons */}
-      <div className="h-32"></div>
     </div>
   );
 };
 
-export default Task;  
+export default Task;
