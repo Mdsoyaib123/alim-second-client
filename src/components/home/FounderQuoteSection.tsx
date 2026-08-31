@@ -13,7 +13,7 @@ const FounderQuoteSection: React.FC = () => {
             <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-white shadow-md">
               <img
                 src={FOUNDER_IMAGE}
-                alt="Kennedy - Founder of NH Hotel"
+                alt="Kennedy - Founder of NOVA Hotel"
                 className="w-full h-full object-cover object-center"
               />
             </div>
@@ -33,7 +33,7 @@ const FounderQuoteSection: React.FC = () => {
               “
             </span>
             <p className="font-serif italic text-slate-700 text-sm sm:text-base leading-relaxed px-4 pt-1 pb-1">
-              I established NH Hotel to bring true luxury to a select number of clients - a gold-standard concierge service and genuine expertise, delivered by only the best professionals in the industry.
+              I established NOVA Hotel to bring true luxury to a select number of clients - a gold-standard concierge service and genuine expertise, delivered by only the best professionals in the industry.
             </p>
             <span className="text-primary font-serif text-4xl leading-none absolute -bottom-6 right-2 opacity-80 select-none">
               ”
