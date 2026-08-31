@@ -1,7 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Building2, CalendarCheck, ShieldCheck, Star } from "lucide-react";
+import {
+  ArrowLeft,
+  Building2,
+  CalendarCheck,
+  ShieldCheck,
+  Star,
+} from "lucide-react";
 import {
   useConfirmPurchaseOrderMutation,
   useGetPurchaseOrderQuery,
@@ -51,7 +57,7 @@ const Product: React.FC = () => {
   const orderNumber = purchaseData?.data?.orderNumber;
 
   const handleBack = () => {
-    navigate("/task");
+    navigate("/reservation");
   };
 
   const handleSubmit = async () => {
@@ -72,8 +78,10 @@ const Product: React.FC = () => {
           return;
         }
 
-        toast.success(response?.message || "Reservation confirmed successfully");
-        navigate("/task");
+        toast.success(
+          response?.message || "Reservation confirmed successfully",
+        );
+        navigate("/reservation");
       } else {
         toast.error(response?.message || "Failed to confirm reservation");
       }
@@ -110,7 +118,7 @@ const Product: React.FC = () => {
 
   if (isLoading || isFetching) {
     return (
-      <div className="max-w-[500px] mx-auto bg-brand-bg h-screen flex items-center justify-center">
+      <div className="max-w-125 mx-auto bg-brand-bg h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#b58a4b] mx-auto"></div>
           <p className="mt-5 text-[#b58a4b] font-serif text-sm tracking-wide">
@@ -123,14 +131,16 @@ const Product: React.FC = () => {
 
   if (error || !product) {
     return (
-      <div className="max-w-[500px] mx-auto bg-brand-bg h-screen flex items-center justify-center p-4">
+      <div className="max-w-125 mx-auto bg-brand-bg h-screen flex items-center justify-center p-4">
         <div className="text-center bg-white p-6 rounded-2xl border border-amber-100 shadow-sm max-w-sm w-full">
           <p className="text-red-500 mb-4 text-sm font-medium">
-            {purchaseData?.data?.message || (error as any)?.data?.message || "Failed to load reservation details"}
+            {purchaseData?.data?.message ||
+              (error as any)?.data?.message ||
+              "Failed to load reservation details"}
           </p>
           <button
             onClick={handleBack}
-            className="px-6 py-2.5 bg-[#b58a4b] text-white rounded-xl hover:bg-[#9c7339] font-medium text-sm transition-colors shadow-xs"
+            className="px-6 py-2.5 bg-[#b58a4b] text-white rounded-xl hover:bg-primary-hover font-medium text-sm transition-colors shadow-xs"
           >
             Go Back
           </button>
@@ -190,7 +200,7 @@ const Product: React.FC = () => {
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          
+
           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
             <div className="flex items-center space-x-1.5 bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-medium">
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
@@ -208,7 +218,10 @@ const Product: React.FC = () => {
         {/* Title & Badges */}
         <div className="bg-white rounded-2xl p-4 border border-amber-100 shadow-2xs">
           <h2 className="font-serif font-bold text-xl sm:text-2xl text-text-dark mb-2 leading-tight">
-            {product.name} <span className="text-[#b58a4b] text-base font-normal">{getOrderLabel()}</span>
+            {product.name}{" "}
+            <span className="text-[#b58a4b] text-base font-normal">
+              {getOrderLabel()}
+            </span>
           </h2>
 
           <div className="flex items-center flex-wrap gap-2">
@@ -222,7 +235,8 @@ const Product: React.FC = () => {
               {product.status}
             </span>
 
-            {(purchaseData?.data?.mysteryboxMethod === "12x" || purchaseData?.data?.mysteryboxMethod === "3x") && (
+            {(purchaseData?.data?.mysteryboxMethod === "12x" ||
+              purchaseData?.data?.mysteryboxMethod === "3x") && (
               <span className="text-xs bg-amber-100 text-[#b58a4b] font-semibold px-2.5 py-0.5 rounded-full border border-amber-200">
                 {purchaseData?.data?.mysteryboxMethod === "12x"
                   ? "Flipbox Reward"
@@ -239,7 +253,9 @@ const Product: React.FC = () => {
               <CalendarCheck className="w-4 h-4 text-[#b58a4b]" />
               Reservation Summary
             </span>
-            <span className="text-[11px] text-slate-500 font-light">Guaranteed Rate</span>
+            <span className="text-[11px] text-slate-500 font-light">
+              Guaranteed Rate
+            </span>
           </div>
 
           <div className="flex justify-between items-center text-xs sm:text-sm">
@@ -252,7 +268,9 @@ const Product: React.FC = () => {
           <div className="flex justify-between items-center text-xs sm:text-sm">
             <span className="text-slate-600 font-light flex items-center gap-1">
               Concierge Commission:
-              <span className="text-[9px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-semibold">Earn</span>
+              <span className="text-[9px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-semibold">
+                Earn
+              </span>
             </span>
             <span className="font-bold text-emerald-600">
               +
@@ -320,8 +338,8 @@ const Product: React.FC = () => {
                   {purchaseData?.data?.mysteryboxMethod === "12x"
                     ? "12x"
                     : purchaseData?.data?.mysteryboxMethod === "cash"
-                    ? "Cash"
-                    : "3x"}
+                      ? "Cash"
+                      : "3x"}
                 </span>
               </span>
               <span className="font-bold text-emerald-700">
