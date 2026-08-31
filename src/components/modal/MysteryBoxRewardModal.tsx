@@ -28,9 +28,7 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
 
     const normalizedReward = Number(mysteryReward);
 
-
     useEffect(() => {
-        // Reset state when modal opens
         if (open) {
             setSelectedBox(null);
             setRevealedBoxes([]);
@@ -39,14 +37,6 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
     }, [open]);
 
     if (!open) return null;
-
-    // const generateRandomAmount = (): string => {
-    //     // Generate random amount between 50% to 150% of mystery reward
-    //     const min = Math.floor(mysteryReward * 0.5);
-    //     const max = Math.floor(mysteryReward * 1.5);
-    //     const amount = Math.floor(Math.random() * (max - min + 1)) + min;
-    //     return amount.toLocaleString();
-    // };
 
     const generateLowerAmount = (): string => {
         const min = Math.floor(normalizedReward * 0.5);
@@ -62,29 +52,11 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
         return amount.toLocaleString();
     };
 
-
-    console.log("Mystery Reward RAW:", mysteryReward);
-    console.log("Mystery Reward TYPE:", typeof mysteryReward);
-
-
-
-    // const generateUniqueAmounts = (count: number): string[] => {
-    //     const amounts = new Set<string>();
-
-    //     while (amounts.size < count) {
-    //         amounts.add(generateRandomAmount());
-    //     }
-
-    //     return Array.from(amounts);
-    // };
-
     const handleBoxClick = (boxIndex: number) => {
         if (selectedBox !== null || isAnimating) return;
-
         setIsAnimating(true);
         setSelectedBox(boxIndex);
 
-        // Reveal selected box first (winning amount)
         setTimeout(() => {
             setRevealedBoxes((prev) => [
                 ...prev,
@@ -96,15 +68,12 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
             ]);
         }, 500);
 
-        // Reveal other boxes after a delay with unique random amounts
         setTimeout(() => {
             const otherBoxes = [0, 1, 2].filter((i) => i !== boxIndex);
-
-            // Generate one lower & one higher amount
             const amounts = [
                 generateLowerAmount(),
                 generateHigherAmount(),
-            ].sort(() => Math.random() - 0.5); // shuffle so order is random
+            ].sort(() => Math.random() - 0.5);
 
             const reveals: BoxReveal[] = otherBoxes.map((idx, i) => ({
                 boxIndex: idx,
@@ -115,7 +84,6 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
             setRevealedBoxes((prev) => [...prev, ...reveals]);
             setIsAnimating(false);
         }, 1500);
-
     };
 
     const getRevealedAmount = (boxIndex: number): BoxReveal | undefined => {
@@ -132,33 +100,29 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
     };
 
     return (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-            <div className="bg-transparent relative w-full max-w-lg">
-                {/* Close button */}
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div className="bg-card-bg rounded-xl shadow-lg w-full max-w-lg border border-card-border">
                 <button
                     onClick={onClose}
-                    className="absolute -top-12 right-0 text-white/50 hover:text-white transition-colors z-10"
+                    className="absolute -top-12 right-0 text-text-muted hover:text-primary transition-colors z-10"
                     disabled={isAnimating}
                 >
                     <X className="w-8 h-8" />
                 </button>
 
-                {/* Content */}
                 <div className="relative">
-                    {/* Header */}
-                    <div className="text-center mb-8">
-                        <h2 className="text-4xl font-bold text-white mb-2">
+                    <div className="text-center mb-8 pt-8">
+                        <h2 className="text-4xl font-serif font-bold text-text-dark mb-2">
                             Mystery Reward!
                         </h2>
-                        <p className="text-gray-300 text-lg">
+                        <p className="text-slate-600 text-lg">
                             {selectedBox === null
                                 ? "Choose Your Supreme Box"
                                 : "Congratulations!"}
                         </p>
                     </div>
 
-                    {/* Mystery Boxes */}
-                    <div className="flex justify-center gap-8 mb-8">
+                    <div className="flex justify-center gap-8 mb-8 px-4">
                         {[0, 1, 2].map((boxIndex) => {
                             const revealed = getRevealedAmount(boxIndex);
                             const isRevealed = isBoxRevealed(boxIndex);
@@ -192,19 +156,18 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
                                                 alt="Opened Treasure"
                                                 className="w-full h-full object-contain"
                                             />
-                                            {/* Amount overlay */}
                                             <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                                <div className="text-xs text-yellow-400 mb-1">₹</div>
+                                                <div className="text-xs text-primary mb-1">₹</div>
                                                 <div
                                                     className={`text-xl font-bold ${revealed?.isWinning
-                                                        ? "text-yellow-400 animate-pulse"
-                                                        : "text-white bg-black/70"
+                                                        ? "text-primary animate-pulse"
+                                                        : "text-text-dark"
                                                         }`}
                                                 >
                                                     ৳{revealed?.amount}
                                                 </div>
                                                 {revealed?.isWinning && (
-                                                    <div className="text-xs text-yellow-400 mt-1 font-semibold">
+                                                    <div className="text-xs text-primary mt-1 font-semibold">
                                                         YOU WIN!
                                                     </div>
                                                 )}
@@ -216,29 +179,27 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
                         })}
                     </div>
 
-                    {/* Result message */}
                     {revealedBoxes.length === 3 && (
                         <div className="text-center animate-fadeIn">
-                            <div className="bg-black bg-opacity-50 rounded-lg p-6 mb-6 backdrop-blur-sm">
-                                <p className="text-white text-xl font-semibold mb-2">
+                            <div className="bg-card-beige rounded-lg p-6 mb-6 border border-card-border">
+                                <p className="text-text-dark text-xl font-semibold mb-2">
                                     Your Prize
                                 </p>
-                                <p className="text-yellow-400 text-4xl font-bold">
+                                <p className="text-primary text-4xl font-bold">
                                     ৳{mysteryReward.toLocaleString()}
                                 </p>
                             </div>
                             <button
                                 onClick={handleContinue}
-                                className="w-full max-w-xs mx-auto py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold text-lg rounded-lg hover:from-yellow-500 hover:to-orange-600 transition-all transform hover:scale-105 shadow-lg"
+                                className="w-full max-w-xs mx-auto py-4 bg-primary hover:bg-primary-hover text-white font-bold text-lg rounded-lg transition-all transform hover:scale-105 shadow-lg"
                             >
                                 Continue
                             </button>
                         </div>
                     )}
 
-                    {/* Instructions */}
                     {selectedBox === null && (
-                        <div className="text-center text-gray-300 text-base">
+                        <div className="text-center text-slate-600 text-base">
                             <p className="font-medium">Pick a box to reveal your reward!</p>
                         </div>
                     )}
@@ -256,7 +217,6 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
                         transform: translateY(0);
                     }
                 }
-
                 .animate-fadeIn {
                     animation: fadeIn 0.5s ease-out;
                 }
