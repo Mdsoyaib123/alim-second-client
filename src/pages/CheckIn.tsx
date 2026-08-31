@@ -32,7 +32,7 @@ export default function CheckIn() {
   const totalCheckIns = userData?.data?.dailyCheckInReward?.totalCheckIns ?? 0;
   const hasCompletedRequiredOrders = orderCount >= 41;
 
-  const handleClaim = async (dayNum: number, amount: number) => {
+  const handleClaim = async (_dayNum: number, amount: number) => {
     if (isClaiming) return;
 
     try {
