@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Loader2, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import {
   useGetUserCompletedProductsQuery,
   useGetUserUncompletedProductsQuery,
