@@ -10,10 +10,6 @@ import {
   Settings,
   Building2,
   ChevronRight,
-  Wallet,
-  ShoppingBag,
-  TrendingUp,
-  CircleDollarSign,
 } from "lucide-react";
 import { MdHistory } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
@@ -86,14 +82,6 @@ const Account: React.FC = () => {
               Hotel
             </h1>
           </div>
-
-          <button
-            onClick={() => navigate("/")}
-            className="w-9 h-9 rounded-full border border-primary/15 bg-white/70 flex items-center justify-center text-slate-500 hover:text-primary hover:bg-white transition-all"
-            aria-label="Close"
-          >
-            <span className="text-lg leading-none">×</span>
-          </button>
         </div>
 
         {/* Guest profile */}
@@ -101,7 +89,7 @@ const Account: React.FC = () => {
           {/* Avatar */}
           <div className="relative mb-4">
             <div className="w-24 h-24 rounded-full bg-white border border-primary/30 flex items-center justify-center shadow-lg">
-              <div className="w-[84px] h-[84px] rounded-full bg-brand-bg flex items-center justify-center">
+              <div className="w-21 h-21 rounded-full bg-brand-bg flex items-center justify-center">
                 <User className="w-9 h-9 text-primary stroke-[1.5]" />
               </div>
             </div>
