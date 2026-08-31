@@ -64,7 +64,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
             </h1>
 
             {/* Gold horizontal accent line */}
-            <div className="w-14 h-[3px] bg-primary rounded-full my-4" />
+            <div className="w-14 h-0.75 bg-primary rounded-full my-4" />
 
             <p className="text-slate-700 text-sm sm:text-base font-medium mb-2 leading-relaxed">
               Achievement is a testament to excellent
