@@ -118,12 +118,79 @@ const Product: React.FC = () => {
 
   if (isLoading || isFetching) {
     return (
-      <div className="max-w-125 mx-auto bg-brand-bg h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#b58a4b] mx-auto"></div>
-          <p className="mt-5 text-[#b58a4b] font-serif text-sm tracking-wide">
-            Loading Suite Reservation Details...
-          </p>
+      <div className="max-w-125 mx-auto bg-brand-bg min-h-screen pb-36 text-text-dark animate-pulse">
+        {/* Skeleton for Top Header */}
+        <div className="bg-white border-b border-amber-100 px-4 py-3.5 sticky top-0 z-20 shadow-2xs">
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 bg-gray-200 rounded-full" />
+            <div>
+              <div className="h-5 bg-gray-200 rounded w-40 mb-1" />
+              <div className="h-3 bg-gray-200 rounded w-28" />
+            </div>
+          </div>
+        </div>
+
+        {/* Skeleton for Order Number Badge */}
+        <div className="px-4 py-3 bg-[#faf5ed] border-b border-amber-200/50 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <div className="w-4 h-4 bg-gray-200 rounded" />
+            <div className="h-4 bg-gray-200 rounded w-24" />
+          </div>
+          <div className="h-4 bg-gray-200 rounded-full w-20" />
+        </div>
+
+        {/* Skeleton for Room / Suite Main Showcase Image */}
+        <div className="p-4">
+          <div className="relative w-full h-70 sm:h-80 rounded-2xl overflow-hidden bg-gray-200 shadow-sm" />
+        </div>
+
+        {/* Skeleton for Suite Information */}
+        <div className="px-4 space-y-4">
+          {/* Title & Badges Skeleton */}
+          <div className="bg-white rounded-2xl p-4 border border-amber-100 shadow-2xs space-y-2">
+            <div className="h-6 bg-gray-200 rounded w-3/4" />
+            <div className="flex items-center gap-2">
+              <div className="h-5 bg-gray-200 rounded-full w-16" />
+              <div className="h-5 bg-gray-200 rounded-full w-24" />
+            </div>
+          </div>
+
+          {/* Pricing Summary Box Skeleton */}
+          <div className="bg-[#faf5ed] border border-amber-200/70 rounded-2xl p-4 sm:p-5 space-y-3 shadow-2xs">
+            <div className="flex items-center justify-between border-b border-amber-200/60 pb-2.5">
+              <div className="h-4 bg-gray-200 rounded w-40" />
+              <div className="h-3 bg-gray-200 rounded w-16" />
+            </div>
+            <div className="space-y-2">
+              <div className="flex justify-between items-center">
+                <div className="h-3 bg-gray-200 rounded w-1/3" />
+                <div className="h-4 bg-gray-200 rounded w-1/4" />
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="h-3 bg-gray-200 rounded w-1/2" />
+                <div className="h-4 bg-gray-200 rounded w-1/5" />
+              </div>
+            </div>
+            <div className="border-t border-amber-200/60 pt-3 flex justify-between items-center">
+              <div className="h-4 bg-gray-200 rounded w-2/3" />
+              <div className="h-6 bg-gray-200 rounded w-1/4" />
+            </div>
+          </div>
+
+          {/* Suite Overview Description Skeleton */}
+          <div className="bg-white rounded-2xl p-4 border border-amber-100 shadow-2xs space-y-2">
+            <div className="h-5 bg-gray-200 rounded w-2/3 mb-1" />
+            <div className="h-3 bg-gray-200 rounded w-full" />
+            <div className="h-3 bg-gray-200 rounded w-5/6" />
+          </div>
+        </div>
+
+        {/* Bottom Action Bar Skeleton */}
+        <div className="fixed bottom-16 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-amber-200/60 p-3 max-w-125 mx-auto z-40 shadow-2xl">
+          <div className="grid grid-cols-2 gap-3">
+            <div className="h-12 bg-gray-200 rounded-xl" />
+            <div className="h-12 bg-gray-200 rounded-xl" />
+          </div>
         </div>
       </div>
     );
