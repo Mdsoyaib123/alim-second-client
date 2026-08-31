@@ -22,7 +22,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
   const userName = userData?.data?.name || "ishak11";
 
   return (
-    <div className="relative w-full bg-[#fdfbf7] text-[#1a2332]">
+    <div className="relative w-full bg-brand-bg text-text-dark">
       {/* Top Banner with Unsplash Background */}
       <div className="relative min-h-[480px] sm:min-h-[520px] w-full flex flex-col justify-between overflow-hidden">
         {/* Unsplash Background Image */}
@@ -33,33 +33,33 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
             className="w-full h-full object-cover object-center"
           />
           {/* Subtle gradient overlay to enhance readability on text side */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fdfbf7]/90 via-[#fdfbf7]/60 to-transparent sm:w-3/4" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#fdfbf7]/40 via-transparent to-[#fdfbf7]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-bg/90 via-brand-bg/60 to-transparent sm:w-3/4" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/40 via-transparent to-brand-bg" />
         </div>
 
         {/* Content Container */}
         <div className="relative z-10 container mx-auto px-6 pt-6 sm:pt-8 pb-12 flex flex-col items-start max-w-5xl">
           {/* Logo Badge */}
           <div className="flex items-center gap-2.5 mb-8 sm:mb-10">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 border-2 border-[#b58a4b] rounded-sm flex items-center justify-center bg-white/40 backdrop-blur-xs shadow-xs">
-              <span className="font-serif font-bold text-[#b58a4b] text-base sm:text-lg leading-none">H</span>
+            <div className="w-8 h-8 sm:w-9 sm:h-9 border-2 border-primary rounded-sm flex items-center justify-center bg-white/40 backdrop-blur-xs shadow-xs">
+              <span className="font-serif font-bold text-primary text-base sm:text-lg leading-none">H</span>
             </div>
-            <span className="font-serif tracking-widest text-[#a0763b] font-semibold text-base sm:text-lg">
+            <span className="font-serif tracking-widest text-primary-hover font-semibold text-base sm:text-lg">
               NH HOTEL
             </span>
           </div>
 
           {/* Greeting Section */}
           <div className="max-w-md">
-            <p className="font-serif italic text-[#b58a4b] text-xl sm:text-2xl font-light mb-0.5">
+            <p className="font-serif italic text-primary text-xl sm:text-2xl font-light mb-0.5">
               Welcome,
             </p>
-            <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-[#1a2332] tracking-tight">
+            <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-text-dark tracking-tight">
               {userName}
             </h1>
             
             {/* Gold horizontal accent line */}
-            <div className="w-14 h-[3px] bg-[#b58a4b] rounded-full my-4" />
+            <div className="w-14 h-[3px] bg-primary rounded-full my-4" />
 
             <p className="text-slate-700 text-sm sm:text-base font-medium mb-2 leading-relaxed">
               Achievement is a testament to excellent
@@ -71,7 +71,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
             {/* Make a Reservation Button */}
             <button
               onClick={onReservationClick}
-              className="bg-[#b58a4b] hover:bg-[#9c7339] active:scale-97 text-white font-medium px-5 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2.5 cursor-pointer text-sm sm:text-base"
+              className="bg-primary hover:bg-primary-hover active:scale-97 text-white font-medium px-5 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2.5 cursor-pointer text-sm sm:text-base"
             >
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-amber-100" />
               <span>Make a Reservation</span>

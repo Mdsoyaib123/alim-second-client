@@ -1,4 +1,3 @@
-import React from "react";
 import PopularHotels from "@/components/about/PopularHotels";
 import FeatureHotels from "@/components/about/FeatureHotels";
 import MoreHotels from "@/components/about/MoreHotels";

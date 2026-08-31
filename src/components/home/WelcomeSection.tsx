@@ -2,19 +2,19 @@ import React from "react";
 
 const WelcomeSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#fdfbf7] py-12 sm:py-16 px-6 text-center">
+    <section className="w-full bg-brand-bg py-12 sm:py-16 px-6 text-center">
       <div className="max-w-3xl mx-auto flex flex-col items-center">
         {/* Section Header with Side Lines */}
         <div className="flex items-center justify-center space-x-3 w-full max-w-xs mb-2">
-          <div className="h-[1px] bg-[#b58a4b]/60 flex-1" />
-          <span className="text-[#b58a4b] tracking-[0.25em] text-xs sm:text-sm font-medium uppercase">
+          <div className="h-[1px] bg-primary/60 flex-1" />
+          <span className="text-primary tracking-[0.25em] text-xs sm:text-sm font-medium uppercase">
             Welcome To
           </span>
-          <div className="h-[1px] bg-[#b58a4b]/60 flex-1" />
+          <div className="h-[1px] bg-primary/60 flex-1" />
         </div>
 
         {/* Main Title */}
-        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a2332] mb-6 tracking-tight">
+        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-text-dark mb-6 tracking-tight">
           NH Hotel
         </h2>
 
