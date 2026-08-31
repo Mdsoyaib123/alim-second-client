@@ -92,7 +92,7 @@ const routes = createBrowserRouter([
         element: <BindAccount />,
       },
       {
-        path: "/order-record",
+        path: "/booking-history",
         element: <OrderRecord />,
       },
       {
