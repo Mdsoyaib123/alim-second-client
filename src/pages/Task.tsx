@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ChevronRight, Star, Building2 } from "lucide-react";
+import { ChevronRight, Star } from "lucide-react";
 import AccountDetailsModal from "@/components/modal/AccountDetailsModal";
 import PackageSelectionModal from "@/components/modal/PackageSelectionModal";
 import MysteryBoxModal from "@/components/modal/MysteryBoxModal";
@@ -222,12 +222,12 @@ const Task: React.FC = () => {
           <ChevronRight className="w-3.5 h-3.5 mx-1 text-slate-400" />
           <span className="text-slate-900 font-medium">Hotel Reservation</span>
         </div>
-        <div className="flex items-center space-x-2">
+        {/* <div className="flex items-center space-x-2">
           <Building2 className="w-6 h-6 text-[#b58a4b]" />
           <h1 className="text-xl sm:text-2xl font-serif font-bold text-[#1a2332]">
             NH Hotel Reservation
           </h1>
-        </div>
+        </div> */}
         <p className="text-xs text-slate-500 font-light mt-1">
           Exclusive Luxury Suites & Resort Reservation Service
         </p>
@@ -243,46 +243,68 @@ const Task: React.FC = () => {
         </div>
       </div>
 
-      {/* Hotel Room List */}
-      <div className="divide-y divide-amber-100 bg-white">
+      {/* Hotel Room List - Luxury Cards Layout */}
+      <div className="p-3.5 sm:p-4 space-y-3 bg-[#fdfbf7]">
         {tasks.map((task) => (
           <div
             key={task.id}
-            className="flex items-center justify-between px-4 py-3.5 hover:bg-amber-50/40 cursor-pointer transition-colors"
+            className="bg-white rounded-2xl border border-amber-200/70 p-3 shadow-xs hover:shadow-md transition-all duration-300 group cursor-pointer flex items-center gap-3"
           >
-            {/* Left Side: Number + Room Image + Room Details */}
-            <div className="flex items-center gap-3.5 flex-1">
-              {/* Number */}
-              <div className="text-sm font-serif font-bold text-[#b58a4b] w-5 text-center">
+            {/* Room Image Container with Badges */}
+            <div className="relative w-28 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-2xs">
+              <img
+                src={task.image}
+                alt={task.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              {/* Room Number Badge */}
+              <div className="absolute top-1.5 left-1.5 w-5 h-5 rounded-full bg-black/60 backdrop-blur-xs text-white text-[10px] font-serif font-bold flex items-center justify-center border border-white/30">
                 {task.id}
               </div>
-
-              {/* Room Image */}
-              <div className="w-16 h-16 rounded-xl bg-amber-50 flex-shrink-0 overflow-hidden border border-amber-100 shadow-2xs">
-                <img
-                  src={task.image}
-                  alt={task.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Room Details */}
-              <div className="flex-1">
-                <span className="text-[10px] uppercase font-bold tracking-wider text-[#b58a4b] bg-amber-50 px-2 py-0.5 rounded-xs">
-                  {task.category}
-                </span>
-                <h3 className="text-xs sm:text-sm font-serif font-bold text-[#1a2332] mt-0.5 mb-1 leading-tight">
-                  {task.title}
-                </h3>
-                <div className="flex items-center gap-1 text-[11px] text-slate-500">
-                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                  <span>{task.reviews}</span>
-                </div>
+              {/* Rating Badge Overlay */}
+              <div className="absolute bottom-1.5 left-1.5 bg-white/90 backdrop-blur-xs text-[#1a2332] text-[9px] font-bold px-1.5 py-0.5 rounded-md flex items-center gap-0.5 shadow-xs">
+                <Star className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />
+                <span>5.0</span>
               </div>
             </div>
 
-            {/* Right Arrow */}
-            <ChevronRight className="w-5 h-5 text-slate-400 flex-shrink-0" />
+            {/* Room Details */}
+            <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+              <div>
+                <div className="flex items-center justify-between gap-1 mb-0.5">
+                  <span className="text-[9px] uppercase font-extrabold tracking-wider text-[#b58a4b] bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/50">
+                    {task.category}
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-light truncate">
+                    {task.reviews}
+                  </span>
+                </div>
+
+                <h3 className="font-serif font-bold text-xs sm:text-sm text-[#1a2332] group-hover:text-[#b58a4b] transition-colors leading-tight truncate">
+                  {task.title}
+                </h3>
+              </div>
+
+              {/* Luxury Amenities Tags */}
+              <div className="flex items-center gap-1.5 mt-2 text-[10px] text-slate-500 font-light overflow-x-auto no-scrollbar">
+                <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 flex-shrink-0">
+                  ✦ King Bed
+                </span>
+                <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 flex-shrink-0">
+                  ✦ Ocean View
+                </span>
+                <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 flex-shrink-0">
+                  ✦ VIP
+                </span>
+              </div>
+            </div>
+
+            {/* Right Action Circle Button */}
+            <div className="flex items-center justify-center pr-1 flex-shrink-0">
+              <div className="w-7 h-7 rounded-full bg-amber-50 group-hover:bg-[#b58a4b] text-[#b58a4b] group-hover:text-white flex items-center justify-center transition-all duration-200">
+                <ChevronRight className="w-4 h-4" />
+              </div>
+            </div>
           </div>
         ))}
       </div>
