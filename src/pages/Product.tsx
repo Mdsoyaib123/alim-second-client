@@ -199,7 +199,7 @@ const Product: React.FC = () => {
                 "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=600&q=80";
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
 
           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
             <div className="flex items-center space-x-1.5 bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-medium">
@@ -313,7 +313,7 @@ const Product: React.FC = () => {
       </div>
 
       {/* Bottom Action Bar */}
-      <div className="fixed bottom-16 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-amber-200/60 p-3 max-w-[500px] mx-auto z-40 shadow-2xl">
+      <div className="fixed bottom-16 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-amber-200/60 p-3 max-w-125 mx-auto z-40 shadow-2xl">
         <div className="grid grid-cols-2 gap-3">
           <button
             onClick={handleModalOpen}
@@ -323,7 +323,7 @@ const Product: React.FC = () => {
               ${
                 isConfirming
                   ? "bg-slate-300 text-slate-500 cursor-not-allowed"
-                  : "bg-[#b58a4b] hover:bg-[#9c7339] text-white"
+                  : "bg-[#b58a4b] hover:bg-primary-hover text-white"
               }
             `}
           >
