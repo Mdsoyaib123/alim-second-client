@@ -2,61 +2,66 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface MiningOrderModalProps {
-    open: boolean;
-    setOpen: (open: boolean) => void;
+  open: boolean;
+  setOpen: (open: boolean) => void;
 }
 
-const MiningOrderModal: React.FC<MiningOrderModalProps> = ({ open, setOpen }) => {
-    if (!open) return null;
+const MiningOrderModal: React.FC<MiningOrderModalProps> = ({
+  open,
+  setOpen,
+}) => {
+  if (!open) return null;
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        setTimeout(() => {
-            navigate("/product");
-            setOpen(false);
-        }, 3000);
-    }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/product");
+      setOpen(false);
+    }, 3000);
+  }, []);
 
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-            <div className="bg-card-bg rounded-xl shadow-md max-w-sm w-full mx-4 text-center border border-card-border">
-                {/* Mining Icon/Image */}
-                <div className="mb-6 flex justify-center">
-                    <div className="relative">
-                        <div className="w-24 h-24 bg-gradient-to-br from-primary to-primary-hover rounded-full flex items-center justify-center animate-pulse">
-                            <svg
-                                className="w-16 h-16"
-                                viewBox="0 0 120 120"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <defs>
-                                    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                                        <stop offset="0%" stopColor="white" stopOpacity="1" />
-                                        <stop offset="100%" stopColor="white" stopOpacity="0.2" />
-                                    </radialGradient>
-                                </defs>
-                                <circle cx="60" cy="60" r="16" fill="url(#glow)" className="animate-pulse" />
-                                <circle cx="60" cy="60" r="36" stroke="rgba(255,255,255,0.35)" strokeWidth="3" strokeDasharray="6 10" className="animate-spin origin-center" style={{ animationDuration: "3s" }} />
-                                <path d="M60 24 A36 36 0 0 1 96 60" stroke="white" strokeWidth="4" strokeLinecap="round" className="animate-spin origin-center" style={{ animationDuration: "1s" }} />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 className="text-2xl font-serif font-bold text-text-dark mb-2">
-                    Snatching Order...
-                </h2>
-
-                <div className="flex justify-center gap-1 mt-4">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                </div>
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+      <div className="bg-card-bg rounded-xl shadow-md max-w-sm w-full mx-4 text-center border border-card-border">
+        <div className="mb-6 flex justify-center">
+          <div className="relative">
+            <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center animate-pulse-slow border-2 border-primary-hover">
+              {/* Hotel Bell Icon - representing service/reservation */}
+              <svg
+                className="w-16 h-16 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M12 2C9.243 2 7 4.243 7 7v4H4v2h2v7h12v-7h2v-2h-3V7c0-2.757-2.243-5-5-5zm0 2c1.654 0 3 1.346 3 3v4H9V7c0-1.654 1.346-3 3-3zm-1 12H9v-2h2v2zm-2 0H7v-2h2v2zm6 0h-2v-2h2v2zm2 0h-2v-2h2v2zm-6-4H9v-2h2v2zm-2 0H7v-2h2v2zm6 0h-2v-2h2v2zm2 0h-2v-2h2v2zM12 5a.5.5 0 100 1 .5.5 0 000-1z" />
+              </svg>
+              <div className="absolute inset-0 border-4 border-white/20 rounded-full animate-ping-slow" />
             </div>
+          </div>
         </div>
-    );
+
+        <h2 className="text-2xl font-serif font-bold text-text-dark mb-2">
+          Confirming Reservation...
+        </h2>
+
+        <div className="flex justify-center gap-1 mt-4">
+          <div
+            className="w-2 h-2 bg-primary rounded-full animate-bounce"
+            style={{ animationDelay: "0ms" }}
+          ></div>
+          <div
+            className="w-2 h-2 bg-primary rounded-full animate-bounce"
+            style={{ animationDelay: "150ms" }}
+          ></div>
+          <div
+            className="w-2 h-2 bg-primary rounded-full animate-bounce"
+            style={{ animationDelay: "300ms" }}
+          ></div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default MiningOrderModal;
