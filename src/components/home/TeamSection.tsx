@@ -9,16 +9,20 @@ interface TeamMember {
   avatarPosition: "left" | "right";
 }
 
-const JORDAN_AVATAR = "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80";
-const KELLY_AVATAR = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80";
-const GWEN_AVATAR = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80";
+const JORDAN_AVATAR =
+  "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80";
+const KELLY_AVATAR =
+  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80";
+const GWEN_AVATAR =
+  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80";
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "jordan",
     name: "Jordan Timber",
     role: "NH Hotel Manager",
-    quote: "Working at NH Hotel is a fantastic experience, as they truly value their employees and create a supportive work environment.",
+    quote:
+      "Working at NH Hotel is a fantastic experience, as they truly value their employees and create a supportive work environment.",
     avatar: JORDAN_AVATAR,
     avatarPosition: "left",
   },
@@ -26,7 +30,8 @@ const TEAM_MEMBERS: TeamMember[] = [
     id: "kelly",
     name: "Kelly",
     role: "NH Hotel Manager",
-    quote: "NH Hotel offers great career development opportunities, with training programs that help employees grow professionally.",
+    quote:
+      "NH Hotel offers great career development opportunities, with training programs that help employees grow professionally.",
     avatar: KELLY_AVATAR,
     avatarPosition: "right",
   },
@@ -34,7 +39,8 @@ const TEAM_MEMBERS: TeamMember[] = [
     id: "gwen",
     name: "Gwen",
     role: "NH Hotel Manager",
-    quote: "Working at NH Hotel allows employees to engage with people from all over the world, which makes it exciting and culturally enriching.",
+    quote:
+      "Working at NH Hotel allows employees to engage with people from all over the world, which makes it exciting and culturally enriching.",
     avatar: GWEN_AVATAR,
     avatarPosition: "left",
   },
@@ -75,7 +81,9 @@ const TeamSection: React.FC = () => {
                 )}
 
                 {/* Content */}
-                <div className={`flex-1 ${isAvatarLeft ? "text-left" : "text-left"}`}>
+                <div
+                  className={`flex-1 ${isAvatarLeft ? "text-left" : "text-left"}`}
+                >
                   <div className="flex items-baseline flex-wrap gap-x-2 mb-1">
                     <h3 className="font-serif font-bold text-base sm:text-lg text-primary">
                       {member.name}
