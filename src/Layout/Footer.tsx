@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
     },
     {
       name: "Information",
-      path: "/help",
+      path: "/about",
       icon: (
         <div className="relative flex items-center justify-center">
           <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-[#2b6cb0]" />
