@@ -13,7 +13,9 @@ const Footer: React.FC = () => {
       name: "Home",
       path: "/",
       icon: (active: boolean) => (
-        <Home className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary fill-primary/15" : "text-slate-400"}`} />
+        <Home
+          className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary fill-primary/15" : "text-slate-400"}`}
+        />
       ),
       isActive: path === "/" || path === "/index",
     },
@@ -22,19 +24,29 @@ const Footer: React.FC = () => {
       path: "/about",
       icon: (active: boolean) => (
         <div className="relative flex items-center justify-center">
-          <FileText className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`} />
+          <FileText
+            className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`}
+          />
           <span className="absolute -top-1 -right-1 w-2 h-2 bg-pink-500 rounded-full" />
         </div>
       ),
-      isActive: path === "/help" || path === "/about" || path === "/services" || path === "/contact",
+      isActive:
+        path === "/help" ||
+        path === "/about" ||
+        path === "/services" ||
+        path === "/contact",
     },
     {
       name: "Reservation",
       path: "/task",
       icon: (active: boolean) => (
-        <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg border-2 flex items-center justify-center transition-all shadow-2xs ${
-          active ? "border-primary bg-primary text-white shadow-xs scale-105" : "border-amber-200/80 bg-amber-50/60 text-primary"
-        }`}>
+        <div
+          className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg border-2 flex items-center justify-center transition-all shadow-2xs ${
+            active
+              ? "border-primary bg-primary text-white shadow-xs scale-105"
+              : "border-amber-200/80 bg-amber-50/60 text-primary"
+          }`}
+        >
           <span className="font-serif font-black text-[11px] sm:text-xs leading-none tracking-tighter">
             NH
           </span>
@@ -47,7 +59,9 @@ const Footer: React.FC = () => {
       path: "/order-record",
       icon: (active: boolean) => (
         <div className="relative flex items-center justify-center">
-          <ClipboardList className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`} />
+          <ClipboardList
+            className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`}
+          />
           <span className="absolute -bottom-0.5 -right-1 w-2 h-2 bg-emerald-500 rounded-full" />
         </div>
       ),
@@ -57,9 +71,15 @@ const Footer: React.FC = () => {
       name: "Account",
       path: isAuthenticated ? "/account" : "/login",
       icon: (active: boolean) => (
-        <User className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`} />
+        <User
+          className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`}
+        />
       ),
-      isActive: path === "/account" || path === "/bind-account" || path === "/login" || path === "/signup",
+      isActive:
+        path === "/account" ||
+        path === "/bind-account" ||
+        path === "/login" ||
+        path === "/signup",
     },
   ];
 
@@ -89,7 +109,9 @@ const Footer: React.FC = () => {
               {/* Label */}
               <span
                 className={`text-[10px] sm:text-[11px] tracking-tight transition-colors ${
-                  active ? "text-primary font-bold" : "text-slate-500 font-medium group-hover:text-slate-800"
+                  active
+                    ? "text-primary font-bold"
+                    : "text-slate-500 font-medium group-hover:text-slate-800"
                 }`}
               >
                 {item.name}
