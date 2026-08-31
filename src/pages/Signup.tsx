@@ -77,7 +77,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-brand-bg max-w-[500px] mx-auto pb-24 text-text-dark">
+    <div className="min-h-screen bg-brand-bg max-w-125 mx-auto pb-24 text-text-dark">
       {/* Top Luxury Banner */}
       <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-900 shadow-sm flex items-center justify-center text-center">
         <img
@@ -85,11 +85,13 @@ const Signup = () => {
           alt="NH Hotel Lobby"
           className="absolute inset-0 w-full h-full object-cover opacity-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/45 to-black/20" />
 
         <div className="relative z-10 px-6">
           <div className="inline-flex items-center space-x-1.5 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-amber-200/40 mb-2">
-            <span className="font-serif font-bold text-xs text-white">NH HOTEL</span>
+            <span className="font-serif font-bold text-xs text-white">
+              NH HOTEL
+            </span>
           </div>
           <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Guest Registration
@@ -101,8 +103,8 @@ const Signup = () => {
       </div>
 
       {/* Form Card */}
-      <div className="p-4 sm:p-6">
-        <div className="bg-white rounded-2xl p-6 border border-amber-100/80 shadow-2xs space-y-4">
+      <div className="p-4">
+        <div className="bg-white rounded-md p-6 border border-amber-100/80 shadow-2xs space-y-4">
           <div className="flex items-center space-x-2 border-b border-amber-100 pb-3 mb-2">
             <UserPlus className="w-5 h-5 text-primary" />
             <h2 className="font-serif font-bold text-base text-text-dark">
@@ -113,7 +115,7 @@ const Signup = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Phone Field */}
             <div>
-              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 flex items-center gap-1.5">
+              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 items-center gap-1.5">
                 <Phone className="w-3.5 h-3.5 text-primary" />
                 Phone Number *
               </label>
@@ -138,7 +140,7 @@ const Signup = () => {
 
             {/* Verification Code */}
             <div>
-              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 flex items-center gap-1.5">
+              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 items-center gap-1.5">
                 <KeyRound className="w-3.5 h-3.5 text-primary" />
                 Verification Code *
               </label>
@@ -173,7 +175,7 @@ const Signup = () => {
 
             {/* Password Field */}
             <div>
-              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 flex items-center gap-1.5">
+              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 items-center gap-1.5">
                 <Lock className="w-3.5 h-3.5 text-primary" />
                 Password *
               </label>
@@ -184,13 +186,15 @@ const Signup = () => {
                 className="w-full border border-amber-200/80 rounded-xl px-3.5 py-2.5 text-sm bg-brand-bg/50 focus:outline-none focus:border-primary transition-colors"
               />
               {errors.password && (
-                <p className="text-red-500 text-xs mt-1">{errors.password.message}</p>
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
             {/* Confirm Password */}
             <div>
-              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 flex items-center gap-1.5">
+              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 items-center gap-1.5">
                 <Lock className="w-3.5 h-3.5 text-primary" />
                 Confirm Password *
               </label>
@@ -222,7 +226,7 @@ const Signup = () => {
 
             {/* Email */}
             <div>
-              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 flex items-center gap-1.5">
+              <label className="block text-xs font-serif font-semibold text-text-dark mb-1 items-center gap-1.5">
                 <Mail className="w-3.5 h-3.5 text-primary" />
                 Email *
               </label>
@@ -233,7 +237,9 @@ const Signup = () => {
                 className="w-full border border-amber-200/80 rounded-xl px-3.5 py-2.5 text-sm bg-brand-bg/50 focus:outline-none focus:border-primary transition-colors"
               />
               {errors.email && (
-                <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
@@ -250,7 +256,10 @@ const Signup = () => {
           {/* Already have an account */}
           <div className="pt-3 border-t border-amber-100 text-center text-xs">
             <span className="text-slate-500">Already have an account? </span>
-            <Link to="/login" className="text-primary font-bold hover:underline">
+            <Link
+              to="/login"
+              className="text-primary font-bold hover:underline"
+            >
               Sign In
             </Link>
           </div>
