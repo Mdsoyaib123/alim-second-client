@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
     },
     {
       name: "Reservation",
-      path: "/task",
+      path: "/reservation",
       icon: (active: boolean) => (
         <div
           className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg border-2 flex items-center justify-center transition-all shadow-2xs ${
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
           </span>
         </div>
       ),
-      isActive: path === "/task" || path === "/check-in",
+      isActive: path === "/reservation" || path === "/check-in",
     },
     {
       name: "History",
