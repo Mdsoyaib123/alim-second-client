@@ -4,12 +4,11 @@ import { X } from "lucide-react";
 interface PackageSelectionModalProps {
     open: boolean;
     onClose: () => void;
-    availableSlots: number[]; // Slots user can select
+    availableSlots: number[];
     onSelectPackage: (amount: number) => void;
     isLoading?: boolean;
 }
 
-// All possible package slots
 const ALL_SLOTS = [10500, 30000, 50000, 100000, 200000, 300000, 500000, 1000000];
 
 const PackageSelectionModal: React.FC<PackageSelectionModalProps> = ({
@@ -33,35 +32,31 @@ const PackageSelectionModal: React.FC<PackageSelectionModalProps> = ({
         return amount.toLocaleString();
     };
 
-    // Check if a slot is available for selection
     const isSlotAvailable = (amount: number) => {
         return availableSlots.includes(amount);
     };
 
     return (
-        <div className="fixed inset-0 backdrop-blur-sm bg-black/35 bg-opacity-50 flex items-center justify-center z-50 p-4">
-            <div className="bg-[#1a1a1a] rounded-lg w-full max-w-md">
-                {/* Header */}
-                <div className="flex items-center justify-between p-4  border-gray-200">
-                    <h2 className="text-xl font-semibold text-white">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+            <div className="bg-card-bg rounded-xl shadow-lg w-full max-w-md border border-card-border">
+                <div className="flex items-center justify-between p-4 border-b border-card-border">
+                    <h2 className="text-xl font-serif font-bold text-text-dark">
                         Select Package
                     </h2>
                     <button
                         onClick={onClose}
-                        className="text-gray-400 hover:text-gray-600 transition-colors"
+                        className="text-text-muted hover:text-primary transition-colors"
                         disabled={isLoading}
                     >
                         <X className="w-6 h-6" />
                     </button>
                 </div>
 
-                {/* Content */}
                 <div className="p-4">
-                    <p className="text-sm text-gray-300 mb-4">
+                    <p className="text-sm text-slate-600 mb-4">
                         Choose a package to start your orders
                     </p>
 
-                    {/* Package Grid */}
                     <div className="grid grid-cols-2 gap-3 mb-6">
                         {ALL_SLOTS.map((amount) => {
                             const isAvailable = isSlotAvailable(amount);
@@ -73,12 +68,12 @@ const PackageSelectionModal: React.FC<PackageSelectionModalProps> = ({
                                     onClick={() => isAvailable && setSelectedAmount(amount)}
                                     disabled={!isAvailable}
                                     className={`
-                                        py-4 px-3 rounded-lg font-medium text-center transition-all hover:bg-amber-400 hover:text-white
+                                        py-4 px-3 rounded-lg font-medium text-center transition-all border
                                         ${isSelected
-                                            ? "bg-amber-400 text-white border-3 border-amber-800 "
+                                            ? "bg-primary text-white border-primary"
                                             : isAvailable
-                                                ? "bg-gray-50 text-gray-900 border-2 border-gray-200 hover:border-amber-400 cursor-pointer"
-                                                : "bg-gray-100 text-gray-400 border-2 border-gray-200 cursor-not-allowed opacity-50"
+                                                ? "bg-card-beige text-text-dark border-card-border hover:border-primary hover:text-primary cursor-pointer"
+                                                : "bg-card-beige text-text-muted border-card-border cursor-not-allowed opacity-50"
                                         }
                                     `}
                                 >
@@ -93,11 +88,10 @@ const PackageSelectionModal: React.FC<PackageSelectionModalProps> = ({
                         })}
                     </div>
 
-                    {/* Action Buttons */}
                     <div className="flex gap-3">
                         <button
                             onClick={onClose}
-                            className="flex-1 py-3 px-4 bg-gray-200 text-gray-900 rounded-lg font-medium hover:bg-gray-300 transition-colors"
+                            className="flex-1 py-3 px-4 border border-card-border text-text-dark rounded-lg font-medium hover:bg-card-beige transition-colors"
                             disabled={isLoading}
                         >
                             Cancel
@@ -106,10 +100,10 @@ const PackageSelectionModal: React.FC<PackageSelectionModalProps> = ({
                             onClick={handleConfirm}
                             disabled={selectedAmount === null || isLoading}
                             className={`
-                                flex-1 py-3 px-4 rounded-lg font-medium transition-colors
+                                flex-1 py-3 px-4 rounded-lg font-medium transition-colors text-white
                                 ${selectedAmount === null || isLoading
-                                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                                    : "bg-amber-600 text-white hover:bg-amber-800"
+                                    ? "bg-slate-300 cursor-not-allowed"
+                                    : "bg-primary hover:bg-primary-hover"
                                 }
                             `}
                         >
