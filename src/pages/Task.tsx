@@ -234,7 +234,7 @@ const Task: React.FC = () => {
     <div className="max-w-125 mx-auto bg-brand-bg min-h-screen relative pb-28">
       {/* Loading Overlay */}
       {isFetching && userData && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-[#b58a4b] text-white text-center py-1 text-xs max-w-125 mx-auto font-medium">
+        <div className="fixed button-0 left-0 right-0 z-50 bg-[#b58a4b] text-white text-center py-1 text-xs max-w-125 mx-auto font-medium">
           Syncing reservation data...
         </div>
       )}
@@ -346,7 +346,7 @@ const Task: React.FC = () => {
           </button>
 
           <Link
-            to="/order-record"
+            to="/booking-history"
             className="py-3 cursor-pointer rounded-xl text-white text-center bg-[#547792] hover:bg-[#46657d] font-medium text-xs sm:text-sm transition-colors shadow-xs"
           >
             Reservation Record
