@@ -20,6 +20,7 @@ import Help from "@/pages/Help";
 import Score from "@/pages/Score";
 import WithdrawPassword from "@/pages/WithdrawPassword";
 import Event from "@/pages/Event";
+import Account from "@/pages/Account";
 
 const routes = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Index />,
+      },
+      {
+        path: "/account",
+        element: <Account />,
       },
       {
         path: "/about",

@@ -55,13 +55,13 @@ const Footer: React.FC = () => {
     },
     {
       name: "Account",
-      path: isAuthenticated ? "/bind-account" : "/login",
+      path: isAuthenticated ? "/account" : "/login",
       icon: (
         <div className="relative flex items-center justify-center">
           <User className="w-5 h-5 sm:w-6 sm:h-6 text-[#2b6cb0]" />
         </div>
       ),
-      isActive: path === "/bind-account" || path === "/login" || path === "/signup",
+      isActive: path === "/account" || path === "/bind-account" || path === "/login" || path === "/signup",
     },
   ];
 
