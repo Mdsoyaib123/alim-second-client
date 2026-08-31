@@ -52,11 +52,11 @@ const TeamSection: React.FC = () => {
       <div className="max-w-3xl mx-auto flex flex-col items-center">
         {/* Section Header */}
         <div className="flex items-center justify-center space-x-3 w-full max-w-xs mb-8">
-          <div className="h-[1px] bg-primary/60 flex-1" />
+          <div className="h-px bg-primary/60 flex-1" />
           <span className="text-primary tracking-[0.25em] text-xs sm:text-sm font-medium uppercase">
             Our Team
           </span>
-          <div className="h-[1px] bg-primary/60 flex-1" />
+          <div className="h-px bg-primary/60 flex-1" />
         </div>
 
         {/* Team Cards Stack */}
@@ -71,7 +71,7 @@ const TeamSection: React.FC = () => {
               >
                 {/* Left Avatar (if left layout) */}
                 {isAvatarLeft && (
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-white shadow-xs">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-xs">
                     <img
                       src={member.avatar}
                       alt={member.name}
@@ -99,7 +99,7 @@ const TeamSection: React.FC = () => {
 
                 {/* Right Avatar (if right layout) */}
                 {!isAvatarLeft && (
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden flex-shrink-0 border-2 border-white shadow-xs">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-xs">
                     <img
                       src={member.avatar}
                       alt={member.name}
