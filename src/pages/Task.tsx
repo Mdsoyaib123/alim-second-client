@@ -10,7 +10,7 @@ import {
   useGetSingleUserQuery,
   useUpdateSelectedPackageMutation,
   useRemoveMysteryRewardMutation,
-  useMarkMysteryBoxAsSeenMutation
+  useMarkMysteryBoxAsSeenMutation,
 } from "@/store/api/user/userApi";
 import { toast } from "sonner";
 import MiningOrderModal from "@/components/modal/MiningOrderModal";
@@ -27,39 +27,44 @@ interface TaskItem {
 
 const Task: React.FC = () => {
   const navigate = useNavigate();
-  
+
   const tasks: TaskItem[] = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=400&q=80",
+      image:
+        "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=400&q=80",
       title: "Presidential Ocean Suite",
       reviews: "6,507 Reviews",
       category: "Ultra Luxury Suite",
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=80",
+      image:
+        "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=80",
       title: "Royal Penthouse Suite",
       reviews: "16,772 Reviews",
       category: "VIP Penthouse",
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80",
+      image:
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80",
       title: "Executive Sky Villa",
       reviews: "14,803 Reviews",
       category: "Private Villa",
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80",
+      image:
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80",
       title: "Grand Deluxe Ocean View",
       reviews: "5,458 Reviews",
       category: "Deluxe Suite",
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=400&q=80",
+      image:
+        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=400&q=80",
       title: "Imperial Horizon Suite",
       reviews: "10,237 Reviews",
       category: "Horizon Suite",
@@ -70,7 +75,9 @@ const Task: React.FC = () => {
   const [openPackageModal, setOpenPackageModal] = useState(false);
   const [openMysteryBoxModal, setOpenMysteryBoxModal] = useState(false);
   const [openMysteryRewardModal, setOpenMysteryRewardModal] = useState(false);
-  const [activeMysteryReward, setActiveMysteryReward] = useState<number | null>(null);
+  const [activeMysteryReward, setActiveMysteryReward] = useState<number | null>(
+    null,
+  );
   const [mysteryBoxData, setMysteryBoxData] = useState<any>(null);
   const [openMiningModal, setOpenMiningModal] = useState(false);
 
@@ -95,7 +102,8 @@ const Task: React.FC = () => {
     refetchOnReconnect: true,
   });
 
-  const [updatePackage, { isLoading: isUpdating }] = useUpdateSelectedPackageMutation();
+  const [updatePackage, { isLoading: isUpdating }] =
+    useUpdateSelectedPackageMutation();
   const [removeMysteryReward] = useRemoveMysteryRewardMutation();
   const [markMysteryBoxAsSeen] = useMarkMysteryBoxAsSeenMutation();
 
@@ -129,20 +137,23 @@ const Task: React.FC = () => {
   };
 
   const handleStartClick = () => {
-    if (user?.adminAssaignProductsOrRewards && user.adminAssaignProductsOrRewards.length > 0) {
+    if (
+      user?.adminAssaignProductsOrRewards &&
+      user.adminAssaignProductsOrRewards.length > 0
+    ) {
       const productWithMysteryBox = user.adminAssaignProductsOrRewards.find(
         (product: any) =>
           product.mysterybox &&
           product.mysterybox.method &&
           product.mysterybox.amount &&
-          product.mysterybox.seenTheReward === false
+          product.mysterybox.seenTheReward === false,
       );
       const mysteryBoxOrderNumber = productWithMysteryBox?.orderNumber;
 
       if (mysteryBoxOrderNumber === user?.completedOrdersCount + 1) {
         setMysteryBoxData({
           ...productWithMysteryBox.mysterybox,
-          productId: productWithMysteryBox.productId
+          productId: productWithMysteryBox.productId,
         });
         setOpenMysteryBoxModal(true);
         return;
@@ -151,13 +162,24 @@ const Task: React.FC = () => {
 
     refetch();
 
-    if ((user?.orderRound?.round === "trial") && (user?.completedOrdersCount === 25) && (user?.trialRoundBalance === 0)) {
-      setErrorMessageBlack("Your trial round has been completed. Now, to start the next round, please contact your senior consultant.");
+    if (
+      user?.orderRound?.round === "trial" &&
+      user?.completedOrdersCount === 25 &&
+      user?.trialRoundBalance === 0
+    ) {
+      setErrorMessageBlack(
+        "Your trial round has been completed. Now, to start the next round, please contact your senior consultant.",
+      );
       setOpenErrorModalBlack(true);
       return;
     }
-    if ((user?.orderRound?.round === "round_one") && (user?.completedOrdersCount === 25)) {
-      setErrorMessageBlack("Your round one has been completed. Now, to start the next round, please contact your customer services.");
+    if (
+      user?.orderRound?.round === "round_one" &&
+      user?.completedOrdersCount === 25
+    ) {
+      setErrorMessageBlack(
+        "Your round one has been completed. Now, to start the next round, please contact your customer services.",
+      );
       setOpenErrorModalBlack(true);
       return;
     }
@@ -197,31 +219,35 @@ const Task: React.FC = () => {
 
   if (isLoading && !userData) {
     return (
-      <div className="max-w-[500px] mx-auto bg-[#fdfbf7] h-screen flex items-center justify-center">
+      <div className="max-w-125 mx-auto bg-brand-bg h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#b58a4b] mx-auto"></div>
-          <p className="mt-4 text-[#b58a4b] font-serif font-medium">Loading Hotel Reservations...</p>
+          <p className="mt-4 text-[#b58a4b] font-serif font-medium">
+            Loading Hotel Reservations...
+          </p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-[500px] mx-auto bg-[#fdfbf7] min-h-screen relative pb-28">
+    <div className="max-w-125 mx-auto bg-brand-bg min-h-screen relative pb-28">
       {/* Loading Overlay */}
       {isFetching && userData && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-[#b58a4b] text-white text-center py-1 text-xs max-w-[500px] mx-auto font-medium">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-[#b58a4b] text-white text-center py-1 text-xs max-w-125 mx-auto font-medium">
           Syncing reservation data...
         </div>
       )}
 
       {/* Hotel Reservation Header */}
       <div className="bg-white border-b border-amber-100 px-4 py-4 shadow-2xs">
-        <div className="flex items-center text-xs text-slate-500 mb-2">
-          <Link to="/" className="hover:text-[#b58a4b]">Home</Link>
+        {/*<div className="flex items-center text-xs text-slate-500 mb-2">
+          <Link to="/" className="hover:text-[#b58a4b]">
+            Home
+          </Link>
           <ChevronRight className="w-3.5 h-3.5 mx-1 text-slate-400" />
           <span className="text-slate-900 font-medium">Hotel Reservation</span>
-        </div>
+        </div>*/}
         {/* <div className="flex items-center space-x-2">
           <Building2 className="w-6 h-6 text-[#b58a4b]" />
           <h1 className="text-xl sm:text-2xl font-serif font-bold text-[#1a2332]">
@@ -244,14 +270,14 @@ const Task: React.FC = () => {
       </div>
 
       {/* Hotel Room List - Luxury Cards Layout */}
-      <div className="p-3.5 sm:p-4 space-y-3 bg-[#fdfbf7]">
+      <div className="p-3.5 sm:p-4 space-y-3 bg-brand-bg">
         {tasks.map((task) => (
           <div
             key={task.id}
-            className="bg-white rounded-2xl border border-amber-200/70 p-3 shadow-xs hover:shadow-md transition-all duration-300 group cursor-pointer flex items-center gap-3"
+            className="bg-white rounded-md border border-amber-200/70 p-3 shadow-xs hover:shadow-md transition-all duration-300 group cursor-pointer flex items-center gap-3"
           >
             {/* Room Image Container with Badges */}
-            <div className="relative w-28 h-24 rounded-xl overflow-hidden flex-shrink-0 shadow-2xs">
+            <div className="relative w-28 h-24 rounded-xl overflow-hidden shrink-0 shadow-2xs">
               <img
                 src={task.image}
                 alt={task.title}
@@ -280,17 +306,17 @@ const Task: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="font-serif font-bold text-xs sm:text-sm text-[#1a2332] group-hover:text-[#b58a4b] transition-colors leading-tight truncate">
+                <h3 className="font-serif font-bold text-xs sm:text-sm text-text-dark group-hover:text-[#b58a4b] transition-colors leading-tight truncate">
                   {task.title}
                 </h3>
               </div>
 
               {/* Luxury Amenities Tags */}
               <div className="flex items-center gap-1.5 mt-2 text-[10px] text-slate-500 font-light overflow-x-auto no-scrollbar">
-                <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 flex-shrink-0">
+                <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 shrink-0">
                   ✦ King Bed
                 </span>
-                <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 flex-shrink-0">
+                <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 shrink-0">
                   ✦ Ocean View
                 </span>
                 <span className="bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100 flex-shrink-0">
