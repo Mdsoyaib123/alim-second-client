@@ -29,11 +29,7 @@ const Footer: React.FC = () => {
           />
         </div>
       ),
-      isActive:
-        path === "/help" ||
-        path === "/about" ||
-        path === "/services" ||
-        path === "/contact",
+      isActive: path === "/about",
     },
     {
       name: "Reservation",
@@ -63,7 +59,7 @@ const Footer: React.FC = () => {
           />
         </div>
       ),
-      isActive: path === "/order-record" || path === "/history",
+      isActive: path === "/order-record",
     },
     {
       name: "Account",
@@ -77,7 +73,11 @@ const Footer: React.FC = () => {
         path === "/account" ||
         path === "/bind-account" ||
         path === "/login" ||
-        path === "/signup",
+        path === "/signup" ||
+        path === "/help" ||
+        path === "/services" ||
+        path === "/contact" ||
+        path === "/history",
     },
   ];
 
