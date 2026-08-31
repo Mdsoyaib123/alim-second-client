@@ -129,8 +129,57 @@ const OrderRecord: React.FC = () => {
         {/* Booking Cards Container */}
         <div className="px-4">
           {isLoading ? (
-            <div className="flex items-center justify-center py-16">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <div className="space-y-4">
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-md p-4 border border-amber-100/80 shadow-2xs animate-pulse"
+                >
+                  {/* Top Info Row - Skeleton */}
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="w-20 h-16 sm:w-24 sm:h-20 rounded-xl bg-gray-200 shrink-0" />
+                    <div className="flex-1 min-w-0 space-y-2">
+                      <div className="h-4 bg-gray-200 rounded w-3/4" />
+                      <div className="h-3 bg-gray-200 rounded w-1/2" />
+                    </div>
+                  </div>
+
+                  {/* Middle Row - Skeleton */}
+                  <div className="pt-2.5 border-t border-slate-100 space-y-2">
+                    <div className="grid grid-cols-3 gap-2 text-xs">
+                      <div>
+                        <div className="h-3 bg-gray-200 rounded w-1/2" />
+                        <div className="h-4 bg-gray-200 rounded w-3/4 mt-1" />
+                      </div>
+                      <div>
+                        <div className="h-3 bg-gray-200 rounded w-1/2" />
+                        <div className="h-4 bg-gray-200 rounded w-3/4 mt-1" />
+                      </div>
+                      <div>
+                        <div className="h-3 bg-gray-200 rounded w-1/2" />
+                        <div className="h-4 bg-gray-200 rounded w-3/4 mt-1" />
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between pt-1">
+                      <div className="h-3 bg-gray-200 rounded w-1/4" />
+                      <div className="h-6 bg-gray-200 rounded w-20" />
+                    </div>
+                  </div>
+
+                  {/* Bottom Rating Evaluation Bar - Skeleton */}
+                  <div className="mt-3 bg-brand-bg border border-amber-200/60 rounded-xl p-2.5 px-3.5 flex items-center justify-between">
+                    <div className="h-4 bg-gray-200 rounded w-1/4" />
+                    <div className="flex items-center space-x-1">
+                      {[...Array(5)].map((_, starIndex) => (
+                        <div
+                          key={starIndex}
+                          className="w-3.5 h-3.5 bg-gray-200 rounded-full"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           ) : error ? (
             <div className="flex items-center justify-center py-16">
