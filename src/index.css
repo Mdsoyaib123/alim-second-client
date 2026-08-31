@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Alex+Brush&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Alex+Brush&family=Outfit:wght@300..800&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -39,11 +37,12 @@
   --color-charcoalDark: #181C14;
   --color-primaryButton: #0B1D51;
 
-  /* Typography Fonts */
-  --font-primary: "Poppins", sans-serif;
-  --font-secondary: "Roboto", sans-serif;
-  --font-snpro: "SN Pro", sans-serif;
-  --font-serif: "Playfair Display", serif;
+  /* Top 2026 Luxury Web Application Typography */
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-primary: "Plus Jakarta Sans", sans-serif;
+  --font-secondary: "Outfit", sans-serif;
+  --font-heading: "Outfit", "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Outfit", "Plus Jakarta Sans", sans-serif;
   --font-signature: "Alex Brush", cursive;
 
   /* Accordion Animations */
@@ -73,8 +72,11 @@
 
 @layer base {
   body {
-    font-family: var(--font-snpro);
+    font-family: var(--font-primary);
     overflow-x: hidden;
+    color: var(--color-text-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Main app container - centered mobile layout */
