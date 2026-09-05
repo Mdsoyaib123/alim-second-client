@@ -22,7 +22,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
     skip: !token || !userId,
   });
 
-  const userName = userData?.data?.name || "ishak11";
+  const userName = userData?.data?.name || "Guest";
 
   return (
     <div className="relative w-full bg-brand-bg text-text-dark">
