@@ -1,33 +1,33 @@
-import React, { useState, useEffect } from "react";
-import {
-  Menu,
-  User,
-  Mail,
-  CreditCard,
-  LogIn,
-  HelpCircle,
-  Info,
-  Settings,
-  Building2,
-} from "lucide-react";
-import { MdHistory, MdEvent, MdEmojiEvents } from "react-icons/md";
-import { TbCurrencyTaka } from "react-icons/tb";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
-import { logout } from "@/store/Slices/AuthSlice/authSlice";
+import { useState } from "react";
+// import {
+//   Menu,
+//   User,
+//   Mail,
+//   CreditCard,
+//   LogIn,
+//   HelpCircle,
+//   Info,
+//   Settings,
+//   Building2,
+// } from "lucide-react";
+// import { MdHistory, MdEvent, MdEmojiEvents } from "react-icons/md";
+// import { TbCurrencyTaka } from "react-icons/tb";
+// import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "@/hooks/useRedux";
+// import { logout } from "@/store/Slices/AuthSlice/authSlice";
 import { useGetSingleUserQuery } from "@/store/api/user/userApi";
 import AccountDetailsModal from "@/components/modal/AccountDetailsModal";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openAccountModal, setOpenAccountModal] = useState(false);
 
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
+  // const dispatch = useAppDispatch();
+  // const navigate = useNavigate();
+  // const location = useLocation();
 
   // Get authentication state from Redux
   const token = useAppSelector((state) => state.auth.token);
@@ -56,30 +56,30 @@ const Navbar = () => {
     trialRoundBalance: user?.trialRoundBalance || 0,
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  // const toggleMobileMenu = () => {
+  //   setIsMobileMenuOpen(!isMobileMenuOpen);
+  // };
 
   // Close sheet when route changes
-  useEffect(() => {
-    setIsOpen(false);
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+  // useEffect(() => {
+  //   setIsOpen(false);
+  //   setIsMobileMenuOpen(false);
+  // }, [location.pathname]);
 
-  const handleLogOut = () => {
-    setIsOpen(false);
-    dispatch(logout());
-    navigate("/login", { replace: true });
-  };
+  // const handleLogOut = () => {
+  //   setIsOpen(false);
+  //   dispatch(logout());
+  //   navigate("/login", { replace: true });
+  // };
 
-  const handleMenuItemClick = () => {
-    setIsOpen(false);
-  };
+  // const handleMenuItemClick = () => {
+  //   setIsOpen(false);
+  // };
 
-  const handleAccountDetailsClick = () => {
-    setIsOpen(false);
-    setOpenAccountModal(true);
-  };
+  // const handleAccountDetailsClick = () => {
+  //   setIsOpen(false);
+  //   setOpenAccountModal(true);
+  // };
 
   return (
     <>
@@ -191,18 +191,18 @@ const Navbar = () => {
 };
 
 // Reusable Menu Item Component
-const MenuItem = ({ icon, text }: { icon: React.ReactNode; text: string }) => {
-  return (
-    <div className="flex items-center justify-between px-5 py-3.5 hover:bg-amber-50/50 cursor-pointer transition-colors">
-      <div className="flex items-center gap-3">
-        <div className="p-1 rounded-md bg-amber-50">{icon}</div>
-        <span className="text-text-dark text-xs sm:text-sm font-serif font-medium">
-          {text}
-        </span>
-      </div>
-      <span className="text-primary font-light text-lg">+</span>
-    </div>
-  );
-};
+// const MenuItem = ({ icon, text }: { icon: React.ReactNode; text: string }) => {
+//   return (
+//     <div className="flex items-center justify-between px-5 py-3.5 hover:bg-amber-50/50 cursor-pointer transition-colors">
+//       <div className="flex items-center gap-3">
+//         <div className="p-1 rounded-md bg-amber-50">{icon}</div>
+//         <span className="text-text-dark text-xs sm:text-sm font-serif font-medium">
+//           {text}
+//         </span>
+//       </div>
+//       <span className="text-primary font-light text-lg">+</span>
+//     </div>
+//   );
+// };
 
 export default Navbar;
