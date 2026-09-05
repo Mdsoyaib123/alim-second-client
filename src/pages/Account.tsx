@@ -371,33 +371,33 @@ const SectionTitle = ({
    STAT CARD
 ================================================================ */
 
-const StatCard = ({
-  icon,
-  label,
-  value,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: React.ReactNode;
-}) => {
-  return (
-    <div className="bg-white rounded-2xl border border-primary/10 p-4">
-      <div className="flex items-center justify-between">
-        <div className="w-9 h-9 rounded-xl bg-brand-bg flex items-center justify-center text-primary">
-          {icon}
-        </div>
-      </div>
+// const StatCard = ({
+//   icon,
+//   label,
+//   value,
+// }: {
+//   icon: React.ReactNode;
+//   label: string;
+//   value: React.ReactNode;
+// }) => {
+//   return (
+//     <div className="bg-white rounded-2xl border border-primary/10 p-4">
+//       <div className="flex items-center justify-between">
+//         <div className="w-9 h-9 rounded-xl bg-brand-bg flex items-center justify-center text-primary">
+//           {icon}
+//         </div>
+//       </div>
 
-      <p className="text-[10px] uppercase tracking-wider text-slate-400 mt-4">
-        {label}
-      </p>
+//       <p className="text-[10px] uppercase tracking-wider text-slate-400 mt-4">
+//         {label}
+//       </p>
 
-      <p className="font-serif text-lg font-semibold text-text-dark mt-1 truncate">
-        {value}
-      </p>
-    </div>
-  );
-};
+//       <p className="font-serif text-lg font-semibold text-text-dark mt-1 truncate">
+//         {value}
+//       </p>
+//     </div>
+//   );
+// };
 
 /* ===============================================================
    ACCOUNT MENU ITEM
