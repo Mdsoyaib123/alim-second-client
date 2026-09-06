@@ -33,7 +33,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/account",
-        element: <ProtectedRoute><Account /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <Account />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/about",
@@ -53,15 +57,27 @@ const routes = createBrowserRouter([
       },
       {
         path: "/check-in",
-        element: <ProtectedRoute><CheckIn /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <CheckIn />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/services",
-        element: <ProtectedRoute><Services /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <Services />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/history",
-        element: <ProtectedRoute><History /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <History />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/help",
@@ -85,27 +101,51 @@ const routes = createBrowserRouter([
       },
       {
         path: "/reservation",
-        element: <ProtectedRoute><Task /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <Task />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/bind-account",
-        element: <ProtectedRoute><BindAccount /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <BindAccount />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/booking-history",
-        element: <ProtectedRoute><OrderRecord /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <OrderRecord />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/product",
-        element: <ProtectedRoute><Product /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <Product />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/cash-out",
-        element: <ProtectedRoute><CashOut /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <CashOut />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/withdraw-password",
-        element: <ProtectedRoute><WithdrawPassword /></ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <WithdrawPassword />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
