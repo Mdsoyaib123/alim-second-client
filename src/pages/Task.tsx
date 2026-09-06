@@ -17,6 +17,12 @@ import MiningOrderModal from "@/components/modal/MiningOrderModal";
 import ErrorModal from "@/components/modal/ErrorModal";
 import ErrorModalBlack from "@/components/modal/ErrorModalBlack";
 
+import img1 from "@/assets/product/01EsplanadeTergesteo.webp";
+import img2 from "@/assets/product/01LifestyleSuitesRome.webp";
+import img3 from "@/assets/product/1024-01BorgoAntichiOrti---2024.webp";
+import img4 from "@/assets/product/1024-01BorgoScopeto-2024-2.webp";
+import img5 from "@/assets/product/1024-01DOM-2024.webp";
+
 interface TaskItem {
   id: number;
   image: string;
@@ -31,40 +37,35 @@ const Task: React.FC = () => {
   const tasks: TaskItem[] = [
     {
       id: 1,
-      image:
-        "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=400&q=80",
+      image: img1,
       title: "Presidential Ocean Suite",
       reviews: "6,507 Reviews",
       category: "Ultra Luxury Suite",
     },
     {
       id: 2,
-      image:
-        "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=80",
+      image: img2,
       title: "Royal Penthouse Suite",
       reviews: "16,772 Reviews",
       category: "VIP Penthouse",
     },
     {
       id: 3,
-      image:
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80",
+      image: img3,
       title: "Executive Sky Villa",
       reviews: "14,803 Reviews",
       category: "Private Villa",
     },
     {
       id: 4,
-      image:
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80",
+      image: img4,
       title: "Grand Deluxe Ocean View",
       reviews: "5,458 Reviews",
       category: "Deluxe Suite",
     },
     {
       id: 5,
-      image:
-        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=400&q=80",
+      image: img5,
       title: "Imperial Horizon Suite",
       reviews: "10,237 Reviews",
       category: "Horizon Suite",
