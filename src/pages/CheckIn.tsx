@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import moneyBag from "@/assets/money-bag.png";
-import { useGetSingleUserQuery, useClaimCheckInRewardMutation } from "@/store/api/user/userApi";
+import {
+  useGetSingleUserQuery,
+  useClaimCheckInRewardMutation,
+} from "@/store/api/user/userApi";
 import { BsFileLock } from "react-icons/bs";
 import { toast } from "sonner";
 import { ArrowLeft, Gift } from "lucide-react";
@@ -26,7 +29,8 @@ export default function CheckIn() {
     refetchOnMountOrArgChange: true,
   });
 
-  const [claimReward, { isLoading: isClaiming }] = useClaimCheckInRewardMutation();
+  const [claimReward, { isLoading: isClaiming }] =
+    useClaimCheckInRewardMutation();
 
   const orderCount = userData?.data?.orderCountForCheckIn ?? 0;
   const totalCheckIns = userData?.data?.dailyCheckInReward?.totalCheckIns ?? 0;
@@ -52,7 +56,9 @@ export default function CheckIn() {
   if (isLoading) {
     return (
       <div className="max-w-[500px] mx-auto bg-brand-bg min-h-screen flex items-center justify-center">
-        <div className="text-center font-serif text-primary">Loading Check-In Rewards...</div>
+        <div className="text-center font-serif text-primary">
+          Loading Check-In Rewards...
+        </div>
       </div>
     );
   }
@@ -74,7 +80,7 @@ export default function CheckIn() {
               Daily Check In
             </h1>
             <p className="text-[11px] text-slate-400 font-light">
-              NH Hotel Daily Reward Concierge
+              NERO Hotel Daily Reward Concierge
             </p>
           </div>
         </div>
@@ -89,9 +95,11 @@ export default function CheckIn() {
             className="absolute inset-0 w-full h-full object-cover opacity-70"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
-          
+
           <div className="relative z-10 px-6 py-4">
-            <span className="font-serif italic text-amber-200 text-sm">Guest Rewards</span>
+            <span className="font-serif italic text-amber-200 text-sm">
+              Guest Rewards
+            </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight mt-0.5">
               Daily Check In Rewards
             </h2>
@@ -112,7 +120,8 @@ export default function CheckIn() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {rewards.map((item) => {
               const isClaimed = item.dayNum <= totalCheckIns;
-              const isUnlocked = hasCompletedRequiredOrders && item.dayNum === totalCheckIns + 1;
+              const isUnlocked =
+                hasCompletedRequiredOrders && item.dayNum === totalCheckIns + 1;
               const isLocked = item.dayNum > totalCheckIns + 1;
 
               return (
@@ -181,11 +190,13 @@ function RewardItem({
         disabled={isClaimed || isClaiming || !isUnlocked}
         className={`
           w-full relative flex flex-col items-center justify-between p-3 rounded-2xl transition-all duration-200 min-h-[120px]
-          ${isClaimed
-            ? "bg-emerald-50 border border-emerald-200 text-emerald-800 cursor-not-allowed"
-            : isUnlocked
-              ? "bg-[#faf5ed] hover:bg-amber-100/60 border border-amber-300 active:scale-95 cursor-pointer shadow-xs"
-              : "bg-slate-50 border border-slate-200 text-slate-400 cursor-not-allowed opacity-80"}
+          ${
+            isClaimed
+              ? "bg-emerald-50 border border-emerald-200 text-emerald-800 cursor-not-allowed"
+              : isUnlocked
+                ? "bg-[#faf5ed] hover:bg-amber-100/60 border border-amber-300 active:scale-95 cursor-pointer shadow-xs"
+                : "bg-slate-50 border border-slate-200 text-slate-400 cursor-not-allowed opacity-80"
+          }
         `}
       >
         {/* LOCK OVERLAY */}
@@ -204,11 +215,17 @@ function RewardItem({
           {isClaimed ? (
             <span className="text-emerald-600 text-lg font-bold">✓</span>
           ) : (
-            <img src={moneyBag} alt="money bag" className="h-6 w-6 object-contain" />
+            <img
+              src={moneyBag}
+              alt="money bag"
+              className="h-6 w-6 object-contain"
+            />
           )}
         </div>
 
-        <span className="text-xs font-serif font-semibold text-text-dark">{day}</span>
+        <span className="text-xs font-serif font-semibold text-text-dark">
+          {day}
+        </span>
         <span
           className={`text-xs font-bold ${
             isClaimed
