@@ -14,7 +14,9 @@ const BindAccount = () => {
   });
 
   const [name, setName] = useState("");
-  const [accountType, setAccountType] = useState<"BankTransfer" | "MobileBanking" | "">("");
+  const [accountType, setAccountType] = useState<
+    "BankTransfer" | "MobileBanking" | ""
+  >("");
 
   // Bank Transfer fields
   const [bankName, setBankName] = useState("");
@@ -29,7 +31,8 @@ const BindAccount = () => {
   const navigate = useNavigate();
 
   // Check if user already has withdrawal address and method
-  const hasWithdrawalAddress = userData?.data?.withdrawalAddressAndMethod &&
+  const hasWithdrawalAddress =
+    userData?.data?.withdrawalAddressAndMethod &&
     Object.keys(userData.data.withdrawalAddressAndMethod).length > 0;
 
   useEffect(() => {
@@ -46,13 +49,17 @@ const BindAccount = () => {
 
       if (withdrawalData.withdrawMethod === "BankTransfer") {
         if (withdrawalData.bankName) setBankName(withdrawalData.bankName);
-        if (withdrawalData.bankAccountNumber) setAccountNumber(withdrawalData.bankAccountNumber.toString());
+        if (withdrawalData.bankAccountNumber)
+          setAccountNumber(withdrawalData.bankAccountNumber.toString());
         if (withdrawalData.branchName) setBranchName(withdrawalData.branchName);
         if (withdrawalData.district) setDistrictName(withdrawalData.district);
       } else if (withdrawalData.withdrawMethod === "MobileBanking") {
-        if (withdrawalData.mobileBankingName) setProvider(withdrawalData.mobileBankingName);
-        if (withdrawalData.mobileBankingAccountNumber) setMobileNumber(withdrawalData.mobileBankingAccountNumber.toString());
-        if (withdrawalData.mobileUserDistrict) setDistrictName(withdrawalData.mobileUserDistrict);
+        if (withdrawalData.mobileBankingName)
+          setProvider(withdrawalData.mobileBankingName);
+        if (withdrawalData.mobileBankingAccountNumber)
+          setMobileNumber(withdrawalData.mobileBankingAccountNumber.toString());
+        if (withdrawalData.mobileUserDistrict)
+          setDistrictName(withdrawalData.mobileUserDistrict);
       }
     }
   }, [userData, hasWithdrawalAddress]);
@@ -136,7 +143,7 @@ const BindAccount = () => {
               Bind Account
             </h1>
             <p className="text-[11px] text-slate-400 font-light">
-              NH Hotel Payout Method Setup
+              NERO Hotel Payout Method Setup
             </p>
           </div>
         </div>
@@ -172,7 +179,11 @@ const BindAccount = () => {
             </label>
             <select
               value={accountType}
-              onChange={(e) => setAccountType(e.target.value as "BankTransfer" | "MobileBanking")}
+              onChange={(e) =>
+                setAccountType(
+                  e.target.value as "BankTransfer" | "MobileBanking",
+                )
+              }
               className="w-full border border-amber-200/80 rounded-xl px-3.5 py-2.5 text-sm bg-brand-bg/50 focus:outline-none focus:border-primary transition-colors cursor-pointer"
             >
               <option value="">Select Cash Out Method</option>
@@ -290,11 +301,19 @@ const BindAccount = () => {
           {/* Submit Button */}
           <button
             onClick={handleSubmit}
-            disabled={isLoading || (!hasWithdrawalAddress && (!accountType || !name))}
+            disabled={
+              isLoading || (!hasWithdrawalAddress && (!accountType || !name))
+            }
             className="w-full bg-primary hover:bg-primary-hover text-white font-serif font-bold py-3.5 rounded-xl transition-all shadow-md active:scale-99 disabled:opacity-50 disabled:cursor-not-allowed mt-4 flex items-center justify-center gap-2 cursor-pointer"
           >
             <ShieldCheck className="w-5 h-5 text-amber-100" />
-            <span>{isLoading ? "Binding..." : hasWithdrawalAddress ? "View / Edit Account" : "Bind Account"}</span>
+            <span>
+              {isLoading
+                ? "Binding..."
+                : hasWithdrawalAddress
+                  ? "View / Edit Account"
+                  : "Bind Account"}
+            </span>
           </button>
 
           {isError && (
