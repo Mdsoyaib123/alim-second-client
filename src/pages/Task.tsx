@@ -252,7 +252,7 @@ const Task: React.FC = () => {
         {/* <div className="flex items-center space-x-2">
           <Building2 className="w-6 h-6 text-[#b58a4b]" />
           <h1 className="text-xl sm:text-2xl font-serif font-bold text-[#1a2332]">
-            NH Hotel Reservation
+            NERO Hotel Reservation
           </h1>
         </div> */}
         <p className="text-xs text-slate-500 font-light mt-1">
