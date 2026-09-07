@@ -43,16 +43,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
         {/* Content Container */}
         <div className="relative z-10 container mx-auto px-6 pt-6 sm:pt-8 pb-12 flex flex-col items-start max-w-5xl">
           {/* Logo Badge */}
-          <div className="flex items-center gap-2.5 mb-8 sm:mb-10">
+          {/*<div className="flex items-center gap-2.5 mb-8 sm:mb-10">
             <div className="w-8 h-8 sm:w-9 sm:h-9 border-2 border-primary rounded-sm flex items-center justify-center bg-white/40 backdrop-blur-xs shadow-xs">
               <span className="font-serif font-bold text-primary text-base sm:text-lg leading-none">
                 H
               </span>
             </div>
             <span className="font-serif tracking-widest text-primary-hover font-semibold text-base sm:text-lg">
-              NH HOTEL
+              NERO Hotel
             </span>
-          </div>
+          </div>*/}
 
           {/* Greeting Section */}
           <div className="max-w-md">
