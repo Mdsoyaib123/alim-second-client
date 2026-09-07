@@ -75,7 +75,7 @@ const Account: React.FC = () => {
         <div className="relative flex items-center justify-between mb-8">
           <div>
             <p className="text-[10px] uppercase tracking-[0.25em] text-primary font-semibold">
-              NOVA
+              NERO
             </p>
 
             <h1 className="font-serif text-lg font-semibold tracking-tight text-text-dark">
@@ -253,7 +253,7 @@ const Account: React.FC = () => {
           <AccountMenuItem
             icon={<Info className="w-[18px] h-[18px]" />}
             title="About Us"
-            description="Learn more about NOVA Hotel"
+            description="Learn more about NERO Hotel"
             to="/about"
             last
           />
@@ -272,7 +272,7 @@ const Account: React.FC = () => {
 
             <div>
               <p className="font-serif font-semibold text-sm text-text-dark">
-                NOVA Hotel
+                NERO Hotel
               </p>
 
               <p className="text-[11px] text-slate-500 mt-0.5">
@@ -324,7 +324,7 @@ const Account: React.FC = () => {
           <div className="h-px w-8 bg-primary/15" />
 
           <span className="font-serif text-[10px] tracking-[0.25em] uppercase text-primary/60">
-            NOVA HOTEL
+            NERO HOTEL
           </span>
 
           <div className="h-px w-8 bg-primary/15" />
