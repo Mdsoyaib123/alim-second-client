@@ -233,7 +233,7 @@ const Product: React.FC = () => {
               Suite Booking Details
             </h1>
             <p className="text-[11px] text-slate-400 font-light">
-              NH Hotel Reservation Confirmation
+              NERO Hotel Reservation Confirmation
             </p>
           </div>
         </div>
