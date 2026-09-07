@@ -13,7 +13,7 @@ const FounderQuoteSection: React.FC = () => {
             <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-white shadow-md">
               <img
                 src={FOUNDER_IMAGE}
-                alt="Kennedy - Founder of NOVA Hotel"
+                alt="Kennedy - Founder of NERO Hotel"
                 className="w-full h-full object-cover object-center"
               />
             </div>
