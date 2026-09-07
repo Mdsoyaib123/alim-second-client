@@ -58,7 +58,7 @@ export default function ChangePassword() {
               Change Password
             </h1>
             <p className="text-[11px] text-slate-400 font-light">
-              NH Hotel Account Security
+              NERO Hotel Account Security
             </p>
           </div>
         </div>
@@ -119,7 +119,9 @@ export default function ChangePassword() {
           {/* Submit Button */}
           <button
             onClick={handleSubmit}
-            disabled={isLoading || !oldPassword || !newPassword || !confirmPassword}
+            disabled={
+              isLoading || !oldPassword || !newPassword || !confirmPassword
+            }
             className="w-full bg-primary hover:bg-primary-hover text-white font-serif font-bold py-3.5 rounded-xl transition-all shadow-md active:scale-99 disabled:opacity-50 disabled:cursor-not-allowed mt-4 flex items-center justify-center gap-2 cursor-pointer"
           >
             <Lock className="w-4 h-4 text-amber-100" />
