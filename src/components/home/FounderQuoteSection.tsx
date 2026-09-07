@@ -33,7 +33,7 @@ const FounderQuoteSection: React.FC = () => {
               “
             </span>
             <p className="font-serif italic text-slate-700 text-sm sm:text-base leading-relaxed px-4 pt-1 pb-1">
-              I established NOVA Hotel to bring true luxury to a select number
+              I established NERO Hotel to bring true luxury to a select number
               of clients - a gold-standard concierge service and genuine
               expertise, delivered by only the best professionals in the
               industry.
