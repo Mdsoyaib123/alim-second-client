@@ -91,7 +91,7 @@ const Login = () => {
       <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-900 shadow-sm flex items-center justify-center text-center">
         <img
           src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80"
-          alt="NH Hotel Lobby"
+          alt="NERO Hotel Lobby"
           className="absolute inset-0 w-full h-full object-cover opacity-75"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/45 to-black/20" />
@@ -99,14 +99,14 @@ const Login = () => {
         <div className="relative z-10 px-6">
           <div className="inline-flex items-center space-x-1.5 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-amber-200/40 mb-2">
             <span className="font-serif font-bold text-xs text-white">
-              NH HOTEL
+              NERO Hotel
             </span>
           </div>
           <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
             Guest Sign In
           </h1>
           <p className="text-amber-100/90 text-xs sm:text-sm font-light mt-0.5">
-            Welcome to NH Hotel luxury reservation portal
+            Welcome to NERO Hotel luxury reservation portal
           </p>
         </div>
       </div>
@@ -190,7 +190,7 @@ const Login = () => {
               Don't have an account?
             </h3>
             <p className="text-xs text-slate-500 leading-relaxed font-light">
-              Create an account and join NH Hotel Guest Rewards to manage
+              Create an account and join NERO Hotel Guest Rewards to manage
               bookings and earn exclusive commissions.
             </p>
             <Link
@@ -208,7 +208,7 @@ const Login = () => {
               onClick={() =>
                 openModal(
                   "Terms & Conditions",
-                  "NH Hotel Terms & Conditions Content",
+                  "NERO Hotel Terms & Conditions Content",
                 )
               }
               className="underline text-primary cursor-pointer font-medium"
@@ -218,7 +218,7 @@ const Login = () => {
             ,{" "}
             <span
               onClick={() =>
-                openModal("Privacy Policy", "NH Hotel Privacy Policy Content")
+                openModal("Privacy Policy", "NERO Hotel Privacy Policy Content")
               }
               className="underline text-primary cursor-pointer font-medium"
             >
@@ -227,7 +227,7 @@ const Login = () => {
             and{" "}
             <span
               onClick={() =>
-                openModal("Agreement", "NH Hotel Guest Agreement Content")
+                openModal("Agreement", "NERO Hotel Guest Agreement Content")
               }
               className="underline text-primary cursor-pointer font-medium"
             >
