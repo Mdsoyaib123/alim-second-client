@@ -25,7 +25,7 @@ export default function Help() {
       {/*<div className="relative h-72 sm:h-80 overflow-hidden rounded-3xl mx-4 shadow-xl">
         <img
           src={helpImage}
-          alt="NOVA Hotel Concierge"
+          alt="NERO Hotel Concierge"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-bg/80 via-brand-bg/40 to-transparent" />
@@ -42,7 +42,7 @@ export default function Help() {
               Help & Support
             </h1>
             <p className="text-slate-600 text-sm mt-2">
-              NOVA Hotel Concierge Services
+              NERO Hotel Concierge Services
             </p>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function Help() {
             </AccordionTrigger>
             <AccordionContent className="pb-6 text-sm text-slate-600 leading-relaxed space-y-3">
               <p>
-                NOVA Hotel is committed to delivering luxury concierge services.
+                NERO Hotel is committed to delivering luxury concierge services.
               </p>
               <p>Our mission is to provide gold-standard travel experiences.</p>
             </AccordionContent>
@@ -125,7 +125,7 @@ export default function Help() {
             </AccordionTrigger>
             <AccordionContent className="pb-6 text-sm text-slate-600 leading-relaxed space-y-3">
               <p>
-                NOVA Hotel is a premium travel service for high-end travelers.
+                NERO Hotel is a premium travel service for high-end travelers.
               </p>
               <p>
                 Established by luxury travel pioneers, we craft exceptional
