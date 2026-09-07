@@ -20,27 +20,27 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "jordan",
     name: "Jordan Timber",
-    role: "NH Hotel Manager",
+    role: "NERO Hotel Manager",
     quote:
-      "Working at NH Hotel is a fantastic experience, as they truly value their employees and create a supportive work environment.",
+      "Working at NERO Hotel is a fantastic experience, as they truly value their employees and create a supportive work environment.",
     avatar: JORDAN_AVATAR,
     avatarPosition: "left",
   },
   {
     id: "kelly",
     name: "Kelly",
-    role: "NH Hotel Manager",
+    role: "NERO Hotel Manager",
     quote:
-      "NH Hotel offers great career development opportunities, with training programs that help employees grow professionally.",
+      " NERO Hotel offers great career development opportunities, with training programs that help employees grow professionally.",
     avatar: KELLY_AVATAR,
     avatarPosition: "right",
   },
   {
     id: "gwen",
     name: "Gwen",
-    role: "NH Hotel Manager",
+    role: "NERO Hotel Manager",
     quote:
-      "Working at NH Hotel allows employees to engage with people from all over the world, which makes it exciting and culturally enriching.",
+      "Working at NERO Hotel allows employees to engage with people from all over the world, which makes it exciting and culturally enriching.",
     avatar: GWEN_AVATAR,
     avatarPosition: "left",
   },
