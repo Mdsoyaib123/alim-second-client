@@ -94,7 +94,7 @@ const Navbar = () => {
                   NH
                 </div>
                 <span className="font-serif font-bold text-lg sm:text-xl text-text-dark tracking-tight">
-                  NH HOTEL
+                  NERO HOTEL
                 </span>
               </Link>
             </div>
