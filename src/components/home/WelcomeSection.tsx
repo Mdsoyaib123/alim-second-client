@@ -15,13 +15,13 @@ const WelcomeSection: React.FC = () => {
 
         {/* Main Title */}
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-text-dark mb-6 tracking-tight">
-          NH Hotel
+          NERO HOTEL
         </h2>
 
         {/* Description Paragraphs */}
         <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-light max-w-2xl">
           <p>
-            Nh Hotel is a premium travel service exclusively for the high end
+            Nero Hotel is a premium travel service exclusively for the high end
             traveller. Established by luxury travel pioneer, Geoff Moss, our
             philosophy is that luxury travel is part of a luxury lifestyle.
           </p>
