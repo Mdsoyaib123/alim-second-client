@@ -6,13 +6,13 @@ interface BonusDay {
 }
 
 const BONUS_DAYS: BonusDay[] = [
-  { day: "1st Day", amount: "10 USDT" },
-  { day: "2nd Day", amount: "20 USDT" },
-  { day: "3rd Day", amount: "30 USDT" },
-  { day: "4th Day", amount: "40 USDT" },
-  { day: "5th Day", amount: "50 USDT" },
-  { day: "6th Day", amount: "60 USDT" },
-  { day: "7th Day", amount: "70 USDT" },
+  { day: "1st Day", amount: "৳300" },
+  { day: "2nd Day", amount: "৳500" },
+  { day: "3rd Day", amount: "৳700" },
+  { day: "4th Day", amount: "৳900" },
+  { day: "5th Day", amount: "৳1100" },
+  { day: "6th Day", amount: "৳1300" },
+  { day: "7th Day", amount: "৳2000" },
 ];
 
 const SignInBonus: React.FC = () => {
