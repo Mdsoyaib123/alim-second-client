@@ -82,7 +82,7 @@ export default function Help() {
                 Bind your bank account before submitting withdrawal requests.
               </p>
               <p>Cash Out time is from 10:00 AM to 10:00 PM daily.</p>
-              <p>Maximum withdrawal amount is 10,000,000 taka.</p>
+              <p>Maximum withdrawal amount is 1,00,00,000 taka.</p>
             </AccordionContent>
           </AccordionItem>
 
