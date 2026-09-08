@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const location = useLocation();
   const path = location.pathname;
 
-  const isAuthenticated = !!localStorage.getItem("accessToken");
+  // const isAuthenticated = !!localStorage.getItem("accessToken");
 
   const navItems = [
     {
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
     },
     {
       name: "Account",
-      path: isAuthenticated ? "/account" : "/login",
+      path: "/account",
       icon: (active: boolean) => (
         <User
           className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${active ? "text-primary" : "text-slate-400"}`}
