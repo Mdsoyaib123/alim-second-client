@@ -8,7 +8,7 @@ const Contact: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-brand-bg max-w-[500px] mx-auto pb-24 text-text-dark">
+    <div className="min-h-screen bg-brand-bg max-w-125 mx-auto pb-24 text-text-dark">
       {/* Sticky Top Header with Back Button */}
       <div className="bg-white border-b border-amber-100 px-4 py-3.5 sticky top-0 z-20 shadow-2xs">
         <div className="flex items-center gap-3">
@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
               Concierge Support
             </h1>
             <p className="text-[11px] text-slate-400 font-light">
-              NERO Hotel 24/7 Guest Services
+              NERO Hotel 24/7 Customer Service
             </p>
           </div>
         </div>
@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
             alt="NERO Hotel Concierge Desk"
             className="absolute inset-0 w-full h-full object-cover opacity-75"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/45 to-black/20" />
 
           <div className="relative z-10 px-6 py-4 max-w-md">
             <span className="font-serif italic text-amber-200 text-xs sm:text-sm">
