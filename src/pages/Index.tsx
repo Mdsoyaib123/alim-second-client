@@ -15,7 +15,7 @@ const Index: React.FC = () => {
     if (!isLoggedIn) {
       navigate("/login");
     } else {
-      navigate("/task");
+      navigate("/reservation");
     }
   };
 

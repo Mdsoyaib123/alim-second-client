@@ -6,7 +6,6 @@ const POOL_BANNER =
 const RULES = [
   "In order to prevent malicious use or a series of illegal behaviors, the platform has established a set-up operation process user instructions. Users can start the assignment after completing the booking. Post-completing the booking every day, the earnings can be withdrawn to the bound Bank Account, Trx, usdt.",
   "Each user/member can only register one account.",
-  "Users can submit reservations 22 times/day or according to their tier when using funds.",
   "Unfinished booking logic is assigned by the system, so non-attending to execution status is not changed, cancelled, or skipped.",
   "User order cancellation will cause reservation block and account profile freeze.",
   "The platform operating hours are 10:00am - 22:00pm every day. Customer service operates during standard operating hours.",
