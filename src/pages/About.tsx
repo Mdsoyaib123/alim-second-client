@@ -91,14 +91,14 @@ export default function AboutUs() {
               <AccordionContent className="pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
                 Cash-in can be completed through the “Contact Us” page. Simply
                 slide the “Start” button to be redirected to the online Cash-In
-                Client Service, where you will receive assistance with the
+                Customer Service, where you will receive assistance with the
                 remittance process.
                 <br />
                 <br />
                 <strong>Cash-In Steps:</strong>
                 <br />
                 • Transfer the specified amount to the account number provided
-                by the platform’s Client Service.
+                by the platform’s Customer Service.
                 <br />• Submit a screenshot of the successful transaction for
                 verification.
               </AccordionContent>
