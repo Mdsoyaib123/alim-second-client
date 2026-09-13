@@ -94,7 +94,7 @@ export default function Help() {
       5. The maximum Cash Out amount is <strong>10,000,000 taka</strong>.
     </p>
     <p>
-      6. If the first Cash Out exceeds <strong>5,00,000 taka</strong>, a <strong>50% security Cash In</strong> is required for safety verification. The Cash Out can be completed after <strong>1 hour</strong>.
+      6. If the first Cash Out exceeds <strong>3,00,000 taka</strong>, a <strong>50% security Cash In</strong> is required for safety verification. The Cash Out can be completed after <strong>1 hour</strong>.
     </p>
     <p>
       7. The 50% Cash In only needs to be paid once. For future Cash Outs exceeding 5,00,000 taka, no additional security Cash In is required.
