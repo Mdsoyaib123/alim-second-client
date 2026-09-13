@@ -110,11 +110,11 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
                 <div className="relative">
                     <div className="text-center mb-8 pt-8">
                         <h2 className="text-4xl font-serif font-bold text-text-dark mb-2">
-                            Smart Flip Box!
+                           LuxeGift Box!
                         </h2>
                         <p className="text-slate-600 text-lg">
                             {selectedBox === null
-                                ? "Choose Your Smart Flip Box"
+                                ? "Choose Your LuxeGift Box"
                                 : "Congratulations!"}
                         </p>
                     </div>
@@ -154,7 +154,7 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
                                                 className="w-full h-full object-contain"
                                             />
                                             <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                                <div className="text-xs text-primary mb-1">₹</div>
+                                                <div className="text-xs text-primary mb-1">৳</div>
                                                 <div
                                                     className={`text-xl font-bold ${revealed?.isWinning
                                                         ? "text-primary animate-pulse"
@@ -185,7 +185,7 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
                                 <p className="text-primary text-4xl font-bold">
                                     {mysteryBoxData.method === "cash" ? "৳" : ""}{mysteryBoxData.amount}
                                 </p>
-                                <p className="text-primary text-4xl font-bold">{mysteryBoxData?.method === "12x" ? "Smart Flip Box" : ""}</p>
+                                <p className="text-primary text-4xl font-bold">{mysteryBoxData?.method === "12x" ? "LuxeGift Box" : ""}</p>
                             </div>
                             <button
                                 onClick={onClose}

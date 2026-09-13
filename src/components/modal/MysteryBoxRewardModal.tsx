@@ -157,7 +157,7 @@ const MysteryBoxRewardModal: React.FC<MysteryBoxModalProps> = ({
                                                 className="w-full h-full object-contain"
                                             />
                                             <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                                <div className="text-xs text-primary mb-1">₹</div>
+                                                <div className="text-xs text-primary mb-1">৳</div>
                                                 <div
                                                     className={`text-xl font-bold ${revealed?.isWinning
                                                         ? "text-primary animate-pulse"

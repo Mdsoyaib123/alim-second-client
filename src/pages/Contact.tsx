@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
 
         {/* Service Operating Hours Notice */}
         <div className="bg-card-beige rounded-2xl p-4 border border-amber-200/60 shadow-2xs flex items-center space-x-3">
-          <ShieldCheck className="w-6 h-6 text-primary flex-shrink-0" />
+          <ShieldCheck className="w-6 h-6 text-primary shrink-0" />
           <div className="text-xs text-slate-600 font-light leading-relaxed">
             <span className="font-serif font-bold text-text-dark block">
               Concierge Desk Operating Hours

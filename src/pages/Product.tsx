@@ -103,7 +103,7 @@ const Product: React.FC = () => {
       purchaseData?.data?.mysteryboxMethod === "12x" &&
       purchaseData?.data?.mysteryboxAmount === "12x"
     ) {
-      return "(Smart Felcon Order)";
+      return "(LuxeGift Box Order)";
     }
 
     if (
@@ -306,8 +306,8 @@ const Product: React.FC = () => {
               purchaseData?.data?.mysteryboxMethod === "3x") && (
               <span className="text-xs bg-amber-100 text-[#b58a4b] font-semibold px-2.5 py-0.5 rounded-full border border-amber-200">
                 {purchaseData?.data?.mysteryboxMethod === "12x"
-                  ? "Flipbox Reward"
-                  : "Smart Falcon Reward"}
+                  ? "LuxeGift Box Reward"
+                  : "Royale Order Reward"}
               </span>
             )}
           </div>

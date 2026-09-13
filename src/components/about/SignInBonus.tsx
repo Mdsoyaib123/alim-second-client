@@ -22,7 +22,7 @@ const SignInBonus: React.FC = () => {
         {/* Header */}
         <div className="flex items-center space-x-2 mb-4 border-b border-amber-200/50 pb-3">
           <h3 className="font-serif font-bold text-lg sm:text-xl text-text-dark">
-            7 Day Sign In Bonus
+            7 Day Check In Bonus
           </h3>
           <span className="text-amber-500 text-lg">⭐</span>
         </div>
