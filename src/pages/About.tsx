@@ -127,9 +127,9 @@ export default function AboutUs() {
               </AccordionTrigger>
               <AccordionContent className="pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light space-y-4">
                 <div>
-                  <strong>1. Falcon Order</strong>
+                  <strong>1. Royale Order</strong>
                   <p className="mt-1">
-                    A Smart Falcon Order allows all Consultants to earn up to 3
+                    A LuxeGift Box order allows all Consultants to earn up to 3
                     times the Incentive.
                   </p>
                 </div>
