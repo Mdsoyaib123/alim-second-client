@@ -1,5 +1,5 @@
 // src/components/CommonForm.tsx
-import { useForm } from "react-hook-form";
+import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ZodSchema } from "zod";
 
@@ -26,12 +26,14 @@ const CommonForm = <T extends Record<string, unknown>>({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<T>({
-    resolver: zodResolver(schema),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } = useForm<FieldValues>({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    resolver: zodResolver(schema as any),
   });
 
-  const onSubmit = (data: T) => {
-    onSubmitRedux(data);
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    onSubmitRedux(data as T);
     console.log(data);
   };
 

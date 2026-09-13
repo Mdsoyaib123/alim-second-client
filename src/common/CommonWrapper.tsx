@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React, { ReactNode } from "react";
 
 // Define the props interface
@@ -12,9 +13,7 @@ const CommonWrapper: React.FC<CommonWrapperProps> = ({
   className = "",
 }) => {
   return (
-    <div className={`max-w-[500px] mx-auto my-auto ${className}`}>
-      {children}
-    </div>
+    <div className={cn("max-w-125 mx-auto my-auto", className)}>{children}</div>
   );
 };
 

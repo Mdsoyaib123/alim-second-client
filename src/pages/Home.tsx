@@ -1,13 +1,7 @@
-import CommonWrapper from "../common/CommonWrapper";
+import Index from "./Index";
 
 const Home = () => {
-
-  return (
-    <CommonWrapper>
-      <div className="h-screen bg-website-color-lightGreen">
-      </div>
-    </CommonWrapper>
-  );
+  return <Index />;
 };
 
 export default Home;

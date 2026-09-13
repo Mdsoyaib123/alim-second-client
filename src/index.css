@@ -1,8 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Alex+Brush&family=Outfit:wght@300..800&display=swap");
 @import "tailwindcss";
 
 @theme {
+  /* Central Theme Colors - Easily customizable for future rebranding */
+  --color-primary: #b58a4b;
+  --color-primary-hover: #9c7339;
+  --color-primary-dark: #825e29;
+  --color-primary-light: #fcf8f2;
+  --color-primary-soft: #faf5ed;
+  
+  --color-secondary: #0c1e4a;
+  --color-secondary-hover: #081533;
+  --color-secondary-light: #547792;
+  --color-secondary-soft: #eef2f6;
+
+  --color-accent-blue: #2b6cb0;
+  --color-accent-blue-active: #1d4ed8;
+
+  --color-brand-bg: #fdfbf7;
+  --color-card-bg: #ffffff;
+  --color-card-beige: #faf5ed;
+  --color-card-border: #f3e8d7;
+
+  --color-text-dark: #1a2332;
+  --color-text-muted: #64748b;
+  --color-text-gold: #b58a4b;
+
+  /* Existing Legacy Tokens */
   --color-golden: #D1DFE8;
   --color-teal: #547792;
   --color-lightgreen: #A8BBA3;
@@ -13,10 +37,15 @@
   --color-charcoalDark: #181C14;
   --color-primaryButton: #0B1D51;
 
-  --font-primary: "Poppins", sans-serif;
-  --font-secondary: "Roboto", sans-serif;
-  --font-snpro: "SN Pro", sans-serif;
+  /* Top 2026 Luxury Web Application Typography */
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-primary: "Plus Jakarta Sans", sans-serif;
+  --font-secondary: "Outfit", sans-serif;
+  --font-heading: "Outfit", "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Outfit", "Plus Jakarta Sans", sans-serif;
+  --font-signature: "Alex Brush", cursive;
 
+  /* Accordion Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
@@ -43,8 +72,11 @@
 
 @layer base {
   body {
-    font-family: var(--font-snpro);
+    font-family: var(--font-primary);
     overflow-x: hidden;
+    color: var(--color-text-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Main app container - centered mobile layout */
@@ -124,7 +156,6 @@
 
 /* Keyframes */
 @keyframes pistonMove {
-
   0%,
   100% {
     transform: translateY(0);
