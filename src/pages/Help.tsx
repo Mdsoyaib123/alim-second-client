@@ -70,21 +70,37 @@ export default function Help() {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem
-            value="withdrawal"
-            className="bg-white rounded-2xl border border-amber-200/60 shadow-sm px-6"
-          >
-            <AccordionTrigger className="py-5 text-lg font-serif font-bold text-text-dark hover:no-underline">
-              2. About Withdrawal
-            </AccordionTrigger>
-            <AccordionContent className="pb-6 text-sm text-slate-600 leading-relaxed space-y-3">
-              <p>
-                Bind your bank account before submitting withdrawal requests.
-              </p>
-              <p>Cash Out time is from 10:00 AM to 10:00 PM daily.</p>
-              <p>Maximum withdrawal amount is 1,00,00,000 taka.</p>
-            </AccordionContent>
-          </AccordionItem>
+    <AccordionItem
+  value="withdrawal"
+  className="bg-white rounded-2xl border border-amber-200/60 shadow-sm px-6"
+>
+  <AccordionTrigger className="py-5 text-lg font-serif font-bold text-text-dark hover:no-underline">
+    2. About CashOut
+  </AccordionTrigger>
+  <AccordionContent className="pb-6 text-sm text-slate-600 leading-relaxed space-y-3">
+    <p>
+      1. After completing every set of orders, you may submit Cash Out once only. Please bind your bank information on the platform before submitting a Cash Out request.
+    </p>
+    <p>
+      2. Click the "Cash Out" button after entering the amount you want to Cash Out, then enter your Cash Out password to proceed. The actual arrival time depends on your bank’s processing time.
+    </p>
+    <p>
+      3. Accounts are not allowed to keep remaining funds exceeding <strong>1,00,000 taka</strong> after applying for Cash Out.
+    </p>
+    <p>
+      4. <strong>Note:</strong> Cash Out time is from <strong>10:00 AM to 10:00 PM</strong>. Only one Cash Out request can be made per day.
+    </p>
+    <p>
+      5. The maximum Cash Out amount is <strong>10,000,000 taka</strong>.
+    </p>
+    <p>
+      6. If the first Cash Out exceeds <strong>5,00,000 taka</strong>, a <strong>50% security Cash In</strong> is required for safety verification. The Cash Out can be completed after <strong>1 hour</strong>.
+    </p>
+    <p>
+      7. The 50% Cash In only needs to be paid once. For future Cash Outs exceeding 5,00,000 taka, no additional security Cash In is required.
+    </p>
+  </AccordionContent>
+</AccordionItem>
 
           <AccordionItem
             value="booking"

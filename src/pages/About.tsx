@@ -129,22 +129,39 @@ export default function AboutUs() {
                 <div>
                   <strong>1. Royale Order</strong>
                   <p className="mt-1">
-                    A LuxeGift Box order allows all Consultants to earn up to 3
-                    times the Incentive.
+                    A Royale Order is a reward that allows all Consultant to
+                    earn more profit and is developed by traders, so members and
+                    Consultant can earn up to 3 times the Incentive. This is
+                    very rare and Consultant only have Zero (0-2) to two
+                    (maximum) chances in each round to get this reward.
                   </p>
                 </div>
                 <div>
                   <strong>2. Premium Order</strong>
                   <p className="mt-1">
-                    A Premium Order offers 6x–7x profit opportunities on
-                    higher-value products.
+                    A Premium Order offers 6x–7x profit opportunities. These
+                    orders usually involve higher-value products and provide a
+                    greater chance of earning significant profits. If you
+                    receive a Premium Order while snatching on a user account,
+                    it is very important to complete and submit it properly to
+                    finish the snatch successfully. This is a special type of
+                    order that does not appear all the time. Its value and
+                    benefits can only be fully understood after submitting and
+                    completing the snatch. The opportunity to receive this
+                    Premium Order usually comes at the final stage of the
+                    snatching process.
                   </p>
                 </div>
                 <div>
                   <strong>3. Luxury Order</strong>
                   <p className="mt-1">
-                    A Luxury Order appears when the snatching amount becomes
-                    significantly higher at VIP Level 5.
+                    Suppliers want to increase the exposure of their attraction
+                    Promotion package and also want to attract more agents to
+                    help increase the visibility of their attraction Promotion
+                    package, which can help them increase sales and Promotion
+                    rate, so they create Exclusive promotion. A Luxury Order
+                    appears when the snatching amount becomes significantly
+                    higher.
                   </p>
                 </div>
               </AccordionContent>
