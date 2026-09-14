@@ -96,14 +96,14 @@ const Product: React.FC = () => {
 
   const getOrderLabel = () => {
     if (!purchaseData?.data?.isAdminAssigned) {
-      return "(Snatching Order)";
+      return "(Booking Order)";
     }
 
     if (
       purchaseData?.data?.mysteryboxMethod === "12x" &&
       purchaseData?.data?.mysteryboxAmount === "12x"
     ) {
-      return "(LuxeGift Box Order)";
+      return "(LuxeGift Booking Box Order)";
     }
 
     if (
@@ -306,8 +306,8 @@ const Product: React.FC = () => {
               purchaseData?.data?.mysteryboxMethod === "3x") && (
               <span className="text-xs bg-amber-100 text-[#b58a4b] font-semibold px-2.5 py-0.5 rounded-full border border-amber-200">
                 {purchaseData?.data?.mysteryboxMethod === "12x"
-                  ? "LuxeGift Box Reward"
-                  : "Royale Order Reward"}
+                  ? "LuxeGift Booking Box Reward"
+                  : "Royale booking Order Reward"}
               </span>
             )}
           </div>
@@ -394,7 +394,7 @@ const Product: React.FC = () => {
               }
             `}
           >
-            <span>Confirm Reservation</span>
+            <span>Confirm Booking</span>
           </button>
 
           {purchaseData?.data?.mysteryboxMethod ? (

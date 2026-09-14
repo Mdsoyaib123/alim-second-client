@@ -60,7 +60,7 @@ const AccountDetailsModal: React.FC<AccountDetailsModalProps> = ({
                             <p className={`font-semibold ${data?.outOfBalance > 0 || data?.outOfBalance < 0 ? "text-red-500" : "text-text-dark"}`}>{data?.outOfBalance.toFixed(2)}</p>
                         </div>
                         <div>
-                            <p className="text-sm text-text-muted font-bold">Current Snatching Order</p>
+                            <p className="text-sm text-text-muted font-bold">Current Booking Order</p>
                             <p className="text-text-dark font-semibold">
                                 {data?.completedOrdersCount} / 25
                             </p>

@@ -359,7 +359,7 @@ const Task: React.FC = () => {
           onClick={handleStartClick}
           className="w-full py-3.5 text-white cursor-pointer bg-[#b58a4b] hover:bg-primary-hover rounded-xl font-serif font-bold text-base sm:text-lg transition-all shadow-md active:scale-99 flex items-center justify-center gap-2"
         >
-          <span>Start Reservation</span>
+          <span>Start Booking</span>
           <span className="bg-white/20 text-white px-2.5 py-0.5 rounded-full text-xs font-sans font-semibold">
             {userData?.data?.completedOrdersCount} / 25
           </span>

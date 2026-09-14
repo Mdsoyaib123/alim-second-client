@@ -33,7 +33,7 @@ const Grab = () => {
           onClick={handleGrabOrder}
           className="bg-primaryButton cursor-pointer text-white rounded-md p-2 py-2 w-32 text-center hover:opacity-90"
         >
-          Snatch Order
+          Book Order
         </button>
       </div>
     </div>

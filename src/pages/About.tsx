@@ -127,9 +127,9 @@ export default function AboutUs() {
               </AccordionTrigger>
               <AccordionContent className="pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed font-light space-y-4">
                 <div>
-                  <strong>1. Royale Order</strong>
+                  <strong>1. Royale booking Order</strong>
                   <p className="mt-1">
-                    A Royale Order is a reward that allows all Consultant to
+                    A Royale booking Order is a reward that allows all Consultant to
                     earn more profit and is developed by traders, so members and
                     Consultant can earn up to 3 times the Incentive. This is
                     very rare and Consultant only have Zero (0-2) to two
@@ -142,14 +142,14 @@ export default function AboutUs() {
                     A Premium Order offers 6x–7x profit opportunities. These
                     orders usually involve higher-value products and provide a
                     greater chance of earning significant profits. If you
-                    receive a Premium Order while snatching on a user account,
+                    receive a Premium Order while Booking on a user account,
                     it is very important to complete and submit it properly to
-                    finish the snatch successfully. This is a special type of
+                    finish the Book successfully. This is a special type of
                     order that does not appear all the time. Its value and
                     benefits can only be fully understood after submitting and
-                    completing the snatch. The opportunity to receive this
+                    completing the Book. The opportunity to receive this
                     Premium Order usually comes at the final stage of the
-                    snatching process.
+                    booking process.
                   </p>
                 </div>
                 <div>
@@ -160,7 +160,7 @@ export default function AboutUs() {
                     help increase the visibility of their attraction Promotion
                     package, which can help them increase sales and Promotion
                     rate, so they create Exclusive promotion. A Luxury Order
-                    appears when the snatching amount becomes significantly
+                    appears when the Booking amount becomes significantly
                     higher.
                   </p>
                 </div>

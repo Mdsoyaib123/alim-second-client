@@ -97,7 +97,7 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
     };
 
     return (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-8">
             <div className="bg-card-bg rounded-xl shadow-lg w-full max-w-lg border border-card-border">
                 <button
                     onClick={onClose}
@@ -110,11 +110,11 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
                 <div className="relative">
                     <div className="text-center mb-8 pt-8">
                         <h2 className="text-4xl font-serif font-bold text-text-dark mb-2">
-                           LuxeGift Box!
+                           LuxeGift Booking Box!
                         </h2>
                         <p className="text-slate-600 text-lg">
                             {selectedBox === null
-                                ? "Choose Your LuxeGift Box"
+                                ? "Choose Your LuxeGift Booking Box"
                                 : "Congratulations!"}
                         </p>
                     </div>
@@ -153,7 +153,7 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
                                                 alt="Opened Treasure"
                                                 className="w-full h-full object-contain"
                                             />
-                                            <div className="absolute inset-0 flex flex-col items-center justify-center">
+                                            <div className="absolute inset-0 flex translate-y-3 flex-col items-center justify-end pb-0">
                                                 <div className="text-xs text-primary mb-1">৳</div>
                                                 <div
                                                     className={`text-xl font-bold ${revealed?.isWinning
@@ -177,7 +177,7 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
                     </div>
 
                     {revealedBoxes.length === 3 && (
-                        <div className="text-center animate-fadeIn">
+                        <div className="text-center pb-4 animate-fadeIn">
                             <div className="bg-card-beige rounded-lg p-6 mb-6 border border-card-border">
                                 <p className="text-text-dark text-xl font-semibold mb-2">
                                     Your Prize
@@ -185,11 +185,11 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
                                 <p className="text-primary text-4xl font-bold">
                                     {mysteryBoxData.method === "cash" ? "৳" : ""}{mysteryBoxData.amount}
                                 </p>
-                                <p className="text-primary text-4xl font-bold">{mysteryBoxData?.method === "12x" ? "LuxeGift Box" : ""}</p>
+                                <p className="text-primary text-4xl font-bold">{mysteryBoxData?.method === "12x" ? "LuxeGift Booking Box" : ""}</p>
                             </div>
                             <button
                                 onClick={onClose}
-                                className="w-full max-w-xs mx-auto py-4 bg-primary hover:bg-primary-hover text-white font-bold text-lg rounded-lg transition-all transform hover:scale-105 shadow-lg"
+                                className="w-full max-w-xs mx-auto py-4  bg-primary hover:bg-primary-hover text-white font-bold text-lg rounded-lg transition-all transform hover:scale-105 shadow-lg"
                             >
                                 Continue
                             </button>
