@@ -80,7 +80,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onReservationClick }) => {
               className="bg-primary hover:bg-primary-hover active:scale-97 text-white font-medium px-5 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-2.5 cursor-pointer text-sm sm:text-base"
             >
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-amber-100" />
-              <span>Make a Reservation</span>
+              <span>Make a Registration</span>
             </button>
           </div>
         </div>
