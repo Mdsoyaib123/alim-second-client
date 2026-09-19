@@ -256,7 +256,7 @@ const Task: React.FC = () => {
           </h1>
         </div> */}
         <p className="text-xs text-slate-500 font-light mt-1">
-          Exclusive Luxury Suites & Resort Reservation Service
+          Exclusive Luxury Suites & Resort Booking Service
         </p>
       </div>
 
@@ -266,7 +266,7 @@ const Task: React.FC = () => {
           Luxury Collection
         </div>
         <div className="text-center py-3 font-serif font-medium text-slate-500 text-sm">
-          Reservation Policy
+          Booking Policy
         </div>
       </div>
 
@@ -350,7 +350,7 @@ const Task: React.FC = () => {
             to="/booking-history"
             className="py-3 cursor-pointer rounded-xl text-white text-center bg-[#547792] hover:bg-[#46657d] font-medium text-xs sm:text-sm transition-colors shadow-xs"
           >
-            Reservation Record
+            Booking Record
           </Link>
         </div>
 

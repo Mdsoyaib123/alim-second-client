@@ -42,7 +42,7 @@ const MiningOrderModal: React.FC<MiningOrderModalProps> = ({
         </div>
 
         <h2 className="text-2xl font-serif font-bold text-text-dark mb-2">
-          Confirming Reservation...
+          Confirming Booking...
         </h2>
 
         <div className="flex justify-center gap-1 mt-4">

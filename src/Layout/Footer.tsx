@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
       isActive: path === "/about",
     },
     {
-      name: "Reservation",
+      name: "Booking",
       path: "/reservation",
       icon: (active: boolean) => (
         <div
