@@ -98,13 +98,14 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
 
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-8">
-            <div className="bg-card-bg rounded-xl shadow-lg w-full max-w-lg border border-card-border">
+            <div className="relative bg-card-bg rounded-xl shadow-lg w-full max-w-lg border border-card-border">
                 <button
                     onClick={onClose}
-                    className="absolute -top-12 right-0 text-text-muted hover:text-primary transition-colors z-10"
                     disabled={isAnimating}
+                    aria-label="Close"
+                    className="absolute top-3 right-3 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md ring-1 ring-gray-200 hover:bg-gray-100 hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                 >
-                    <X className="w-8 h-8" />
+                    <X className="w-8 h-8 text-gray-600" />
                 </button>
 
                 <div className="relative">
