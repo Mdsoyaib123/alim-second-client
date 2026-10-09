@@ -103,7 +103,7 @@ const MysteryBoxModal: React.FC<MysteryBoxModalProps> = ({
                     onClick={onClose}
                     disabled={isAnimating}
                     aria-label="Close"
-                    className="absolute top-3 right-3 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md ring-1 ring-gray-200 hover:bg-gray-100 hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                    className="absolute -top-12 right-0 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md ring-1 ring-gray-200 hover:bg-gray-100 hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                     <X className="w-8 h-8 text-gray-600" />
                 </button>
