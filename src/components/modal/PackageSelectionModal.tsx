@@ -9,7 +9,7 @@ interface PackageSelectionModalProps {
     isLoading?: boolean;
 }
 
-const ALL_SLOTS = [10000, 30000, 50000, 100000, 200000, 300000, 500000, 1000000];
+const ALL_SLOTS = [10500, 30000, 50000, 100000, 200000, 300000, 500000, 1000000];
 
 const PackageSelectionModal: React.FC<PackageSelectionModalProps> = ({
     open,
